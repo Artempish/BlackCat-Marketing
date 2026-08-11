@@ -27,4 +27,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://cleanerclicks.com/sitemap.xml
+Sitemap: https://blackcatmarketing.com/sitemap.xml

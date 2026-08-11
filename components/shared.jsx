@@ -5,95 +5,108 @@ import { Icon } from "./icons";
 import { TweaksPanel, useTweaks, TweakSection, TweakRadio, TweakToggle, TweakColor } from "./tweaks";
 const { useState: useStateL, useEffect: useEffectL, useRef: useRefL } = React;
 
-// Brand mark — renders both light and dark versions, CSS hides the off-theme one.
-// Mobile gets a compact icon-only square; desktop gets the horizontal wordmark.
+// ── Business facts, in one place ──────────────────────────────────────────────
+// Every price, promise, and contact detail on the site reads from here so there
+// is exactly one thing to edit when something changes.
+const BRAND = {
+  name: "BlackCat Marketing",
+  tagline: "Marketing built for construction companies. Nothing else.",
+  lsaMonthly: 500,
+  lsaDailyCap: 50,
+  growthMonthly: 5000,
+  rankWindowDays: 90,
+  leadGuaranteeCount: 5,
+  leadGuaranteeDays: 30,
+};
+
+// ⚠️ REPLACE BEFORE LAUNCH — see README.
+const CONTACT = {
+  phoneLabel: "(555) 000-0000",
+  phoneHref: "+15550000000",
+  email: "hello@blackcatmarketing.com",
+  location: "United States",
+};
+// ⚠️ REPLACE BEFORE LAUNCH — point these at real profiles, or delete the rows.
+const SOCIALS = [
+  { icon: "instagram", label: "BlackCat Marketing on Instagram", href: "https://www.instagram.com/" },
+  { icon: "linkedin", label: "BlackCat Marketing on LinkedIn", href: "https://www.linkedin.com/" },
+  { icon: "facebook", label: "BlackCat Marketing on Facebook", href: "https://www.facebook.com/" },
+  { icon: "youtube", label: "BlackCat Marketing on YouTube", href: "https://www.youtube.com/" },
+];
+
+// Brand mark — amber tile with a black cat silhouette, plus the wordmark.
+// Colors are hard-coded (not tokens) so the mark is identical in both themes.
 function BrandLogo({ compact }) {
-  if (compact) {
-    return (
-      <picture>
-        <source srcSet="/assets/logo-icon-square.webp" type="image/webp" />
-        <img
-          src="/assets/logo-icon-square.png"
-          alt="CleanerClicks logo"
-          width="32"
-          height="32"
-          className="cc-brand__icon"
+  const cat = (
+    <span className="cc-brand__cat">
+      <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="#0B0B0C"
+          d="M3.5 2.75a.62.62 0 0 1 .99-.46L9.2 5.8a9.9 9.9 0 0 1 5.6 0l4.71-3.51a.62.62 0 0 1 .99.46l-.3 6.75c.52 1.1.8 2.29.8 3.53 0 4.4-4.3 7.72-9 7.72s-9-3.32-9-7.72c0-1.24.28-2.43.8-3.53z"
         />
-      </picture>
-    );
-  }
+        <ellipse cx="8.9" cy="12.6" rx="1.18" ry="1.62" fill="#F5A300" />
+        <ellipse cx="15.1" cy="12.6" rx="1.18" ry="1.62" fill="#F5A300" />
+      </svg>
+    </span>
+  );
+  if (compact) return <span className="cc-brand__mark">{cat}</span>;
   return (
-    <>
-      <picture className="cc-brand__img cc-brand__img--light">
-        <source srcSet="/assets/logo-horizontal.webp" type="image/webp" />
-        <img
-          src="/assets/logo-horizontal.png"
-          alt="CleanerClicks logo"
-          width="547"
-          height="118"
-          className="cc-brand__img cc-brand__img--light"
-        />
-      </picture>
-      <picture className="cc-brand__img cc-brand__img--dark">
-        <source srcSet="/assets/logo-horizontal-dark.webp" type="image/webp" />
-        <img
-          src="/assets/logo-horizontal-dark.png"
-          alt="CleanerClicks logo"
-          width="547"
-          height="118"
-          className="cc-brand__img cc-brand__img--dark"
-        />
-      </picture>
-    </>
+    <span className="cc-brand__mark">
+      {cat}
+      <span className="cc-brand__word">
+        BlackCat <em>Marketing</em>
+      </span>
+    </span>
   );
 }
+
 const SERVICES_DROPDOWN = {
   features: [
     {
-      title: "Missed Call Text Back",
-      desc: "Auto-text every missed call in under a minute — keep the lead warm while you're on the roof.",
-      href: "/services",
-      icon: "phoneMissed",
-      mockKind: "sms",
+      title: "Google LSA Ads",
+      desc: "Google Guaranteed leads at the very top of search — you pay per lead, not per click.",
+      href: "/lsa-ads",
+      icon: "google",
+      mockKind: "lead",
     },
     {
-      title: "5★ Review Engine",
-      desc: "Job done → one-tap Google review. Watch the animated flow end-to-end.",
-      href: "/review-engine",
-      icon: "star",
-      mockKind: "stars",
+      title: "Website, SEO & GMB",
+      desc: "Top 3 of the map pack in 90 days, on a site built to turn traffic into estimates.",
+      href: "/services#seo",
+      icon: "search",
+      mockKind: "rank",
     },
   ],
   items: [
-    { title: "1-Year Follow-Up", desc: "52 touchpoints across SMS, email, voicemail.", href: "/services", icon: "refresh" },
-    { title: "High-Converting Website", desc: "Designed, built, and hosted by us.", href: "/services", icon: "globe" },
-    { title: "Smart Lead Capture", desc: "Forms, click-to-call, source tracking.", href: "/services", icon: "form" },
-    { title: "All services overview", desc: "Every system, side by side.", href: "/services", icon: "arrowRight" },
+    { title: "GMB optimization", desc: "Your Google profile, rebuilt to rank.", href: "/services#gmb", icon: "mapPin" },
+    { title: "The 90-day plan", desc: "Week by week, what we actually do.", href: "/how-it-works", icon: "blueprint" },
+    { title: "Our guarantees", desc: "5 leads in 30 days, or we pay the ads.", href: "/guarantee", icon: "badge" },
+    { title: "Results", desc: "Rankings, leads, and booked estimates.", href: "/results", icon: "chart" },
   ],
 };
 
 const HOW_DROPDOWN = {
   features: [
     {
-      title: "The 4-step flow",
-      desc: "Click through each stage from missed call to booked job.",
+      title: "The 90-day roadmap",
+      desc: "Foundation, framing, finish — the three phases to a top-3 map pack ranking.",
       href: "/how-it-works",
-      icon: "bolt",
-      mockKind: "steps",
+      icon: "blueprint",
+      mockKind: "phases",
     },
     {
-      title: "Animated review demo",
-      desc: "Watch a 5★ review get collected, end-to-end, in real time.",
-      href: "/review-engine",
-      icon: "play",
-      mockKind: "stars",
+      title: "How LSA leads land",
+      desc: "Watch a Google Guaranteed lead go from search to your phone.",
+      href: "/lsa-ads",
+      icon: "phone",
+      mockKind: "lead",
     },
   ],
   items: [
-    { title: "Live missed-call demo", desc: "Press play, watch it run.", href: "/how-it-works", icon: "phone" },
-    { title: "14-day setup timeline", desc: "From signed agreement to live.", href: "/how-it-works", icon: "calendar" },
-    { title: "Why automation works", desc: "Sales team that never clocks out.", href: "/how-it-works", icon: "trending" },
-    { title: "Book a walkthrough", desc: "20 min, no slides.", href: "/book-a-call", icon: "arrowUpRight" },
+    { title: "What we need from you", desc: "License, insurance, about 2 hours.", href: "/how-it-works#onboarding", icon: "check" },
+    { title: "Reporting", desc: "Rank, leads, and cost per booked job.", href: "/how-it-works#reporting", icon: "chart" },
+    { title: "Pricing", desc: "Two plans. No setup fees.", href: "/pricing", icon: "dollar" },
+    { title: "Book a call", desc: "20 minutes, no slide deck.", href: "/book-a-call", icon: "arrowUpRight" },
   ],
 };
 
@@ -101,53 +114,63 @@ const NAV_LINKS = [
   { label: "Services", href: "/services", key: "services", dropdown: SERVICES_DROPDOWN },
   { label: "How it works", href: "/how-it-works", key: "how-it-works", dropdown: HOW_DROPDOWN },
   { label: "Pricing", href: "/pricing", key: "pricing" },
-  { label: "Results", href: "/results", key: "results" },
+  { label: "Guarantee", href: "/guarantee", key: "guarantee" },
   { label: "FAQ", href: "/faq", key: "faq" },
 ];
 
 // Renders the visual mock at the bottom of a featured dropdown card.
 function FeatureMock({ kind }) {
-  if (kind === "sms") {
+  if (kind === "lead") {
+    return (
+      <div style={{ display: "flex", alignItems: "center", gap: 10, width: "100%" }}>
+        <span style={{ width: 26, height: 26, borderRadius: 8, background: "hsl(var(--accent-soft))", color: "hsl(var(--accent))", display: "grid", placeItems: "center", flexShrink: 0 }}>
+          <Icon.phone size={13} stroke={2.2} />
+        </span>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ fontSize: 11, fontWeight: 600 }}>New lead · Kitchen remodel</div>
+          <div style={{ fontSize: 10, color: "hsl(var(--muted-foreground))", fontFamily: "var(--font-mono)" }}>
+            Google Guaranteed · 2 min ago
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (kind === "rank") {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: 4, width: "100%" }}>
-        <div style={{ alignSelf: "flex-start", background: "hsl(var(--muted))", borderRadius: 12, borderBottomLeftRadius: 3, padding: "5px 10px", fontSize: 10.5, color: "hsl(var(--subtle-foreground))", maxWidth: "75%" }}>
-          Sorry we missed you — what's going on?
-        </div>
-        <div style={{ alignSelf: "flex-end", background: "hsl(var(--accent))", color: "white", borderRadius: 12, borderBottomRightRadius: 3, padding: "5px 10px", fontSize: 10.5, maxWidth: "70%" }}>
-          AC stopped. Today?
-        </div>
+        {[
+          { p: 1, n: "Competitor Concrete", you: false },
+          { p: 2, n: "Your company", you: true },
+        ].map((r) => (
+          <div key={r.p} style={{
+            display: "flex", alignItems: "center", gap: 8,
+            padding: "4px 8px", borderRadius: 7,
+            fontSize: 10.5,
+            background: r.you ? "hsl(var(--accent-soft))" : "transparent",
+            color: r.you ? "hsl(var(--accent))" : "hsl(var(--muted-foreground))",
+            fontWeight: r.you ? 600 : 400,
+          }}>
+            <span style={{ fontFamily: "var(--font-mono)" }}>#{r.p}</span>
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.n}</span>
+          </div>
+        ))}
       </div>
     );
   }
-  if (kind === "stars") {
-    return (
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
-        <div style={{ display: "flex", gap: 3 }}>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Icon.star key={i} size={18} stroke={0} style={{ fill: "#f59e0b" }} />
-          ))}
-        </div>
-        <div style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "hsl(var(--muted-foreground))", letterSpacing: "0.04em" }}>
-          4.9 · 412
-        </div>
-      </div>
-    );
-  }
-  if (kind === "steps") {
+  if (kind === "phases") {
     return (
       <div style={{ display: "flex", alignItems: "center", gap: 8, width: "100%" }}>
-        {[1, 2, 3, 4].map((n, i) => (
+        {["30", "60", "90"].map((n, i) => (
           <React.Fragment key={n}>
             <div style={{
-              width: 22, height: 22, borderRadius: "50%",
+              padding: "3px 8px", borderRadius: 999,
               background: i < 2 ? "hsl(var(--foreground))" : "hsl(var(--card))",
               border: "1px solid hsl(var(--border-strong))",
               color: i < 2 ? "hsl(var(--background))" : "hsl(var(--muted-foreground))",
-              display: "grid", placeItems: "center",
-              fontFamily: "var(--font-mono)", fontSize: 10, fontWeight: 600,
+              fontFamily: "var(--font-mono)", fontSize: 9.5, fontWeight: 600,
               flexShrink: 0,
-            }}>{n}</div>
-            {i < 3 && <div style={{ flex: 1, height: 1, background: i < 1 ? "hsl(var(--foreground))" : "hsl(var(--border-strong))" }} />}
+            }}>{n}d</div>
+            {i < 2 && <div style={{ flex: 1, height: 1, background: i < 1 ? "hsl(var(--foreground))" : "hsl(var(--border-strong))" }} />}
           </React.Fragment>
         ))}
       </div>
@@ -228,7 +251,7 @@ function Nav({ active }) {
   return (
     <nav className="cc-nav" data-scrolled={scrolled ? "true" : "false"}>
       <div className="cc-container cc-nav__inner">
-        <a href="/" className="cc-nav__brand cc-brand">
+        <a href="/" className="cc-nav__brand cc-brand" aria-label={`${BRAND.name} home`}>
           <BrandLogo compact={isMobile} />
         </a>
         {!isMobile && (
@@ -240,12 +263,12 @@ function Nav({ active }) {
         )}
         <div className="cc-nav__cta">
           {!isMobile && (
-            <a href="https://portal.cleanerclicks.com" className="cc-btn cc-btn--ghost cc-btn--sm">
-              Client Login
+            <a href={`tel:${CONTACT.phoneHref}`} className="cc-btn cc-btn--ghost cc-btn--sm">
+              <Icon.phone size={13} /> {CONTACT.phoneLabel}
             </a>
           )}
           <a href="/book-a-call" className="cc-btn cc-btn--sm">
-            Book a Call <Icon.arrowUpRight size={14} />
+            Book a call <Icon.arrowUpRight size={14} />
           </a>
           {isMobile && (
             <button className="cc-btn cc-btn--ghost cc-btn--sm" style={{ width: 36, height: 36, padding: 0, justifyContent: "center", borderRadius: "50%" }} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
@@ -273,8 +296,11 @@ function Nav({ active }) {
                 )}
               </React.Fragment>
             ))}
-            <a href="https://portal.cleanerclicks.com" className="cc-nav__link" style={{ display: "block", padding: "12px 8px", fontWeight: 600 }}>
-              Client Login
+            <a href="/results" className="cc-nav__link" style={{ display: "block", padding: "12px 8px", fontWeight: 600 }}>
+              Results
+            </a>
+            <a href={`tel:${CONTACT.phoneHref}`} className="cc-nav__link" style={{ display: "block", padding: "12px 8px", fontWeight: 600 }}>
+              Call {CONTACT.phoneLabel}
             </a>
           </div>
         </div>
@@ -283,43 +309,28 @@ function Nav({ active }) {
   );
 }
 
-// Real business contact + social profiles, surfaced in the footer.
-// phoneLabel is intentionally empty until the real number is provided —
-// the phone row stays hidden rather than showing a placeholder.
-const CONTACT = {
-  phoneLabel: "(555) 000-0000",
-  phoneHref: "+15550000000",
-  email: "hello@example.com",
-  location: "Fargo, North Dakota",
-};
-const SOCIALS = [
-  { icon: "instagram", label: "CleanerClicks on Instagram", href: "https://www.instagram.com/cleanerclicks" },
-  { icon: "instagram", label: "Adam Selman on Instagram", href: "https://www.instagram.com/adammselman" },
-  { icon: "linkedin", label: "Adam Selman on LinkedIn", href: "https://www.linkedin.com/in/adam-selman/" },
-  { icon: "youtube", label: "CleanerClicks on YouTube", href: "https://www.youtube.com/@cleanerclicks" },
-];
-
 function Footer() {
   const cols = [
-    { h: "Product", links: [
-      { l: "Services overview", href: "/services" },
-      { l: "How it works", href: "/how-it-works" },
+    { h: "Services", links: [
+      { l: "Google LSA ads", href: "/lsa-ads" },
+      { l: "Website & SEO", href: "/services#seo" },
+      { l: "GMB optimization", href: "/services#gmb" },
       { l: "Pricing", href: "/pricing" },
-      { l: "Results", href: "/results" },
-      { l: "FAQ", href: "/faq" },
+      { l: "Guarantees", href: "/guarantee" },
     ]},
-    { h: "Industries", links: [
+    { h: "Who we work with", links: [
+      { l: "General contractors", href: "/services" },
       { l: "Roofing", href: "/services" },
-      { l: "HVAC", href: "/services" },
-      { l: "Plumbing", href: "/services" },
-      { l: "Electrical", href: "/services" },
-      { l: "Cleaning", href: "/services" },
-      { l: "Pest control", href: "/services" },
+      { l: "Concrete & foundations", href: "/services" },
+      { l: "Remodeling & additions", href: "/services" },
+      { l: "Decks, fencing & outdoor", href: "/services" },
+      { l: "Custom home builders", href: "/services" },
     ]},
     { h: "Company", links: [
+      { l: "How it works", href: "/how-it-works" },
+      { l: "Results", href: "/results" },
+      { l: "FAQ", href: "/faq" },
       { l: "Book a call", href: "/book-a-call" },
-      { l: "Contact", href: "/book-a-call" },
-      { l: "Our work", href: "/work" },
       { l: "Privacy Policy", href: "/privacy" },
       { l: "Terms & Conditions", href: "/terms" },
     ]},
@@ -333,7 +344,7 @@ function Footer() {
               <BrandLogo />
             </a>
             <p style={{ fontSize: 14, color: "hsl(var(--muted-foreground))", lineHeight: 1.6, maxWidth: 300, margin: "12px 0 0" }}>
-              The lead-capture and follow-up system for home-service businesses. More calls, more replies, more booked jobs.
+              We only work with construction companies. LSA ads, websites, SEO, and Google Business Profiles — built to put your crew in the top 3 and keep the phone ringing.
             </p>
 
             {/* Contact */}
@@ -342,7 +353,7 @@ function Footer() {
                 <Icon.phone size={15} style={{ color: "hsl(var(--muted-foreground))", flexShrink: 0 }} /> {CONTACT.phoneLabel}
               </a>
               <a href={`mailto:${CONTACT.email}`} style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "hsl(var(--muted-foreground))", textDecoration: "none" }}>
-                <Icon.mail size={15} style={{ flexShrink: 0 }} /> Email us
+                <Icon.mail size={15} style={{ flexShrink: 0 }} /> {CONTACT.email}
               </a>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "hsl(var(--muted-foreground))" }}>
                 <Icon.mapPin size={15} style={{ flexShrink: 0 }} /> {CONTACT.location}
@@ -354,7 +365,7 @@ function Footer() {
               {SOCIALS.map((s) => {
                 const Ic = Icon[s.icon];
                 return (
-                  <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} title={s.label}
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} title={s.label}
                     style={{ width: 36, height: 36, borderRadius: 9, border: "1px solid hsl(var(--border))", display: "grid", placeItems: "center", color: "hsl(var(--muted-foreground))", background: "hsl(var(--card))", transition: "all 0.18s var(--ease-default)" }}
                     onMouseEnter={(e) => { e.currentTarget.style.color = "hsl(var(--accent))"; e.currentTarget.style.borderColor = "hsl(var(--accent))"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.color = "hsl(var(--muted-foreground))"; e.currentTarget.style.borderColor = "hsl(var(--border))"; }}>
@@ -372,12 +383,12 @@ function Footer() {
           ))}
         </div>
         <div className="cc-footer__bottom">
-          <span>© 2026 CleanerClicks Inc.</span>
+          <span>© {new Date().getFullYear()} {BRAND.name}</span>
           <span style={{ display: "inline-flex", gap: 18, flexWrap: "wrap" }}>
             <a href="/privacy" style={{ color: "inherit", textDecoration: "none" }}>Privacy Policy</a>
             <a href="/terms" style={{ color: "inherit", textDecoration: "none" }}>Terms &amp; Conditions</a>
           </span>
-          <span>v2.4 · BUILT IN FARGO, ND</span>
+          <span>CONSTRUCTION MARKETING ONLY</span>
         </div>
       </div>
     </footer>
@@ -417,7 +428,11 @@ function PageHero({ eyebrow, title, sub, cta, ctaHref = "/book-a-call", children
 }
 
 // Small "in-page CTA" block reused on every subpage
-function CTABlock({ title = "Ready to stop losing jobs to voicemail?", sub = "20-minute call. No slideshow, no pressure. We'll show you what you'd recover from missed calls alone.", cta = "Book a 20-min call" }) {
+function CTABlock({
+  title = "Ready to own the top 3 in your city?",
+  sub = "20-minute call. We'll pull up your Google Business Profile and your competitors' rankings live, and tell you exactly where you stand.",
+  cta = "Book a 20-min call",
+}) {
   return (
     <section className="cc-section" style={{ padding: "32px 0 96px" }}>
       <div style={{ margin: "0 14px" }}>
@@ -452,25 +467,31 @@ function CTABlock({ title = "Ready to stop losing jobs to voicemail?", sub = "20
 
 // Layout wrapper: nav + page + footer + tweaks (accent/dark only — variant is per page)
 const TWEAK_DEFAULTS_SHARED = /*EDITMODE-BEGIN*/{
-  "dark": false,
-  "accent": "#8B82F7"
+  "dark": true,
+  "accent": "#F5A300"
 }/*EDITMODE-END*/;
 
+// soft_l / soft_s are the "tinted surface" variants — they need different
+// values per theme, since these land as inline styles on :root and therefore
+// outrank the [data-theme="dark"] block in globals.css.
 const ACCENT_PRESETS = {
-  "#2563EB": { h: 217, s: 91, l: 60, soft_l: 96 },
-  "#0F172A": { h: 222, s: 47, l: 11, soft_l: 96 },
-  "#059669": { h: 158, s: 91, l: 32, soft_l: 94 },
-  "#8B82F7": { h: 245, s: 88, l: 74, soft_l: 96 },
+  "#F5A300": { h: 38, s: 96, l: 48, soft_l: 94, dark_s: 55, dark_l: 15 },   // hi-vis amber (brand default)
+  "#EA580C": { h: 21, s: 90, l: 48, soft_l: 95, dark_s: 60, dark_l: 15 },   // safety orange
+  "#0F172A": { h: 222, s: 47, l: 24, soft_l: 95, dark_s: 30, dark_l: 20 },  // steel
+  "#059669": { h: 158, s: 91, l: 32, soft_l: 94, dark_s: 50, dark_l: 14 },  // level green
 };
 
 function Layout({ active, children }) {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS_SHARED);
   useEffectL(() => {
     const root = document.documentElement;
-    const preset = ACCENT_PRESETS[t.accent] || ACCENT_PRESETS["#2563EB"];
-    root.style.setProperty("--accent", `${preset.h} ${preset.s}% ${preset.l}%`);
-    root.style.setProperty("--accent-soft", `${preset.h} ${preset.s}% ${preset.soft_l}%`);
-    root.style.setProperty("--ring", `${preset.h} ${preset.s}% ${preset.l}%`);
+    const p = ACCENT_PRESETS[t.accent] || ACCENT_PRESETS["#F5A300"];
+    root.style.setProperty("--accent", `${p.h} ${p.s}% ${p.l}%`);
+    root.style.setProperty(
+      "--accent-soft",
+      t.dark ? `${p.h} ${p.dark_s}% ${p.dark_l}%` : `${p.h} ${p.s}% ${p.soft_l}%`,
+    );
+    root.style.setProperty("--ring", `${p.h} ${p.s}% ${p.l}%`);
     root.dataset.theme = t.dark ? "dark" : "light";
   }, [t.accent, t.dark]);
 
@@ -484,7 +505,7 @@ function Layout({ active, children }) {
           <TweakColor
             label="Accent color"
             value={t.accent}
-            options={["#2563EB", "#0F172A", "#059669", "#8B82F7"]}
+            options={["#F5A300", "#EA580C", "#0F172A", "#059669"]}
             onChange={(v) => setTweak("accent", v)}
           />
           <TweakToggle
@@ -498,4 +519,4 @@ function Layout({ active, children }) {
   );
 }
 
-export { Nav, Footer, Layout, PageHero, CTABlock, NAV_LINKS };
+export { Nav, Footer, Layout, PageHero, CTABlock, NAV_LINKS, BRAND, CONTACT };

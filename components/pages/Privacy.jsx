@@ -1,6 +1,13 @@
 "use client";
 import { Layout, PageHero, CTABlock } from "@/components/shared";
 
+// ⚠️ BEFORE LAUNCH — this is adapted boilerplate, not legal advice.
+//   1. Replace every [YOUR CITY, STATE] / [YOUR STATE] placeholder.
+//   2. Confirm the third-party processors named here (GoHighLevel) are the
+//      ones you actually use, and add any others (analytics, call tracking).
+//   3. Set PRIVACY_EFFECTIVE to the date you actually publish.
+//   4. Have a lawyer read it. You're making performance guarantees on this
+//      site, which raises the stakes on the legal pages.
 const PRIVACY_EFFECTIVE = "May 31, 2026";
 
 const PRIVACY_TOC = [
@@ -44,17 +51,17 @@ function PrivacyPage() {
             </nav>
 
             <p className="cc-legal__lead">
-              This Privacy Policy describes how CleanerClicks ("CleanerClicks," "we," "us," or "our") handles
+              This Privacy Policy describes how BlackCat Marketing ("BlackCat Marketing," "we," "us," or "our") handles
               the information you share with us when you visit our website or submit our booking form. We've written
-              it to be readable. If anything here is unclear, email us at <a href="mailto:hello@example.com">hello@example.com</a> and we'll explain.
+              it to be readable. If anything here is unclear, email us at <a href="mailto:hello@blackcatmarketing.com">hello@blackcatmarketing.com</a> and we'll explain.
             </p>
 
             <section id="who-we-are">
               <h2>Who we are</h2>
               <p>
-                CleanerClicks is a web design and automation business based in <strong>Fargo, North Dakota</strong>.
+                BlackCat Marketing is a construction-focused marketing agency based in <strong>[YOUR CITY, STATE]</strong>.
                 We build websites and lead-capture and follow-up systems for service businesses, and we work with
-                customers across the entire United States. This policy covers the website at cleanerclicks.com and
+                customers across the entire United States. This policy covers the website at blackcatmarketing.com and
                 the booking form on it.
               </p>
             </section>
@@ -80,7 +87,7 @@ function PrivacyPage() {
               <p>
                 Our booking form is provided by <strong>GoHighLevel (GHL)</strong>, a third-party software platform.
                 When you submit the form, your information is sent to, processed by, and stored within GoHighLevel
-                <strong> on CleanerClicks' behalf</strong>. In other words, GoHighLevel acts as our service provider for
+                <strong> on BlackCat Marketing's behalf</strong>. In other words, GoHighLevel acts as our service provider for
                 handling booking submissions — it holds the data so we can read it and respond to you.
               </p>
               <p>
@@ -140,7 +147,7 @@ function PrivacyPage() {
             <section id="your-rights">
               <h2>Your privacy rights</h2>
               <p>
-                CleanerClicks serves customers nationwide. Depending on where you live, you may have specific rights over
+                BlackCat Marketing serves customers nationwide. Depending on where you live, you may have specific rights over
                 your personal information. <strong>Residents of certain states — including California, and other states with
                 comprehensive privacy laws such as Colorado, Connecticut, Virginia, and Utah —</strong> may have the right to:
               </p>
@@ -155,7 +162,7 @@ function PrivacyPage() {
                 <p>
                   <strong>We do not sell your personal information</strong> in the everyday sense of the word, and we do not
                   share it for cross-context behavioral advertising. To exercise any of the rights above — including a request
-                  to access, delete, or opt out — email us at <a href="mailto:hello@example.com">hello@example.com</a> with
+                  to access, delete, or opt out — email us at <a href="mailto:hello@blackcatmarketing.com">hello@blackcatmarketing.com</a> with
                   the details of your request. We may need to verify your identity before we act on it, and you can use an
                   authorized agent where the law allows.
                 </p>
@@ -166,7 +173,7 @@ function PrivacyPage() {
               <h2>Access or delete your information</h2>
               <p>
                 No matter where you live, you can ask us what booking information we hold about you, ask us to correct it,
-                or ask us to delete it. Just email <a href="mailto:hello@example.com">hello@example.com</a> from
+                or ask us to delete it. Just email <a href="mailto:hello@blackcatmarketing.com">hello@blackcatmarketing.com</a> from
                 the email address you used, or include enough detail for us to find your submission. We'll confirm when it's done.
               </p>
             </section>
@@ -201,8 +208,8 @@ function PrivacyPage() {
             <section id="contact">
               <h2>Contact us</h2>
               <p>
-                Questions about this policy, or a privacy request? Email <a href="mailto:hello@example.com">hello@example.com</a>.
-                CleanerClicks is based in Fargo, North Dakota, USA.
+                Questions about this policy, or a privacy request? Email <a href="mailto:hello@blackcatmarketing.com">hello@blackcatmarketing.com</a>.
+                BlackCat Marketing is based in [YOUR CITY, STATE], USA.
               </p>
             </section>
           </div>

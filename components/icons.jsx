@@ -35,4 +35,22 @@ export const Icon = {
   instagram: (p) => <I {...p}><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" /></I>,
   linkedin: (p) => <I {...p}><path d="M4.5 9.5v9M4.5 5.5v.01M9.5 18.5v-5a3 3 0 0 1 6 0v5M9.5 18.5v-9" /></I>,
   youtube: (p) => <I {...p}><rect x="2" y="5" width="20" height="14" rx="4" /><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none" /></I>,
+  facebook: (p) => <I {...p}><path d="M14 8.5V7a1.5 1.5 0 0 1 1.5-1.5H17V2.5h-2.5A4.5 4.5 0 0 0 10 7v1.5H7.5V12H10v9.5h4V12h2.5l.5-3.5z" /></I>,
+
+  // ── construction & local-marketing set ─────────────────────────────────
+  hardHat: (p) => <I {...p}><path d="M3 17a9 9 0 0 1 18 0" /><path d="M9.5 17V6.2a1.2 1.2 0 0 1 1.2-1.2h2.6a1.2 1.2 0 0 1 1.2 1.2V17" /><path d="M2 17h20v2.5H2z" /></I>,
+  blueprint: (p) => <I {...p}><rect x="2.5" y="4" width="19" height="16" rx="2" /><path d="M2.5 9h19M8 9v11M8 14h13" /></I>,
+  ruler: (p) => <I {...p}><rect x="2" y="8" width="20" height="8" rx="1.5" transform="rotate(-12 12 12)" /><path d="M6.6 9.6v2M10 9v2M13.4 8.3v2M16.8 7.6v2" /></I>,
+  google: (p) => <I {...p}><path d="M21 12.2c0 5-3.4 8.3-8.5 8.3A8.5 8.5 0 1 1 18.4 5.7l-2.6 2.5a4.8 4.8 0 1 0-1.6 8.3 4.1 4.1 0 0 0 4.3-3.2h-4.5v-3.3H21z" /></I>,
+  target: (p) => <I {...p}><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" /></I>,
+  badge: (p) => <I {...p}><path d="M12 2.5 14.3 5l3.4-.3.5 3.4 2.8 2-1.7 3 1.7 3-2.8 2-.5 3.4-3.4-.3L12 21.5 9.7 19l-3.4.3-.5-3.4-2.8-2 1.7-3-1.7-3 2.8-2 .5-3.4L9.7 5z" /><path d="m8.8 12 2.2 2.2 4.2-4.4" /></I>,
+  dollar: (p) => <I {...p}><path d="M12 2v20" /><path d="M17 6.5C17 4.6 14.8 3.5 12 3.5S7 4.6 7 6.8s2.2 3 5 3.7 5 1.5 5 3.7-2.2 3.3-5 3.3-5-1.1-5-3" /></I>,
+  clock: (p) => <I {...p}><circle cx="12" cy="12" r="9" /><path d="M12 6.8V12l3.4 2" /></I>,
+  gauge: (p) => <I {...p}><path d="M3.5 18a9 9 0 1 1 17 0" /><path d="m12 14 4.2-4.6" /><circle cx="12" cy="14" r="1.6" fill="currentColor" stroke="none" /></I>,
+  layers: (p) => <I {...p}><path d="m12 2.8 9 4.7-9 4.7-9-4.7z" /><path d="m3 12.4 9 4.7 9-4.7M3 17.1l9 4.7 9-4.7" /></I>,
+  building: (p) => <I {...p}><path d="M3 21h18" /><path d="M5 21V4.5A1.5 1.5 0 0 1 6.5 3h7A1.5 1.5 0 0 1 15 4.5V21" /><path d="M15 10h3.5A1.5 1.5 0 0 1 20 11.5V21" /><path d="M8.5 7h3M8.5 11h3M8.5 15h3" /></I>,
+  lock: (p) => <I {...p}><rect x="4" y="10.5" width="16" height="10.5" rx="2.2" /><path d="M8 10.5V7.2a4 4 0 0 1 8 0v3.3" /></I>,
+  alert: (p) => <I {...p}><path d="M12 3.2 22 20H2z" /><path d="M12 9.5v4.2M12 17h.01" /></I>,
+  filter: (p) => <I {...p}><path d="M3 5h18l-7 8.2V20l-4 1.5v-8.3z" /></I>,
+  chart: (p) => <I {...p}><path d="M3 21h18" /><rect x="4.5" y="12" width="4" height="6" rx="1" /><rect x="10" y="8" width="4" height="10" rx="1" /><rect x="15.5" y="4" width="4" height="14" rx="1" /></I>,
 };

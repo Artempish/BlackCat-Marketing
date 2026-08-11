@@ -4,7 +4,7 @@ import { Icon } from "@/components/icons";
 import { Mock } from "@/components/mocks";
 import { Layout, PageHero, CTABlock } from "@/components/shared";
 
-function ServiceRow({ id, idx, eyebrow, title, body, bullets, mock, reverse }) {
+function ServiceRow({ id, idx, eyebrow, title, body, bullets, mock, reverse, plan, planHref }) {
   const rightOnLeft = reverse;
   return (
     <section id={id} className="cc-section cc-section--card" style={{ scrollMarginTop: 80 }}>
@@ -31,8 +31,23 @@ function ServiceRow({ id, idx, eyebrow, title, body, bullets, mock, reverse }) {
                 </li>
               ))}
             </ul>
-            <div style={{ marginTop: 8 }}>
+            {plan && (
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 10,
+                alignSelf: "flex-start",
+                marginTop: 8, padding: "10px 16px",
+                borderRadius: 999,
+                background: "hsl(var(--muted))",
+                border: "1px solid hsl(var(--border))",
+                fontSize: 13.5,
+              }}>
+                <Icon.dollar size={14} style={{ color: "hsl(var(--accent))", flexShrink: 0 }} />
+                <span>{plan}</span>
+              </div>
+            )}
+            <div style={{ marginTop: 8, display: "flex", gap: 10, flexWrap: "wrap" }}>
               <a href="/book-a-call" className="cc-btn cc-btn--ghost">Talk through your setup <Icon.arrowRight size={14} /></a>
+              {planHref && <a href={planHref} className="cc-btn cc-btn--ghost">See the details <Icon.arrowRight size={14} /></a>}
             </div>
           </div>
           <div style={{ direction: "ltr" }}>
@@ -59,71 +74,75 @@ function ServiceRow({ id, idx, eyebrow, title, body, bullets, mock, reverse }) {
 function ServicesPage() {
   const services = [
     {
-      id: "missed-call",
-      eyebrow: "MISSED CALL TEXT BACK",
-      title: "The voicemail kills the lead. We don't let it get there.",
-      body: "The moment a call hits voicemail, CleanerClicks fires a personalized text from your business line. Most customers reply within minutes — and they reply ready to book.",
+      id: "lsa",
+      eyebrow: "GOOGLE LSA ADS",
+      title: "Sit above the map pack, and pay per lead.",
+      body: "Local Services Ads are the very first thing a homeowner sees — above the paid ads, above the map. Your name carries the Google Guaranteed badge, and you're charged per lead instead of per click.",
       bullets: [
-        "Sub-second trigger from missed call to outbound text",
-        "Personalized in your voice with your name, shop, and the city",
-        "Two-way SMS inbox — pick it up from your phone any time",
-        "Quiet hours so customers don't get pinged at 11pm",
+        "We run the Google Guaranteed application end to end — license, insurance, background checks",
+        "Campaign built around the job types you actually want: additions, remodels, roofs, foundations",
+        "Service areas and daily budget paced so you're live during the hours homeowners call",
+        "Junk and out-of-area leads disputed for you every week, so you're not paying for noise",
+        "Every lead recorded, scored, and tied back to whether it turned into a booked estimate",
       ],
-      mock: <Mock.MissedCall />,
-    },
-    {
-      id: "follow-up",
-      eyebrow: "1-YEAR AUTOMATED FOLLOW-UP",
-      title: "Most leads buy on touch 5–12. Most owners stop at touch 1.",
-      body: "Our 52-touchpoint sequence runs across SMS, email, and ringless voicemail — for a full year. It pauses the moment a lead replies and re-engages months later, when they're finally ready.",
-      bullets: [
-        "Mix of SMS, email, and ringless voicemail across 12 months",
-        "Auto-pauses on any reply — no spammy double-tap",
-        "Seasonal triggers (AC checkups, gutter clean, winter prep)",
-        "Pre-written and customizable templates per trade",
-      ],
-      mock: <Mock.FollowUp />,
-      reverse: true,
+      mock: <Mock.LsaLead />,
+      plan: "$500/month management + ad spend ($50/day ceiling)",
+      planHref: "/lsa-ads",
     },
     {
       id: "website",
-      eyebrow: "HIGH-CONVERTING WEBSITE",
-      title: "A site engineered to book the job, not look pretty.",
-      body: "Conversion-tuned design, location-specific landing pages, fast Core Web Vitals, click-to-call on every screen. Built, hosted, and updated by us — free when you run CleanerClicks.",
+      eyebrow: "WEBSITE",
+      title: "A site built to book estimates, not win design awards.",
+      body: "Homeowners decide in about eight seconds. Your site has to load fast, prove you're real, show the work, and make booking an estimate the easiest thing on the page.",
       bullets: [
-        "5–8 page site with location & service-specific landers",
-        "Sub-second load times, 95+ PageSpeed scores",
-        "Lead forms that route by zip + service type to the right tech",
-        "Quarterly design refresh and unlimited copy updates",
+        "Custom design — no template that four other contractors in your city are also using",
+        "Project galleries with real before-and-after work, organized by job type",
+        "Service-area pages so you show up for the suburbs you actually drive to",
+        "Quote forms and click-to-call that reach your phone before they close the tab",
+        "Licensing, insurance and review proof placed where homeowners look for it",
+        "Fast Core Web Vitals, mobile-first, hosted and maintained by us",
       ],
       mock: <Mock.Website />,
-    },
-    {
-      id: "reviews",
-      eyebrow: "5-STAR REVIEW ENGINE",
-      title: "Reviews built into the job, not bolted on after.",
-      body: "Job complete in your CRM? The customer gets a one-tap link to drop a Google review. Unhappy ones get filtered to a private form so you can fix the issue before it goes public.",
-      bullets: [
-        "Auto-triggered the moment a job is marked complete",
-        "One-tap deep link straight to your Google review page",
-        "Sentiment filter routes 1–3 star feedback to private form",
-        "Reply templates and review monitoring across Google, Yelp, Facebook",
-      ],
-      mock: <Mock.Reviews />,
       reverse: true,
+      plan: "Included in the $5,000/month program",
+      planHref: "/pricing",
     },
     {
-      id: "forms",
-      eyebrow: "SMART LEAD CAPTURE",
-      title: "Every lead, one inbox, full context.",
-      body: "Click-to-call, multi-step forms, exit-intent capture, abandoned-form retargeting — every lead lands in one place with the full conversation trail, not scattered across five tabs.",
+      id: "seo",
+      eyebrow: "LOCAL SEO",
+      title: "Rank for the searches that end in a signed contract.",
+      body: "There's a difference between traffic and buyers. We target the terms a homeowner types when they've already decided to spend money — and we build the content, citations and links that make Google believe you're the right answer.",
       bullets: [
-        "Drop-in forms with conditional logic and progressive fields",
-        "Click-to-call & SMS buttons that track source attribution",
-        "Abandoned form recovery via email + SMS",
-        "Unified inbox: calls · texts · emails · form fills in one feed",
+        "Keyword research built from your real job list and your actual margins",
+        "Competitor teardown — the three companies currently sitting where you want to be",
+        "On-page optimization across every service and service-area page",
+        "Monthly content written for buyer-intent searches, not blog filler",
+        "Citation cleanup so your name, address and phone match everywhere Google looks",
+        "Authority link building from sources that make sense for a construction company",
+        "Rank tracking you can actually read, reported monthly",
       ],
-      mock: <Mock.Form />,
+      mock: <Mock.Rank />,
+      plan: "Included in the $5,000/month program",
+      planHref: "/pricing",
+    },
+    {
+      id: "gmb",
+      eyebrow: "GOOGLE BUSINESS PROFILE",
+      title: "The profile is the storefront. Most contractors leave it half-built.",
+      body: "Your Google Business Profile decides whether you show up in the map pack at all — and it's the first thing a homeowner reads about you. We rebuild it properly and then keep working it every month.",
+      bullets: [
+        "Primary and secondary categories chosen against what's actually ranking in your city",
+        "Every service listed, described, and mapped to the pages on your site",
+        "Service areas set correctly — the single most common reason contractors don't rank",
+        "Real job photos uploaded on a schedule, geo-tagged and captioned",
+        "Questions seeded and answered, so homeowners get your answer instead of a stranger's",
+        "Review requests sent after every completed job, and every review responded to",
+        "Google Posts published monthly to keep the profile active",
+      ],
+      mock: <Mock.Gmb />,
+      reverse: true,
+      plan: "Included in the $5,000/month program",
+      planHref: "/pricing",
     },
   ];
 
@@ -131,8 +150,8 @@ function ServicesPage() {
     <Layout active="services">
       <PageHero
         eyebrow="SERVICES"
-        title={<>Five systems. <br /><span style={{ color: "hsl(var(--muted-foreground))" }}>One booked-job machine.</span></>}
-        sub="CleanerClicks isn't a tool — it's the whole revenue stack. Capture, respond, nurture, convert, and ask for the review, automatically."
+        title={<>Everything that puts you <br /><span style={{ color: "hsl(var(--muted-foreground))" }}>first on Google.</span></>}
+        sub="LSA ads, a website that converts, local SEO, and a Google Business Profile built to rank — all of it for construction companies, and only for construction companies."
         cta="Book a 20-min walkthrough"
       />
 
@@ -168,7 +187,66 @@ function ServicesPage() {
         </React.Fragment>
       ))}
 
-      <CTABlock title="Want this whole stack live in 14 days?" sub="We handle setup, integrations, copy, design, and training. You give us 90 minutes total." />
+      {/* Who this is for */}
+      <section className="cc-section cc-section--gradient" id="trades">
+        <div className="cc-container">
+          <div style={{ maxWidth: 720, marginBottom: 40 }}>
+            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>WHO WE WORK WITH</div>
+            <h2 className="cc-h2" style={{ marginBottom: 16 }}>
+              Construction. All of it. Nothing else.
+            </h2>
+            <p className="cc-lede" style={{ margin: 0 }}>
+              The playbook barely changes between trades — rank in the map pack, sit at the top of
+              LSA, and make booking an estimate frictionless. What changes is the keyword list, the
+              seasonality, and what a good lead looks like. Here's how that plays out.
+            </p>
+          </div>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: window.innerWidth < 700 ? "1fr" : window.innerWidth < 1000 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
+            gap: 16,
+          }}>
+            {[
+              { icon: "hardHat", t: "General contractors", d: "Broad service lists and long buying cycles. We rank you for the high-ticket searches and keep you in front of homeowners still deciding." },
+              { icon: "shield", t: "Roofing", d: "Storm-driven demand spikes fast. LSA plus a top-3 map pack position means you're the first call when a whole neighborhood needs a roof." },
+              { icon: "layers", t: "Concrete & foundations", d: "Driveways, patios, slabs and foundation repair each search differently. We build a page and a keyword set for each one." },
+              { icon: "ruler", t: "Remodeling", d: "Kitchens and baths are the most competitive local searches there are. Galleries, reviews and buyer-intent content are what move them." },
+              { icon: "building", t: "Additions & framing", d: "Bigger tickets, fewer searches. Worth ranking for precisely — we target the exact terms, not the broad ones." },
+              { icon: "blueprint", t: "Decks, fencing & outdoor", d: "Highly seasonal. We build the pipeline before the season starts instead of chasing it once it's already busy." },
+              { icon: "star", t: "Custom home builders", d: "A long sales cycle where reputation carries everything. Profile, reviews and portfolio do most of the selling here." },
+              { icon: "gauge", t: "Excavation & sitework", d: "Half your leads are other contractors. We split the campaign so residential and commercial each get the right message." },
+              { icon: "target", t: "Specialty trades", d: "Windows, siding, stucco, masonry, waterproofing. If you build or repair structures, the playbook applies." },
+            ].map((it) => {
+              const Ic = Icon[it.icon] || Icon.arrowRight;
+              return (
+                <div
+                  key={it.t}
+                  style={{
+                    position: "relative", display: "flex", flexDirection: "column", padding: 26,
+                    background: "hsl(var(--card))",
+                    border: "1px solid hsl(var(--border))",
+                    borderRadius: 16,
+                    transition: "all 0.2s var(--ease-default)",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "hsl(var(--accent) / 0.5)"; e.currentTarget.style.transform = "translateY(-3px)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "hsl(var(--border))"; e.currentTarget.style.transform = "none"; }}
+                >
+                  <div style={{ width: 40, height: 40, borderRadius: 10, background: "hsl(var(--accent-soft))", color: "hsl(var(--accent))", display: "grid", placeItems: "center", marginBottom: 18 }}>
+                    <Ic size={18} />
+                  </div>
+                  <div style={{ fontWeight: 650, fontSize: 17, letterSpacing: "-0.01em", marginBottom: 8 }}>{it.t}</div>
+                  <p style={{ margin: 0, fontSize: 14, lineHeight: 1.55, color: "hsl(var(--muted-foreground))", flex: 1 }}>{it.d}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <CTABlock
+        title="Want to see where you rank right now?"
+        sub="20-minute call. We'll pull up your Google Business Profile and your three closest competitors, live, and show you the gap."
+      />
     </Layout>
   );
 }

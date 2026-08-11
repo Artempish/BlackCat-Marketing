@@ -2,8 +2,9 @@ import ClientOnly from "@/components/ClientOnly";
 import BookACall from "@/components/pages/BookACall";
 
 export const metadata = {
-  title: "Book a Free 20-Min Strategy Call",
-  description: "Book a free 20-minute call. We'll show you exactly what you're losing to voicemail and how to recover it. No pitch slides, no pressure — just a real number for your home service business.",
+  title: "Book a 20-Minute Call",
+  description:
+    "20 minutes, video. We pull up your Google Business Profile and your three closest competitors live, show you where you rank, and tell you which plan to start with.",
   alternates: { canonical: "/book-a-call" },
 };
 

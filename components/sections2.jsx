@@ -4,36 +4,36 @@ import { Icon } from "@/components/icons";
 import { Mock } from "@/components/mocks";
 const { useState: useState2, useEffect: useEffect2, useRef: useRef2 } = React;
 
-// ===== Features =====
+// ===== Features — the three services =====
 function Features() {
   const features = [
     {
-      eyebrow: "MISSED CALL TEXT BACK",
-      title: "Never miss a lead. Ever.",
-      desc: "When a call hits voicemail, CleanerClicks fires a personalized text within seconds — keeping the conversation warm while you're on the roof.",
-      mock: <Mock.MissedCall />,
-      large: false,
+      eyebrow: "GOOGLE LSA ADS",
+      title: "Above the ads. Above the map.",
+      desc: "Local Services Ads sit at the very top of Google with the Google Guaranteed badge next to your name. You pay per lead, not per click — and disputed junk leads get credited back.",
+      mock: <Mock.LsaLead />,
+      href: "/lsa-ads",
     },
     {
-      eyebrow: "1-YEAR FOLLOW-UP",
-      title: "Follow up for a full year, automatically.",
-      desc: "52 touchpoints across SMS, email, and ringless voicemail. Pauses the moment a lead replies. Re-engages months later when they're finally ready.",
-      mock: <Mock.FollowUp />,
-      large: true,
+      eyebrow: "SEO & GMB",
+      title: "Top 3 of the map pack in 90 days.",
+      desc: "Your Google Business Profile rebuilt category by category, service areas mapped, citations cleaned, and content written for the jobs you actually want to win.",
+      mock: <Mock.Rank />,
+      href: "/services#seo",
     },
     {
-      eyebrow: "HIGH-CONVERTING WEBSITE",
-      title: "A site built to book jobs.",
-      desc: "Conversion-tuned pages, location-specific landing pages, fast Core Web Vitals, and lead forms that actually route to your phone.",
+      eyebrow: "GOOGLE BUSINESS PROFILE",
+      title: "The profile does the selling.",
+      desc: "Photos of real jobs, every service listed, questions seeded and answered, reviews requested after every completed job — the profile homeowners actually judge you on.",
+      mock: <Mock.Gmb />,
+      href: "/services#gmb",
+    },
+    {
+      eyebrow: "WEBSITE",
+      title: "A site built to book estimates.",
+      desc: "Fast, mobile-first, and pointed at one action: get the estimate booked. Project galleries, service-area pages, and forms that reach your phone before the homeowner closes the tab.",
       mock: <Mock.Website />,
-      large: true,
-    },
-    {
-      eyebrow: "5-STAR REVIEW ENGINE",
-      title: "Reviews on autopilot.",
-      desc: "Right after the job, the customer gets a one-tap link to drop a Google review. We filter the unhappy ones to a private form so you can fix things fast.",
-      mock: <Mock.Reviews />,
-      large: false,
+      href: "/services#website",
     },
   ];
 
@@ -41,12 +41,12 @@ function Features() {
     <section className="cc-section cc-section--card" id="features">
       <div className="cc-container">
         <div style={{ textAlign: "center", marginBottom: 56 }}>
-          <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>WHAT'S IN THE SYSTEM</div>
+          <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>WHAT WE BUILD</div>
           <h2 className="cc-h2" style={{ maxWidth: 720, margin: "0 auto" }}>
-            Everything your "marketing guy" <em style={{ fontStyle: "normal", color: "hsl(var(--muted-foreground))" }}>should've</em> been doing
+            Everything a contractor needs to get found. Nothing they don't.
           </h2>
           <p className="cc-lede" style={{ margin: "16px auto 0" }}>
-            Four systems that work together. Plug them in once. They run every hour you don't.
+            No brand videos. No vanity impressions. Leads and booked estimates.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ function Features() {
   );
 }
 
-function FeatureCard({ eyebrow, title, desc, mock }) {
+function FeatureCard({ eyebrow, title, desc, mock, href }) {
   return (
     <div className="cc-feature-card">
       <div className="cc-feature-card__visual">
@@ -75,35 +75,50 @@ function FeatureCard({ eyebrow, title, desc, mock }) {
         <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12, fontSize: 11 }}>{eyebrow}</div>
         <h3>{title}</h3>
         <p>{desc}</p>
-        <a href="/how-it-works" className="cc-link">Learn more <Icon.arrowRight size={14} /></a>
+        <a href={href} className="cc-link">Learn more <Icon.arrowRight size={14} /></a>
       </div>
     </div>
   );
 }
 
-// ===== Big numbered section (inspired by reference) =====
-function WorkforceSection() {
+// ===== Why construction-only =====
+function WhyConstructionSection() {
   return (
     <section className="cc-section cc-section--card" id="proof">
       <div className="cc-container">
         <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div className="cc-stack-lg">
-            <div className="cc-eyebrow">AUTOMATED OPERATIONS</div>
-            <h2 className="cc-h2">Your sales team that never clocks out.</h2>
+            <div className="cc-eyebrow">ONE INDUSTRY, ON PURPOSE</div>
+            <h2 className="cc-h2">We don't market dentists. We market builders.</h2>
             <p className="cc-lede">
-              While you're under a sink or on a roof, CleanerClicks is answering inquiries, qualifying leads, sending estimates, and asking for reviews — at 2am, on Sundays, every day of the year.
+              A general agency spends your first two months learning what a change order is.
+              We already know your ticket sizes, your seasons, your permit delays, and which
+              search terms bring a homeowner with a budget instead of somebody pricing a fence
+              they'll never build.
             </p>
             <div className="cc-stack-md" style={{ marginTop: 8 }}>
-              <NumberedItem n="1" title="Revenue on autopilot" body="Automated text-backs, email sequences, review requests, and re-engagement — all firing without you touching a button." />
-              <NumberedItem n="2" title="Plugs into what you already use" body="Twilio, Google, Stripe, your CRM, your scheduling tool. We connect the dots; you keep your stack." />
-              <NumberedItem n="3" title="You stay in the driver's seat" body="Approve replies from your phone, jump in mid-conversation, or let the system close the loop. Your call." />
+              <NumberedItem
+                n="1"
+                title="Keyword lists built from real jobs"
+                body="We target the searches that end in a signed contract — 'kitchen remodel contractor', 'foundation repair near me', 'home addition builder' — not cheap traffic that never converts."
+              />
+              <NumberedItem
+                n="2"
+                title="We know what Google asks contractors for"
+                body="License verification, insurance certificates, background checks, service-area rules. We've run the Google Guaranteed process enough times to keep it from stalling."
+              />
+              <NumberedItem
+                n="3"
+                title="Reporting in the numbers you run on"
+                body="Not impressions. Leads, cost per lead, booked estimates, and cost per booked job — so you can tell whether the marketing paid for itself this month."
+              />
             </div>
             <div style={{ marginTop: 8 }}>
-              <a href="/review-engine" className="cc-btn cc-btn--ghost">Watch the review flow <Icon.arrowRight size={14} /></a>
+              <a href="/how-it-works" className="cc-btn cc-btn--ghost">See the 90-day plan <Icon.arrowRight size={14} /></a>
             </div>
           </div>
 
-          <ToolGrid />
+          <ChannelGrid />
         </div>
       </div>
     </section>
@@ -129,17 +144,17 @@ function NumberedItem({ n, title, body }) {
   );
 }
 
-function ToolGrid() {
+function ChannelGrid() {
   const tools = [
-    { label: "Calls", icon: <Icon.phone size={20} />, active: true },
-    { label: "Texts", icon: <Icon.message size={20} />, active: true },
-    { label: "Email", icon: <Icon.mail size={20} />, active: true },
-    { label: "Forms", icon: <Icon.form size={20} />, active: true },
+    { label: "LSA ads", icon: <Icon.google size={20} />, active: true },
+    { label: "Map pack", icon: <Icon.mapPin size={20} />, active: true },
+    { label: "GMB", icon: <Icon.building size={20} />, active: true },
+    { label: "Website", icon: <Icon.globe size={20} />, active: true },
+    { label: "Local SEO", icon: <Icon.search size={20} />, active: true },
     { label: "Reviews", icon: <Icon.star size={20} />, active: true },
-    { label: "Calendar", icon: <Icon.calendar size={20} />, active: true },
-    { label: "Analytics", icon: <Icon.trending size={20} />, active: false },
-    { label: "Security", icon: <Icon.shield size={20} />, active: false },
-    { label: "Search", icon: <Icon.search size={20} />, active: false },
+    { label: "Citations", icon: <Icon.layers size={20} />, active: true },
+    { label: "Content", icon: <Icon.form size={20} />, active: true },
+    { label: "Reporting", icon: <Icon.chart size={20} />, active: true },
   ];
   return (
     <div style={{
@@ -153,7 +168,7 @@ function ToolGrid() {
     }}>
       <div style={{
         position: "absolute", inset: 0,
-        background: "radial-gradient(circle at 30% 30%, hsl(var(--accent-soft)) 0%, transparent 50%)",
+        background: "radial-gradient(circle at 30% 30%, hsl(var(--accent-soft)) 0%, transparent 55%)",
         pointerEvents: "none",
       }} />
       <div style={{
@@ -184,42 +199,46 @@ function ToolGrid() {
         color: "hsl(var(--muted-foreground))",
         display: "flex", alignItems: "center", gap: 6,
       }}>
-        <span className="cc-live-dot" /> Live · 6 integrations
+        <span className="cc-live-dot" /> All managed by us
       </div>
     </div>
   );
 }
 
-// ===== How it works (interactive tabs) =====
+// ===== The 90-day plan (interactive tabs) =====
 function HowItWorks() {
   const [active, setActive] = useState2(0);
 
   useEffect2(() => {
     const t = setInterval(() => {
       setActive((a) => (a + 1) % 4);
-    }, 4500);
+    }, 5000);
     return () => clearInterval(t);
   }, []);
 
   const steps = [
     {
       num: "01",
-      title: "Customer makes contact",
-      body: "Call, form, or text — every channel funnels into one inbox.",
+      window: "DAYS 1–14",
+      title: "Foundation",
+      body: "Audit, verification, and the groundwork Google needs before anything can rank.",
       mock: (
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {[
-            { icon: <Icon.phone size={18} />, label: "Call", val: "(555) 218-4567" },
-            { icon: <Icon.form size={18} />, label: "Form", val: "Quote request" },
-            { icon: <Icon.message size={18} />, label: "Text", val: "Need help today" },
+            { icon: <Icon.search size={18} />, label: "Competitor & keyword audit", val: "Your 3 closest rivals, mapped" },
+            { icon: <Icon.badge size={18} />, label: "Google Guaranteed application", val: "License + insurance + background check" },
+            { icon: <Icon.building size={18} />, label: "GMB claimed & rebuilt", val: "Categories, services, service areas" },
           ].map((s) => (
             <div key={s.label} style={{
+              display: "flex", alignItems: "center", gap: 14,
               padding: 14, background: "hsl(var(--card))", border: "1px solid hsl(var(--border))",
               borderRadius: 12,
             }}>
-              <div style={{ color: "hsl(var(--accent))", marginBottom: 8 }}>{s.icon}</div>
-              <div style={{ fontWeight: 600, fontSize: 13 }}>{s.label}</div>
-              <div style={{ fontSize: 11.5, color: "hsl(var(--muted-foreground))", marginTop: 2 }}>{s.val}</div>
+              <div style={{ color: "hsl(var(--accent))", flexShrink: 0 }}>{s.icon}</div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontWeight: 600, fontSize: 13.5 }}>{s.label}</div>
+                <div style={{ fontSize: 12, color: "hsl(var(--muted-foreground))", marginTop: 2 }}>{s.val}</div>
+              </div>
             </div>
           ))}
         </div>
@@ -227,70 +246,27 @@ function HowItWorks() {
     },
     {
       num: "02",
-      title: "Instant text response",
-      body: "Within 60 seconds, they get a real, personal-sounding reply.",
-      mock: (
-        <div className="cc-sms" style={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 12, padding: 14 }}>
-          <div className="cc-sms__bubble cc-sms__bubble--out">
-            Hey — sorry we missed you. We've got a tech free this afternoon if you're still looking. What's the address?
-          </div>
-          <div style={{ fontSize: 10.5, color: "hsl(var(--muted-foreground))", fontFamily: "var(--font-mono)", textAlign: "right" }}>
-            sent · 00:47 after call
-          </div>
-        </div>
-      ),
+      window: "DAYS 15–45",
+      title: "Framing",
+      body: "The site goes live, LSA turns on, and the first leads start landing.",
+      mock: <Mock.LsaLead />,
+      raw: true,
     },
     {
       num: "03",
-      title: "Long-tail nurture",
-      body: "If they don't book, the system follows up for a year — politely.",
-      mock: (
-        <div style={{ position: "relative", height: 140 }}>
-          {[
-            { d: "Day 1", t: "Hey, still need that quote?" },
-            { d: "Day 7", t: "Spring slot just opened up." },
-            { d: "Day 30", t: "Annual checkup reminder." },
-            { d: "Day 90", t: "We're in your area next week." },
-          ].map((it, i) => (
-            <div key={i} style={{
-              position: "absolute",
-              top: i * 28, left: i * 14, right: i * 14,
-              padding: "8px 12px",
-              background: "hsl(var(--card))",
-              border: "1px solid hsl(var(--border))",
-              borderRadius: 10,
-              fontSize: 12,
-              display: "flex", justifyContent: "space-between",
-              boxShadow: "var(--shadow-sm)",
-              opacity: 1 - i * 0.15,
-            }}>
-              <span style={{ fontFamily: "var(--font-mono)", color: "hsl(var(--muted-foreground))", fontSize: 11 }}>{it.d}</span>
-              <span style={{ color: "hsl(var(--subtle-foreground))" }}>{it.t}</span>
-            </div>
-          ))}
-        </div>
-      ),
+      window: "DAYS 46–90",
+      title: "Finish",
+      body: "Content, citations, reviews and links compound until the map pack moves.",
+      mock: <Mock.Rank />,
+      raw: true,
     },
     {
       num: "04",
-      title: "Job done → 5-star review",
-      body: "Job completion fires the review request. Happy customers go to Google.",
-      mock: (
-        <div style={{ padding: 14, background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: 12 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-            <div style={{ width: 32, height: 32, borderRadius: "50%", background: "hsl(var(--muted))", display: "grid", placeItems: "center", fontWeight: 600, fontSize: 13, color: "hsl(var(--subtle-foreground))" }}>M</div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: 13 }}>Maria T.</div>
-              <div style={{ display: "flex", gap: 2, color: "#f59e0b" }}>
-                {Array.from({ length: 5 }).map((_, i) => <Icon.star key={i} size={12} stroke={0} style={{ fill: "currentColor" }} />)}
-              </div>
-            </div>
-          </div>
-          <div style={{ fontSize: 13, color: "hsl(var(--subtle-foreground))", lineHeight: 1.5 }}>
-            "Showed up exactly when they said. Tony walked me through the whole thing. Best HVAC call I've ever made."
-          </div>
-        </div>
-      ),
+      window: "DAY 90+",
+      title: "Hold the position",
+      body: "Ranking is not a one-time job. We defend the spot and push cost per booked job down.",
+      mock: <Mock.Report />,
+      raw: true,
     },
   ];
 
@@ -298,8 +274,11 @@ function HowItWorks() {
     <section className="cc-section cc-section--card" id="how">
       <div className="cc-container">
         <div style={{ textAlign: "center", marginBottom: 48 }}>
-          <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>HOW IT WORKS</div>
-          <h2 className="cc-h2">Four steps from "missed it" to "booked it."</h2>
+          <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>THE 90-DAY PLAN</div>
+          <h2 className="cc-h2">Foundation. Framing. Finish.</h2>
+          <p className="cc-lede" style={{ margin: "16px auto 0" }}>
+            We build a marketing system the same way you build a house — in the right order.
+          </p>
         </div>
 
         <div style={{
@@ -333,10 +312,13 @@ function HowItWorks() {
                   paddingTop: 2,
                 }}>{s.num}</span>
                 <div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.1em", color: "hsl(var(--muted-foreground))", marginBottom: 5 }}>
+                    {s.window}
+                  </div>
                   <div style={{ fontWeight: 600, fontSize: 16.5, letterSpacing: "-0.01em", marginBottom: 4 }}>{s.title}</div>
                   <div style={{
                     fontSize: 14.5, color: "hsl(var(--muted-foreground))", lineHeight: 1.5,
-                    maxHeight: active === i ? 60 : 0,
+                    maxHeight: active === i ? 70 : 0,
                     overflow: "hidden",
                     transition: "max-height 0.3s var(--ease-default), margin 0.3s var(--ease-default)",
                   }}>{s.body}</div>
@@ -350,14 +332,17 @@ function HowItWorks() {
             background: "hsl(var(--page))",
             border: "1px solid hsl(var(--border))",
             borderRadius: 20,
-            padding: 32,
+            padding: steps[active].raw ? 0 : 32,
             minHeight: 380,
             position: "relative",
+            overflow: "hidden",
           }}>
-            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 24 }}>
-              STEP {steps[active].num} · LIVE
-            </div>
-            <div key={active} className="cc-fade-up">
+            {!steps[active].raw && (
+              <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 24 }}>
+                {steps[active].window} · {steps[active].title.toUpperCase()}
+              </div>
+            )}
+            <div key={active} className="cc-fade-up" style={steps[active].raw ? { position: "absolute", inset: 0 } : undefined}>
               {steps[active].mock}
             </div>
           </div>
@@ -367,4 +352,4 @@ function HowItWorks() {
   );
 }
 
-export const Sections2 = { Features, WorkforceSection, HowItWorks };
+export const Sections2 = { Features, WhyConstructionSection, HowItWorks };

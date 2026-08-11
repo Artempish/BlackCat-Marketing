@@ -2,8 +2,9 @@ import ClientOnly from "@/components/ClientOnly";
 import Privacy from "@/components/pages/Privacy";
 
 export const metadata = {
-  title: "Privacy Policy — CleanerClicks",
-  description: "How CleanerClicks collects, uses, and protects the information you submit through our booking form. Plain-English privacy policy for a Fargo, ND web design and automation business serving customers nationwide.",
+  title: "Privacy Policy",
+  description:
+    "How BlackCat Marketing collects, uses and protects the information you submit through our booking form. Plain-English privacy policy for a construction marketing agency serving contractors nationwide.",
   alternates: { canonical: "/privacy" },
 };
 

@@ -1,259 +1,118 @@
 "use client";
+import React from "react";
 import { Icon } from "@/components/icons";
 import { Layout, PageHero, CTABlock } from "@/components/shared";
-import React from "react";
-const { useState: useStateP } = React;
+import { PLANS, PlanGrid } from "@/components/plans";
 
-// Two real tiers from the rate card.
-const ESSENTIALS = [
-  "Custom website, 3–5 pages",
-  "Logo design",
-  "We respond to ALL your Google reviews — for you",
-  "Automatic Google review updates",
-  "Free super-fast hosting",
-  "Functional quote forms",
-  "Domain name",
-  "Website maintenance",
-  "Auto call text back",
+// What a month of LSA actually costs, at a few different daily budgets.
+// $50/day is our standard ceiling; contractors who want more volume can raise it.
+const SPEND_ROWS = [
+  { daily: 25, note: "Light — smaller service area" },
+  { daily: 50, note: "Our standard ceiling", standard: true },
+  { daily: 100, note: "Aggressive — multi-city" },
+  { daily: 150, note: "Maximum volume" },
 ];
 
-const PROFESSIONAL_EXTRAS = [
-  "1-year lead follow-up for return & referral customers",
-  "4–5★ only Google review request link",
-  "Website live chat that converts visitors into customers",
-  "Text + email confirmations sent automatically",
-  "Unified inbox (calls · texts · emails · forms)",
-  "Full customer support access",
-];
-
-const ELITE_EXTRAS = [
-  "Local SEO to outrank competitors in your service area",
-  "Google Business Profile fully managed",
-  "Targeted keyword strategy",
-  "Monthly SEO content + on-page optimization",
-  "Authority backlink campaign",
-  "Monthly rank tracking & reports",
-];
-
-function PricingCard({ kind, name, price, blurb, features, dividerLabel, cta = "Start now", recommended, elite }) {
-  const dark = kind === "professional";
-  const baseShadow = elite
-    ? "0 0 0 4px hsla(var(--accent), 0.10), var(--shadow-lift)"
-    : dark
-      ? "var(--shadow-float)"
-      : "var(--shadow-card)";
+function SpendTable() {
+  const narrow = window.innerWidth < 760;
+  const cols = "1.1fr 1fr 1fr 1.4fr";
   return (
     <div style={{
-      position: "relative",
-      background: dark ? "hsl(var(--foreground))" : "hsl(var(--card))",
-      color: dark ? "hsl(var(--background))" : "hsl(var(--foreground))",
-      border: elite
-        ? "1px solid hsl(var(--accent))"
-        : dark
-          ? "1px solid hsl(var(--foreground))"
-          : "1px solid hsl(var(--border))",
-      borderRadius: 24,
-      padding: 36,
-      display: "flex", flexDirection: "column", gap: 22,
-      boxShadow: baseShadow,
-      transition: "all 0.2s var(--ease-default)",
+      background: "hsl(var(--card))",
+      border: "1px solid hsl(var(--border))",
+      borderRadius: 20,
       overflow: "hidden",
-    }}
-    onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "var(--shadow-lift)"; }}
-    onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = baseShadow; }}>
-      {dark && (
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "radial-gradient(circle at 0% 0%, hsla(var(--accent), 0.18) 0%, transparent 50%)",
-          pointerEvents: "none",
-        }} />
-      )}
-      {elite && (
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "radial-gradient(ellipse at 100% 0%, hsla(var(--accent), 0.08) 0%, transparent 55%)",
-          pointerEvents: "none",
-        }} />
-      )}
-      {(recommended || elite) && (
-        <div style={{
-          position: "absolute", top: 16, right: 16,
-          padding: "5px 10px",
-          background: elite ? "hsl(var(--accent))" : "hsl(var(--accent))",
-          color: "white",
-          borderRadius: 999,
-          fontFamily: "var(--font-mono)",
-          fontSize: 10.5,
-          letterSpacing: "0.1em",
-          textTransform: "uppercase",
-          fontWeight: 500,
-          zIndex: 1,
-        }}>
-          {elite ? "Best for growth" : "Most popular"}
-        </div>
-      )}
-
-      <div style={{ position: "relative" }}>
-        <div style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: 11.5,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: dark ? "hsla(0,0%,100%,0.6)" : "hsl(var(--muted-foreground))",
-          marginBottom: 12,
-        }}>
-          Cleaners · {name} System
-        </div>
-        <h3 style={{
-          fontSize: 26,
-          fontWeight: 700,
-          letterSpacing: "-0.02em",
-          margin: "0 0 8px",
-        }}>{name}</h3>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-          <span style={{ fontSize: 50, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>${price}</span>
-          <span style={{
-            fontSize: 15,
-            color: dark ? "hsla(0,0%,100%,0.55)" : "hsl(var(--muted-foreground))",
-            fontWeight: 500,
-          }}>/month</span>
-        </div>
-        <p style={{
-          fontSize: 14, lineHeight: 1.55,
-          color: dark ? "hsla(0,0%,100%,0.7)" : "hsl(var(--muted-foreground))",
-          marginTop: 14, marginBottom: 0,
-        }}>{blurb}</p>
-      </div>
-
-      <a href="/book-a-call" className="cc-btn cc-btn--lg" style={{
-        background: elite
-          ? "hsl(var(--accent))"
-          : dark
-            ? "hsl(var(--background))"
-            : "hsl(var(--foreground))",
-        color: elite
-          ? "white"
-          : dark
-            ? "hsl(var(--foreground))"
-            : "hsl(var(--background))",
-        borderColor: elite
-          ? "hsl(var(--accent))"
-          : dark
-            ? "hsl(var(--background))"
-            : "hsl(var(--foreground))",
-        justifyContent: "center",
-        position: "relative",
-        zIndex: 1,
-      }}>{cta} <Icon.arrowUpRight size={14} /></a>
-
-      {dividerLabel && (
-        <div style={{
-          display: "flex", alignItems: "center", gap: 12,
-          position: "relative", zIndex: 1,
-        }}>
-          <hr style={{
-            flex: 1,
-            border: "none",
-            borderTop: `1px dashed ${dark ? "hsla(0,0%,100%,0.18)" : "hsl(var(--border))"}`,
-            margin: 0,
-          }} />
-          <span style={{
-            fontSize: 11.5,
-            fontFamily: "var(--font-mono)",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            color: dark ? "hsla(0,0%,100%,0.65)" : "hsl(var(--muted-foreground))",
-            whiteSpace: "nowrap",
-          }}>
-            {dividerLabel}
-          </span>
-          <hr style={{
-            flex: 1,
-            border: "none",
-            borderTop: `1px dashed ${dark ? "hsla(0,0%,100%,0.18)" : "hsl(var(--border))"}`,
-            margin: 0,
-          }} />
-        </div>
-      )}
-
-      <ul style={{
-        listStyle: "none", padding: 0, margin: 0,
-        display: "flex", flexDirection: "column", gap: 10,
-        position: "relative", zIndex: 1,
+      maxWidth: 900,
+      margin: "0 auto",
+    }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: narrow ? "1fr 1fr 1fr" : cols,
+        padding: "16px 22px",
+        borderBottom: "1px solid hsl(var(--border))",
+        background: "hsl(var(--page))",
+        fontFamily: "var(--font-mono)",
+        fontSize: 11,
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        color: "hsl(var(--muted-foreground))",
+        gap: 8,
       }}>
-        {features.map((f, i) => (
-          <li key={i} style={{ display: "flex", gap: 12, fontSize: 14, lineHeight: 1.5 }}>
-            <span style={{
-              width: 18, height: 18,
-              borderRadius: "50%",
-              background: dark
-                ? "hsla(0,0%,100%,0.12)"
-                : elite
-                  ? "hsl(var(--accent))"
-                  : "hsl(var(--accent-soft))",
-              color: dark
-                ? "white"
-                : elite
-                  ? "white"
-                  : "hsl(var(--accent))",
-              display: "grid", placeItems: "center",
-              flexShrink: 0, marginTop: 2,
-            }}>
-              <Icon.check size={10} stroke={2.8} />
-            </span>
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
+        <div>Daily budget</div>
+        <div style={{ textAlign: "right" }}>Ad spend / mo</div>
+        <div style={{ textAlign: "right" }}>Total / mo</div>
+        {!narrow && <div style={{ paddingLeft: 20 }}>Who it's for</div>}
+      </div>
+      {SPEND_ROWS.map((r) => {
+        const monthly = r.daily * 30;
+        return (
+          <div key={r.daily} style={{
+            display: "grid",
+            gridTemplateColumns: narrow ? "1fr 1fr 1fr" : cols,
+            padding: "15px 22px",
+            borderTop: "1px solid hsl(var(--border))",
+            alignItems: "center",
+            fontSize: 14.5,
+            gap: 8,
+            background: r.standard ? "hsl(var(--accent) / 0.07)" : "transparent",
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontWeight: r.standard ? 650 : 500 }}>
+              ${r.daily}/day
+              {r.standard && (
+                <span style={{
+                  fontFamily: "var(--font-mono)", fontSize: 9,
+                  letterSpacing: "0.06em", textTransform: "uppercase",
+                  padding: "2px 6px", borderRadius: 999,
+                  background: "hsl(var(--accent))", color: "hsl(30 10% 8%)",
+                  fontWeight: 700,
+                }}>Std</span>
+              )}
+            </div>
+            <div style={{ textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 13.5 }}>
+              ${monthly.toLocaleString()}
+            </div>
+            <div style={{ textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 13.5, fontWeight: 650 }}>
+              ${(monthly + 500).toLocaleString()}
+            </div>
+            {!narrow && (
+              <div style={{ paddingLeft: 20, fontSize: 13.5, color: "hsl(var(--muted-foreground))" }}>{r.note}</div>
+            )}
+          </div>
+        );
+      })}
+      <div style={{
+        padding: "16px 22px",
+        borderTop: "1px solid hsl(var(--border))",
+        background: "hsl(var(--page))",
+        fontSize: 13,
+        color: "hsl(var(--muted-foreground))",
+        lineHeight: 1.6,
+      }}>
+        Ad spend is billed by Google directly to your card — we never mark it up. "Total" is the
+        management fee plus the maximum you could spend at that daily budget over 30 days. Google
+        only charges you for leads, so most months land under the ceiling.
+      </div>
     </div>
   );
 }
 
 function PricingPage() {
+  const narrow = window.innerWidth < 900;
+  const lsa = PLANS.find((p) => p.id === "lsa");
+  const growth = PLANS.find((p) => p.id === "growth");
+
   return (
     <Layout active="pricing">
       <PageHero
         eyebrow="PRICING"
-        title={<>Three systems. <br /><span style={{ color: "hsl(var(--muted-foreground))" }}>Pick the one that fits.</span></>}
-        sub="Start with Essentials to get your site, hosting, and missed-call text back in place. Upgrade to Professional for full automation, or go Elite when you want us driving traffic too."
+        title={<>Two plans. <br /><span style={{ color: "hsl(var(--muted-foreground))" }}>Both come with a guarantee.</span></>}
+        sub="Run LSA to get leads on the phone this month, run the website and SEO program to own the map pack long-term, or run both. No setup fees, no build fees, month to month."
       />
 
-      {/* Three-tier cards */}
+      {/* The two plans */}
       <section className="cc-section cc-section--card">
         <div className="cc-container" style={{ maxWidth: 1240 }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: window.innerWidth < 1000 ? (window.innerWidth < 700 ? "1fr" : "1fr 1fr") : "repeat(3, 1fr)",
-            gap: 20,
-            alignItems: "stretch",
-          }}>
-            <PricingCard
-              kind="essentials"
-              name="Essentials"
-              price={197}
-              blurb="The website, the hosting, the missed-call safety net — everything you need to stop bleeding leads."
-              features={ESSENTIALS}
-            />
-            <PricingCard
-              kind="professional"
-              name="Professional"
-              price={297}
-              blurb="Everything in Essentials, plus the automation that turns a missed call into a 5-star review six months later."
-              dividerLabel="Essentials +"
-              features={PROFESSIONAL_EXTRAS}
-              recommended
-            />
-            <PricingCard
-              kind="elite"
-              name="Elite"
-              price={497}
-              blurb="Everything in Professional, plus a full SEO program so customers find you on Google before they call anyone else."
-              dividerLabel="Professional + SEO"
-              features={ELITE_EXTRAS}
-              elite
-            />
-          </div>
-
+          <PlanGrid />
           <p style={{
             textAlign: "center",
             marginTop: 32,
@@ -268,25 +127,118 @@ function PricingPage() {
         </div>
       </section>
 
-      {/* Comparison table — what's in which tier */}
-      <section className="cc-section cc-section--card">
+      {/* Run both */}
+      <section className="cc-section cc-section--dark" style={{ padding: "64px 0" }}>
         <div className="cc-container">
-          <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12 }}>WHAT'S IN EACH</div>
-            <h2 className="cc-h2" style={{ fontSize: "clamp(28px, 3vw, 40px)" }}>Side-by-side breakdown.</h2>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: narrow ? "1fr" : "1.3fr 1fr",
+            gap: narrow ? 32 : 56,
+            alignItems: "center",
+          }}>
+            <div className="cc-stack-md">
+              <div className="cc-eyebrow">RUN BOTH</div>
+              <h2 className="cc-h2" style={{ fontSize: "clamp(28px, 3vw, 40px)" }}>
+                LSA fills the calendar now. SEO makes it cheaper later.
+              </h2>
+              <p className="cc-lede">
+                LSA leads land in week two or three — but you pay for every one of them, forever.
+                Map-pack rankings take 90 days to build, and then the leads are free. Contractors who
+                run both use LSA to cover the gap while the organic side compounds, then dial the ad
+                budget down once the rankings hold.
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "8px 0 0", display: "flex", flexDirection: "column", gap: 12 }}>
+                {[
+                  "Leads from day one instead of day ninety",
+                  "One team, one report, both channels in the same numbers",
+                  "Cost per booked job drops as the organic side takes over",
+                ].map((b) => (
+                  <li key={b} style={{ display: "flex", gap: 12, fontSize: 15, lineHeight: 1.55 }}>
+                    <span style={{ flexShrink: 0, marginTop: 4, color: "hsl(var(--accent))" }}><Icon.check size={14} stroke={2.4} /></span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div style={{
+              background: "hsl(var(--card))",
+              border: "1px solid hsl(var(--accent) / 0.45)",
+              borderRadius: 20,
+              padding: 32,
+              boxShadow: "0 0 0 4px hsl(var(--accent) / 0.08)",
+            }}>
+              <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 18 }}>BOTH PLANS TOGETHER</div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 6, flexWrap: "wrap" }}>
+                <span style={{ fontSize: 48, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>$5,500</span>
+                <span style={{ fontSize: 15, color: "hsl(var(--muted-foreground))", fontWeight: 500 }}>/month</span>
+              </div>
+              <div style={{ fontSize: 13.5, color: "hsl(var(--muted-foreground))", marginTop: 10, lineHeight: 1.6 }}>
+                plus LSA ad spend, billed by Google — up to $1,500/month at our standard $50/day ceiling.
+              </div>
+              <hr className="cc-divider" style={{ margin: "22px 0" }} />
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {[
+                  ["LSA management", "$500/mo"],
+                  ["Website, SEO & GMB", "$5,000/mo"],
+                  ["Setup fees", "$0"],
+                ].map(([k, v]) => (
+                  <div key={k} style={{ display: "flex", justifyContent: "space-between", gap: 12, fontSize: 14 }}>
+                    <span style={{ color: "hsl(var(--muted-foreground))" }}>{k}</span>
+                    <span style={{ fontWeight: 600, fontFamily: "var(--font-mono)", fontSize: 13 }}>{v}</span>
+                  </div>
+                ))}
+              </div>
+              <a href="/book-a-call" className="cc-btn cc-btn--lg" style={{ marginTop: 24, width: "100%", justifyContent: "center" }}>
+                Book a call <Icon.arrowUpRight size={14} />
+              </a>
+            </div>
           </div>
-          <TierComparison />
+        </div>
+      </section>
+
+      {/* How ad spend works */}
+      <section className="cc-section cc-section--card" id="ad-spend" style={{ scrollMarginTop: 80 }}>
+        <div className="cc-container">
+          <div style={{ textAlign: "center", marginBottom: 36, maxWidth: 680, marginLeft: "auto", marginRight: "auto" }}>
+            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12 }}>HOW LSA AD SPEND WORKS</div>
+            <h2 className="cc-h2" style={{ fontSize: "clamp(28px, 3vw, 40px)", marginBottom: 16 }}>
+              $50/day is the ceiling, not the rule.
+            </h2>
+            <p className="cc-lede" style={{ margin: "0 auto" }}>
+              The $500/month management fee is fixed. Ad spend is yours, paid straight to Google, and
+              you decide the daily budget. We recommend $50/day because that's the level where the
+              5-lead guarantee holds — but you can go higher any time you want more volume.
+            </p>
+          </div>
+          <SpendTable />
         </div>
       </section>
 
       {/* Guarantees */}
       <section className="cc-section cc-section--dark" style={{ padding: "64px 0" }}>
         <div className="cc-container">
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12 }}>WHAT WE PUT IN WRITING</div>
+            <h2 className="cc-h2" style={{ fontSize: "clamp(26px, 3vw, 38px)" }}>The guarantees attached to each plan.</h2>
+          </div>
           <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 700 ? "1fr" : "repeat(3, 1fr)", gap: 24 }}>
             {[
-              { i: <Icon.sparkles size={22} />, t: "Done-for-you setup", b: "We handle copy, design, integrations, and training. You give us 90 minutes total." },
-              { i: <Icon.bolt size={22} />, t: "Live in 14 days", b: "Or we keep building for free until you are. We never have, but it's there." },
-              { i: <Icon.refresh size={22} />, t: "Cancel any time", b: "Month to month. Take your number, your data, and your customer list with you." },
+              {
+                i: <Icon.target size={22} />,
+                t: "Top 3 in 90 days",
+                b: `Attached to the $5,000/month program. If your Google Business Profile isn't in the top 3 of the map pack for the agreed keywords and service area within 90 days, we keep working it at no extra charge until it is.`,
+              },
+              {
+                i: <Icon.phone size={22} />,
+                t: "5 LSA leads in 30 days",
+                b: `Attached to the $500/month LSA plan. If your first 30 days live don't produce 5 leads, we pay your LSA ad spend until you hit 5. You keep every lead.`,
+              },
+              {
+                i: <Icon.refresh size={22} />,
+                t: "Month to month",
+                b: "No annual contract on either plan. The 90-day guarantee assumes you stay for the 90 days, because that's how long the work takes to compound — but you're never locked in beyond that.",
+              },
             ].map((g) => (
               <div key={g.t} style={{
                 padding: 28,
@@ -298,96 +250,62 @@ function PricingPage() {
               onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "var(--shadow-card)"; e.currentTarget.style.borderColor = "hsl(var(--accent) / 0.4)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "hsl(var(--border))"; }}>
                 <div style={{ color: "hsl(var(--accent))", marginBottom: 14 }}>{g.i}</div>
-                <div style={{ fontWeight: 600, fontSize: 17, marginBottom: 6, letterSpacing: "-0.01em" }}>{g.t}</div>
-                <div style={{ fontSize: 14, color: "hsl(var(--muted-foreground))", lineHeight: 1.55 }}>{g.b}</div>
+                <div style={{ fontWeight: 600, fontSize: 17, marginBottom: 8, letterSpacing: "-0.01em" }}>{g.t}</div>
+                <div style={{ fontSize: 14, color: "hsl(var(--muted-foreground))", lineHeight: 1.6 }}>{g.b}</div>
               </div>
             ))}
+          </div>
+          <p style={{ textAlign: "center", marginTop: 28, fontSize: 13.5, color: "hsl(var(--muted-foreground))" }}>
+            Both guarantees carry conditions. <a href="/guarantee" className="cc-link" style={{ display: "inline-flex" }}>Read the full terms <Icon.arrowRight size={13} /></a>
+          </p>
+        </div>
+      </section>
+
+      {/* What's not included — honesty section */}
+      <section className="cc-section cc-section--card">
+        <div className="cc-container">
+          <div style={{ display: "grid", gridTemplateColumns: narrow ? "1fr" : "0.9fr 1.1fr", gap: narrow ? 28 : 64, alignItems: "start" }}>
+            <div>
+              <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>NO SURPRISES</div>
+              <h2 className="cc-h2" style={{ fontSize: "clamp(26px, 3vw, 36px)" }}>What isn't in the price.</h2>
+              <p className="cc-lede" style={{ marginTop: 16 }}>
+                Three things you'll pay for outside our invoice. We'd rather you know now than find
+                out on the second bill.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {[
+                { t: "LSA ad spend", b: "Billed by Google directly to your card. We never touch it and never mark it up. At the $50/day ceiling that's up to $1,500/month." },
+                { t: "Your domain name", b: "Roughly $15/year, in your name, on your account. We'll help you register it, but we don't hold your domain hostage." },
+                { t: "Anything you'd own anyway", b: "Professional photography or drone footage, if you want it. Plenty of clients use their own job-site photos instead, and those often perform better." },
+              ].map((x) => (
+                <div key={x.t} style={{
+                  display: "flex", gap: 14,
+                  padding: 20,
+                  background: "hsl(var(--page))",
+                  border: "1px solid hsl(var(--border))",
+                  borderRadius: 14,
+                }}>
+                  <span style={{ color: "hsl(var(--muted-foreground))", flexShrink: 0, marginTop: 2 }}>
+                    <Icon.alert size={16} />
+                  </span>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{x.t}</div>
+                    <div style={{ fontSize: 13.5, color: "hsl(var(--muted-foreground))", lineHeight: 1.55 }}>{x.b}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <CTABlock title="Not sure which tier fits?" sub="20-min call. We'll look at your business and tell you which system makes sense — even if it's the cheaper one." cta="Book a 20-min call" />
+      <CTABlock
+        title="Not sure which plan fits?"
+        sub="20-min call. We'll look at your market, your competitors, and your capacity — and tell you which one to start with, even if it's the cheaper one."
+        cta="Book a 20-min call"
+      />
     </Layout>
-  );
-}
-
-// What's in each tier — Essentials items, then Pro extras, then Elite extras
-function TierComparison() {
-  const rows = [
-    ...ESSENTIALS.map((f) => ({ feature: f, e: true, p: true, el: true })),
-    ...PROFESSIONAL_EXTRAS.map((f) => ({ feature: f, e: false, p: true, el: true })),
-    ...ELITE_EXTRAS.map((f) => ({ feature: f, e: false, p: false, el: true })),
-  ];
-  const cell = (on, accentForElite) => (
-    <div style={{ textAlign: "center" }}>
-      {on
-        ? <Icon.check size={16} stroke={2.4} style={{ color: accentForElite ? "hsl(var(--accent))" : "hsl(var(--accent))", margin: "0 auto" }} />
-        : <span style={{ opacity: 0.3 }}>—</span>}
-    </div>
-  );
-  return (
-    <div style={{
-      background: "hsl(var(--card))",
-      border: "1px solid hsl(var(--border))",
-      borderRadius: 20,
-      overflow: "hidden",
-      maxWidth: 1080,
-      margin: "0 auto",
-    }}>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "1.8fr 1fr 1fr 1fr",
-        padding: "16px 24px",
-        borderBottom: "1px solid hsl(var(--border))",
-        background: "hsl(var(--page))",
-        fontFamily: "var(--font-mono)",
-        fontSize: 11.5,
-        letterSpacing: "0.08em",
-        textTransform: "uppercase",
-        color: "hsl(var(--muted-foreground))",
-      }}>
-        <div>Feature</div>
-        <div style={{ textAlign: "center" }}>Essentials</div>
-        <div style={{ textAlign: "center" }}>Professional</div>
-        <div style={{ textAlign: "center", color: "hsl(var(--accent))" }}>Elite</div>
-      </div>
-      {rows.map((r, i) => (
-        <div key={i} style={{
-          display: "grid",
-          gridTemplateColumns: "1.8fr 1fr 1fr 1fr",
-          padding: "14px 24px",
-          borderTop: i === 0 ? "none" : "1px solid hsl(var(--border))",
-          alignItems: "center",
-          fontSize: 14.5,
-        }}>
-          <div>{r.feature}</div>
-          {cell(r.e)}
-          {cell(r.p)}
-          {cell(r.el, true)}
-        </div>
-      ))}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "1.8fr 1fr 1fr 1fr",
-        padding: "18px 24px",
-        borderTop: "1px solid hsl(var(--border))",
-        background: "hsl(var(--page))",
-        alignItems: "center",
-      }}>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 11.5, letterSpacing: "0.06em", textTransform: "uppercase", color: "hsl(var(--muted-foreground))" }}>
-          Monthly
-        </div>
-        <div style={{ textAlign: "center", fontWeight: 700, fontSize: 18, letterSpacing: "-0.02em" }}>
-          $197<span style={{ fontSize: 12, color: "hsl(var(--muted-foreground))", fontWeight: 500 }}>/mo</span>
-        </div>
-        <div style={{ textAlign: "center", fontWeight: 700, fontSize: 18, letterSpacing: "-0.02em" }}>
-          $297<span style={{ fontSize: 12, color: "hsl(var(--muted-foreground))", fontWeight: 500 }}>/mo</span>
-        </div>
-        <div style={{ textAlign: "center", fontWeight: 700, fontSize: 18, letterSpacing: "-0.02em", color: "hsl(var(--accent))" }}>
-          $497<span style={{ fontSize: 12, color: "hsl(var(--muted-foreground))", fontWeight: 500 }}>/mo</span>
-        </div>
-      </div>
-    </div>
   );
 }
 

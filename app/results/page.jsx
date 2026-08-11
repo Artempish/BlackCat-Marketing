@@ -2,8 +2,9 @@ import ClientOnly from "@/components/ClientOnly";
 import Results from "@/components/pages/Results";
 
 export const metadata = {
-  title: "Case Studies & Results — Real Home Service Business Growth",
-  description: "Real shops, real numbers. See how roofers, HVAC techs, plumbers, and landscapers grew booked jobs by 2.4×, recovered $2.1M in lead revenue, and reached 4.9★ ratings with CleanerClicks.",
+  title: "Results — Measured in Booked Jobs",
+  description:
+    "How BlackCat Marketing scores itself for construction clients: map pack position, leads by channel, booked estimates, and cost per booked job. Four numbers, reported every month.",
   alternates: { canonical: "/results" },
 };
 

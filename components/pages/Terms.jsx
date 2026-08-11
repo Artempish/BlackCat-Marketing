@@ -1,6 +1,12 @@
 "use client";
 import { Layout, PageHero, CTABlock } from "@/components/shared";
 
+// ⚠️ BEFORE LAUNCH — this is adapted boilerplate, not legal advice.
+//   1. Replace every [YOUR CITY, STATE] / [YOUR STATE] placeholder.
+//   2. Make sure the governing-law state matches where you actually operate.
+//   3. Reconcile these Terms with the service agreement your clients sign —
+//      especially the guarantees published on /guarantee.
+//   4. Have a lawyer read it.
 const TERMS_EFFECTIVE = "May 31, 2026";
 
 const TERMS_TOC = [
@@ -23,7 +29,7 @@ function TermsPage() {
       <PageHero
         eyebrow="Legal"
         title={<>Terms &amp; Conditions</>}
-        sub="The ground rules for using this website. In short: the site is ours, use it lawfully, and it's provided as-is. These terms are governed by North Dakota law."
+        sub="The ground rules for using this website. In short: the site is ours, use it lawfully, and it's provided as-is. These terms are governed by [YOUR STATE] law."
       />
 
       <section className="cc-section cc-section--card">
@@ -41,9 +47,9 @@ function TermsPage() {
             </nav>
 
             <p className="cc-legal__lead">
-              These Terms &amp; Conditions ("Terms") govern your use of the CleanerClicks website at cleanerclicks.com
-              (the "Site"). CleanerClicks ("CleanerClicks," "we," "us," or "our") is a web design and automation business
-              based in Fargo, North Dakota, serving customers across the United States. By using the Site, you agree to these Terms.
+              These Terms &amp; Conditions ("Terms") govern your use of the BlackCat Marketing website at blackcatmarketing.com
+              (the "Site"). BlackCat Marketing ("BlackCat Marketing," "we," "us," or "our") is a construction-focused marketing agency
+              based in [YOUR CITY, STATE], serving customers across the United States. By using the Site, you agree to these Terms.
             </p>
 
             <section id="acceptance">
@@ -58,7 +64,7 @@ function TermsPage() {
             <section id="what-we-provide">
               <h2>What we provide</h2>
               <p>
-                CleanerClicks provides <strong>web design and automation services</strong> to businesses across the United States.
+                BlackCat Marketing provides <strong>marketing services</strong> (Local Services Ads management, website design and build, local SEO, and Google Business Profile management) to businesses across the United States.
                 That includes designing, building, and hosting websites, and setting up lead-capture, follow-up, and review-automation
                 systems. The Site itself is primarily informational — it tells you what we do and lets you book a call or request more
                 information through our booking form. We may add, change, or remove parts of the Site at any time.
@@ -81,8 +87,8 @@ function TermsPage() {
             <section id="intellectual-property">
               <h2>Intellectual property</h2>
               <p>
-                The Site and everything on it — including the text, design, layout, graphics, logos, the CleanerClicks name and
-                branding, and the code that runs it — is owned by CleanerClicks or its licensors and is protected by intellectual
+                The Site and everything on it — including the text, design, layout, graphics, logos, the BlackCat Marketing name and
+                branding, and the code that runs it — is owned by BlackCat Marketing or its licensors and is protected by intellectual
                 property laws. <strong>You may not copy, reproduce, republish, modify, or distribute any part of the Site</strong> without
                 our prior written permission. You may view and use the Site for your own personal, non-commercial purpose of learning
                 about and contacting us.
@@ -112,7 +118,7 @@ function TermsPage() {
             <section id="liability">
               <h2>Limitation of liability</h2>
               <p>
-                To the fullest extent permitted by law, CleanerClicks and its owners, employees, and contractors will not be liable for
+                To the fullest extent permitted by law, BlackCat Marketing and its owners, employees, and contractors will not be liable for
                 any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, or goodwill, arising
                 out of or related to your use of (or inability to use) the Site. Where liability cannot be excluded, our total liability to
                 you for any claim relating to the Site is limited to one hundred U.S. dollars (USD $100). Some jurisdictions don't allow
@@ -123,7 +129,7 @@ function TermsPage() {
             <section id="indemnification">
               <h2>Indemnification</h2>
               <p>
-                You agree to indemnify and hold CleanerClicks harmless from any claims, losses, or expenses (including reasonable legal
+                You agree to indemnify and hold BlackCat Marketing harmless from any claims, losses, or expenses (including reasonable legal
                 fees) arising from your misuse of the Site or your breach of these Terms.
               </p>
             </section>
@@ -131,9 +137,9 @@ function TermsPage() {
             <section id="governing-law">
               <h2>Governing law</h2>
               <p>
-                These Terms are governed by the laws of the <strong>State of North Dakota, USA</strong>, without regard to its conflict-of-laws
+                These Terms are governed by the laws of the <strong>State of [YOUR STATE], USA</strong>, without regard to its conflict-of-laws
                 rules. Any dispute relating to these Terms or the Site will be subject to the exclusive jurisdiction of the state and federal
-                courts located in North Dakota, and you consent to that jurisdiction.
+                courts located in [YOUR STATE], and you consent to that jurisdiction.
               </p>
             </section>
 
@@ -148,8 +154,8 @@ function TermsPage() {
             <section id="contact">
               <h2>Contact us</h2>
               <p>
-                Questions about these Terms? Email <a href="mailto:hello@example.com">hello@example.com</a>. CleanerClicks is
-                based in Fargo, North Dakota, USA.
+                Questions about these Terms? Email <a href="mailto:hello@blackcatmarketing.com">hello@blackcatmarketing.com</a>. BlackCat Marketing is
+                based in [YOUR CITY, STATE], USA.
               </p>
             </section>
           </div>

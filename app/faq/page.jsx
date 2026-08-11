@@ -2,8 +2,9 @@ import ClientOnly from "@/components/ClientOnly";
 import Faq from "@/components/pages/Faq";
 
 export const metadata = {
-  title: "FAQ — Questions About CleanerClicks Marketing for Home Services",
-  description: "Common questions about CleanerClicks: setup time, pricing, integrations, the missed call text back, automated follow-up, review engine, and SEO. Built for home service businesses.",
+  title: "FAQ — Construction Marketing Questions, Answered",
+  description:
+    "Common questions about BlackCat Marketing: LSA pricing and verification, what the $5,000/month program covers, how the top-3 and 5-lead guarantees work, contracts, and how long SEO takes.",
   alternates: { canonical: "/faq" },
 };
 

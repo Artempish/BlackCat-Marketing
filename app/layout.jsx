@@ -1,21 +1,40 @@
 import "./globals.css";
 
+// ⚠️ REPLACE BEFORE LAUNCH — point metadataBase at your real domain.
+// It's also referenced in public/sitemap.xml, public/robots.txt and public/llms.txt.
 export const metadata = {
-  metadataBase: new URL("https://cleanerclicks.com"),
+  metadataBase: new URL("https://blackcatmarketing.com"),
   title: {
-    default: "CleanerClicks | Booking System for Home Service Pros",
-    template: "%s | CleanerClicks",
+    default: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO & GMB",
+    template: "%s | BlackCat Marketing",
   },
   description:
-    "CleanerClicks captures every missed call and follows up automatically — turning leads into booked jobs for home-service pros like roofers, HVAC & plumbers.",
+    "BlackCat Marketing works only with construction companies. Google LSA ads, websites, local SEO and Google Business Profile management — top 3 in the map pack in 90 days, or we keep working for free.",
+  keywords: [
+    "construction marketing agency",
+    "contractor marketing",
+    "Google Local Services Ads for contractors",
+    "construction SEO",
+    "Google Business Profile optimization for contractors",
+    "contractor lead generation",
+  ],
   icons: {
-    icon: "/assets/favicon.png",
-    apple: "/assets/favicon.png",
+    icon: "/assets/favicon.svg",
+    apple: "/assets/favicon.svg",
   },
   openGraph: {
     type: "website",
-    siteName: "CleanerClicks",
-    images: ["/assets/favicon.png"],
+    siteName: "BlackCat Marketing",
+    title: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO & GMB",
+    description:
+      "Marketing built for construction companies only. LSA ads, websites, SEO and GMB — top 3 in 90 days, 5 LSA leads in 30 days, both guaranteed in writing.",
+    images: ["/assets/favicon.svg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BlackCat Marketing | Construction Marketing",
+    description:
+      "LSA ads, websites, SEO and GMB for construction companies. Top 3 in 90 days, guaranteed.",
   },
 };
 

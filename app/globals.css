@@ -1,22 +1,22 @@
-/* CleanerClicks — design tokens & base */
+/* BlackCat Marketing — design tokens & base */
 :root {
   --background: 0 0% 100%;
-  --page: 0 0% 98%;
+  --page: 40 12% 97%;
   --foreground: 0 0% 4%;
   --card: 0 0% 100%;
   --card-foreground: 0 0% 4%;
   --primary: 0 0% 4%;
   --primary-foreground: 0 0% 98%;
   --secondary: 0 0% 96%;
-  --muted: 0 0% 96%;
+  --muted: 40 10% 95%;
   --muted-foreground: 0 0% 45%;
   --subtle-foreground: 0 0% 30%;
-  --accent: 245 88% 74%;
-  --accent-soft: 245 88% 96%;
-  --border: 0 0% 90%;
-  --border-strong: 0 0% 82%;
-  --input: 0 0% 90%;
-  --ring: 245 88% 74%;
+  --accent: 38 96% 48%;
+  --accent-soft: 40 92% 94%;
+  --border: 40 8% 89%;
+  --border-strong: 40 8% 80%;
+  --input: 40 8% 89%;
+  --ring: 38 96% 48%;
   --radius: 0.75rem;
   --radius-card: 16px;
   --radius-pill: 999px;
@@ -34,21 +34,21 @@
 }
 
 [data-theme="dark"] {
-  --background: 0 0% 5%;
-  --page: 0 0% 7%;
-  --foreground: 0 0% 98%;
-  --card: 0 0% 9%;
-  --card-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 0 0% 4%;
-  --secondary: 0 0% 12%;
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 60%;
-  --subtle-foreground: 0 0% 72%;
-  --accent-soft: 245 60% 18%;
-  --border: 0 0% 16%;
-  --border-strong: 0 0% 22%;
-  --input: 0 0% 16%;
+  --background: 30 6% 5%;
+  --page: 30 6% 7%;
+  --foreground: 40 12% 97%;
+  --card: 30 6% 10%;
+  --card-foreground: 40 12% 97%;
+  --primary: 40 12% 97%;
+  --primary-foreground: 30 6% 5%;
+  --secondary: 30 5% 14%;
+  --muted: 30 5% 14%;
+  --muted-foreground: 36 6% 62%;
+  --subtle-foreground: 38 8% 76%;
+  --accent-soft: 34 60% 14%;
+  --border: 32 5% 18%;
+  --border-strong: 32 6% 26%;
+  --input: 32 5% 18%;
   --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
   --shadow-lift: 0 4px 16px rgba(0,0,0,0.5), 0 12px 32px rgba(0,0,0,0.4);
 }
@@ -117,28 +117,51 @@ img { max-width: 100%; display: block; }
 .cc-section--dark {
   /* re-scope the theme tokens to dark for everything inside the panel,
      so inner cards / borders / text flip to dark automatically */
-  --card: 0 0% 13%;
-  --border: 0 0% 24%;
-  --border-strong: 0 0% 34%;
-  --foreground: 0 0% 98%;
-  --muted-foreground: 0 0% 64%;
-  --subtle-foreground: 0 0% 80%;
-  --muted: 0 0% 18%;
-  --accent-soft: 245 40% 26%;
-  background: hsl(0 0% 6%);
-  color: hsl(0 0% 98%);
+  --card: 30 6% 12%;
+  --border: 32 5% 22%;
+  --border-strong: 32 6% 32%;
+  --foreground: 40 12% 97%;
+  --muted-foreground: 36 6% 64%;
+  --subtle-foreground: 38 8% 80%;
+  --muted: 30 5% 17%;
+  --accent-soft: 34 55% 18%;
+  background: hsl(30 6% 6%);
+  color: hsl(40 12% 97%);
 }
-.cc-section--dark .cc-h2 { color: hsl(0 0% 98%); }
-/* soft lavender gradient panel (used for the industries section) */
-.cc-section--gradient {
-  border: none;
-  box-shadow: none;
-  background:
-    radial-gradient(120% 95% at 50% 108%, hsl(252 82% 85%), transparent 60%),
-    linear-gradient(180deg, hsl(0 0% 100%), hsl(252 62% 90%));
-}
+.cc-section--dark .cc-h2 { color: hsl(40 12% 97%); }
 
-/* inner-page hero — sunset vibe matching the home hero, pulled under the nav */
+/* ===== Blueprint panel — charcoal with amber horizon + drafting grid.
+   Used for the "trades we serve" band. Always dark, in both themes. ===== */
+.cc-section--gradient {
+  border: 1px solid hsl(32 5% 20%);
+  box-shadow: none;
+  --card: 30 6% 12%;
+  --border: 32 5% 22%;
+  --border-strong: 32 6% 32%;
+  --foreground: 40 12% 97%;
+  --muted-foreground: 36 6% 64%;
+  --subtle-foreground: 38 8% 80%;
+  --muted: 30 5% 17%;
+  --accent-soft: 34 55% 18%;
+  color: hsl(40 12% 97%);
+  background:
+    radial-gradient(120% 90% at 50% 112%, hsl(38 96% 48% / 0.28), transparent 62%),
+    linear-gradient(180deg, hsl(30 6% 8%), hsl(30 7% 5%));
+}
+.cc-section--gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, hsl(40 20% 80% / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(40 20% 80% / 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+.cc-section--gradient > .cc-container { position: relative; z-index: 1; }
+
+/* inner-page hero — matches the home hero: black with an amber horizon,
+   pulled up under the floating nav pill */
 .cc-section--hero {
   position: relative;
   overflow: hidden;
@@ -147,11 +170,32 @@ img { max-width: 100%; display: block; }
   margin-top: -78px;
   padding-top: 124px;
   padding-bottom: 60px;
+  --card: 30 6% 12%;
+  --border: 32 5% 22%;
+  --border-strong: 32 6% 34%;
+  --foreground: 40 12% 97%;
+  --muted-foreground: 36 6% 62%;
+  --subtle-foreground: 38 8% 78%;
+  --muted: 30 5% 17%;
+  --accent-soft: 34 55% 18%;
+  color: hsl(40 12% 97%);
   background:
-    radial-gradient(58% 72% at 18% 16%, hsl(264 74% 87% / 0.9), transparent 60%),
-    radial-gradient(54% 64% at 86% 22%, hsl(292 74% 89% / 0.85), transparent 62%),
-    radial-gradient(72% 74% at 50% 98%, hsl(22 96% 92% / 0.92), transparent 66%),
-    linear-gradient(180deg, hsl(256 58% 86%), hsl(298 60% 90%) 42%, hsl(330 82% 93%) 70%, hsl(22 92% 94%) 100%);
+    radial-gradient(58% 76% at 16% 6%, hsl(30 8% 14%), transparent 62%),
+    radial-gradient(76% 88% at 50% 128%, hsl(38 96% 48% / 0.34), transparent 66%),
+    linear-gradient(180deg, hsl(30 7% 5%), hsl(30 6% 8%) 60%, hsl(28 10% 11%) 100%);
+}
+/* drafting grid over the inner-page hero */
+.cc-section--hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, hsl(40 20% 80% / 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(40 20% 80% / 0.055) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 92%);
+          mask-image: linear-gradient(to bottom, #000 20%, transparent 92%);
+  pointer-events: none;
 }
 .cc-section--hero::after {
   content: "";
@@ -234,9 +278,10 @@ img { max-width: 100%; display: block; }
   border-color: hsl(var(--border-strong));
 }
 .cc-btn--ghost:hover { background: hsl(var(--muted)); }
+/* accent-filled button — amber needs dark text to stay readable */
 .cc-btn--blue {
   background: hsl(var(--accent));
-  color: white;
+  color: hsl(30 10% 8%);
   border-color: hsl(var(--accent));
 }
 .cc-btn--sm { padding: 8px 14px; font-size: 13.5px; }
@@ -545,15 +590,31 @@ img { max-width: 100%; display: block; }
   .cc-hero__grid { grid-template-columns: 1fr; gap: 40px; max-width: 720px; margin: 0 auto; }
 }
 
-/* ===== Sunset-sky hero (purple-leaning, blended mesh) ===== */
+/* ===== Blueprint hero — black with an amber horizon behind the skyline ===== */
 .cc-hero--sky {
   /* negative top pulls the hero up under the (transparent) nav so the
-     sunset shows behind/around the floating nav pill */
+     glow shows behind/around the floating nav pill */
   margin: -78px 14px 18px;
   border-radius: 32px;
   padding-top: 128px;
   padding-bottom: 0;
+  border: 1px solid hsl(32 5% 18%);
+  /* re-scope tokens so everything inside the hero (form, chips, phone)
+     reads correctly against black, in light theme and dark alike */
+  --page: 30 7% 9%;
+  --card: 30 6% 13%;
+  --border: 32 5% 24%;
+  --border-strong: 32 6% 36%;
+  --foreground: 40 12% 97%;
+  --muted-foreground: 36 6% 64%;
+  --subtle-foreground: 38 8% 80%;
+  --muted: 30 5% 18%;
+  --accent-soft: 34 55% 18%;
+  --primary: 38 96% 48%;
+  --primary-foreground: 30 8% 6%;
+  color: hsl(40 12% 97%);
 }
+.cc-hero--sky .cc-phone { background: hsl(30 6% 16%); }
 /* product phone rising halfway up out of the bottom of the hero card */
 .cc-hero__phone-stage {
   position: relative;
@@ -612,40 +673,50 @@ img { max-width: 100%; display: block; }
   z-index: 0;
   overflow: hidden;
   background:
-    radial-gradient(58% 48% at 16% 22%, hsl(264 72% 82% / 0.85), transparent 60%),
-    radial-gradient(54% 44% at 86% 28%, hsl(292 74% 85% / 0.80), transparent 62%),
-    radial-gradient(64% 52% at 50% 88%, hsl(22 96% 90% / 0.90), transparent 66%),
+    radial-gradient(60% 50% at 14% 8%, hsl(30 8% 15%), transparent 64%),
+    radial-gradient(70% 46% at 50% 104%, hsl(38 96% 48% / 0.30), transparent 68%),
     linear-gradient(180deg,
-      hsl(256 56% 80%) 0%,
-      hsl(288 60% 85%) 32%,
-      hsl(330 82% 89%) 58%,
-      hsl(22 92% 91%) 80%,
-      hsl(var(--page)) 100%);
+      hsl(30 8% 4%) 0%,
+      hsl(30 7% 6%) 42%,
+      hsl(28 9% 9%) 74%,
+      hsl(26 14% 12%) 100%);
 }
-/* central soft sun bloom near the horizon */
+/* drafting grid, fading out toward the top */
+.cc-hero-sky::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, hsl(40 20% 80% / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(40 20% 80% / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 100%, #000 10%, rgba(0,0,0,0.35) 60%, transparent 90%);
+          mask-image: radial-gradient(ellipse 90% 80% at 50% 100%, #000 10%, rgba(0,0,0,0.35) 60%, transparent 90%);
+}
+/* amber horizon bloom behind the phone */
 .cc-hero-sky__sun {
   position: absolute;
   left: 50%;
-  bottom: 4%;
-  width: 920px;
-  max-width: 124%;
-  height: 540px;
+  bottom: -6%;
+  width: 980px;
+  max-width: 130%;
+  height: 520px;
   transform: translateX(-50%);
   background: radial-gradient(ellipse at 50% 100%,
-    hsl(38 100% 96% / 0.85),
-    hsl(338 90% 90% / 0.32) 48%,
-    transparent 72%);
-  filter: blur(6px);
+    hsl(42 100% 62% / 0.55),
+    hsl(34 96% 50% / 0.24) 44%,
+    transparent 74%);
+  filter: blur(10px);
 }
-/* large soft tonal blooms that melt into a mesh (not literal clouds) */
+/* large soft amber blooms that melt into the black */
 .cc-hero-sky__cloud {
   position: absolute;
   border-radius: 50%;
-  filter: blur(64px);
+  filter: blur(72px);
 }
-.cc-hero-sky__cloud--1 { width: 640px; height: 360px; top: -8%; left: -10%; background: radial-gradient(closest-side, hsl(262 78% 80% / 0.60), transparent 72%); }
-.cc-hero-sky__cloud--2 { width: 700px; height: 380px; top:  4%; right: -12%; background: radial-gradient(closest-side, hsl(318 82% 86% / 0.55), transparent 72%); }
-.cc-hero-sky__cloud--3 { width: 760px; height: 360px; bottom: -6%; left: 26%; background: radial-gradient(closest-side, hsl(26 96% 88% / 0.50), transparent 72%); }
+.cc-hero-sky__cloud--1 { width: 620px; height: 340px; top: -10%; left: -12%; background: radial-gradient(closest-side, hsl(38 90% 46% / 0.16), transparent 72%); }
+.cc-hero-sky__cloud--2 { width: 680px; height: 360px; top:  2%; right: -14%; background: radial-gradient(closest-side, hsl(28 80% 44% / 0.14), transparent 72%); }
+.cc-hero-sky__cloud--3 { width: 780px; height: 340px; bottom: -8%; left: 22%; background: radial-gradient(closest-side, hsl(44 98% 56% / 0.22), transparent 72%); }
 /* fine grain — kills gradient banding, adds a premium matte texture */
 .cc-hero-sky::after {
   content: "";
@@ -961,19 +1032,22 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 900px) { .cc-offer { grid-template-columns: 1fr; padding: 36px; } }
 
+/* Sits on the inverted .cc-offer panel — light in dark theme, dark in light
+   theme — so it tints with currentColor rather than a fixed white. */
 .cc-offer__badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  background: hsla(0, 0%, 100%, 0.08);
-  border: 1px solid hsla(0, 0%, 100%, 0.14);
+  background: hsla(0, 0%, 50%, 0.14);
+  border: 1px solid hsla(0, 0%, 50%, 0.26);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: hsla(0, 0%, 100%, 0.85);
+  color: inherit;
+  opacity: 0.85;
 }
 
 /* ===== faq ===== */
@@ -1536,9 +1610,17 @@ img { max-width: 100%; display: block; }
   .cc-btn--sm { padding: 8px 12px; font-size: 13px; }
   .cc-btn--lg { padding: 13px 20px; font-size: 15px; }
 
-  /* hero pill form — already at max-width 460px, just keep input from squishing */
-  .cc-hero__form { padding: 5px 5px 5px 14px; }
-  .cc-hero__form input { font-size: 14px; padding: 9px 0; }
+  /* hero pill form — the input and button can't share one line at phone
+     widths without clipping the placeholder, so stack them instead */
+  .cc-hero__form {
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 20px;
+    padding: 12px;
+  }
+  .cc-hero__form-prefix { padding-left: 4px; }
+  .cc-hero__form input { flex: 1 1 auto; font-size: 15px; padding: 9px 0; }
+  .cc-hero__form .cc-btn { flex: 1 1 100%; justify-content: center; }
 }
 
 /* Phone-sized — extra tightening for sub-480px screens */
@@ -1639,6 +1721,86 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   text-align: center;
   padding: 8px 0 4px;
+}
+
+/* ===== BlackCat brand mark ===== */
+.cc-brand__mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.cc-brand__cat {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: hsl(var(--accent));
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.cc-brand__word {
+  font-weight: 800;
+  font-size: 17.5px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.cc-brand__word em {
+  font-style: normal;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+}
+@media (max-width: 480px) { .cc-brand__word { font-size: 16px; } }
+
+/* ===== hi-vis badge — the guarantee stamp ===== */
+.cc-hivis {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 11px;
+  border-radius: 999px;
+  background: hsl(var(--accent) / 0.12);
+  border: 1px solid hsl(var(--accent) / 0.42);
+  color: hsl(var(--accent));
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.cc-hivis svg { flex-shrink: 0; }
+
+/* ===== rank tracker bars (map-pack position visual) ===== */
+.cc-rank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  font-size: 13.5px;
+}
+.cc-rank--you {
+  border-color: hsl(var(--accent) / 0.55);
+  background: hsl(var(--accent-soft));
+  box-shadow: 0 0 0 3px hsl(var(--accent) / 0.09);
+}
+.cc-rank__pos {
+  width: 26px; height: 26px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  flex-shrink: 0;
+}
+.cc-rank--you .cc-rank__pos {
+  background: hsl(var(--accent));
+  color: hsl(30 8% 8%);
 }
 
 /* trades trust strip */

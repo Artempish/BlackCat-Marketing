@@ -1,33 +1,27 @@
 "use client";
 import React from "react";
+import { Icon } from "@/components/icons";
 import { Layout, PageHero, CTABlock } from "@/components/shared";
 const { useState, useEffect, useRef } = React;
 
-// ── Real client work. To add/remove a site, edit this one array. ──────────────
-// Each entry renders a live preview (a real, current thumbnail of the site).
-// Keep `note` factual — what was actually built.
+// ═══════════════════════════════════════════════════════════════════════════
+// ⚠️  PLACEHOLDER — REPLACE WITH YOUR OWN CLIENT SITES BEFORE SHARING.
+//
+// Each entry renders a live preview of the real URL, so only list sites you
+// actually built and have permission to show. Delete the array (and the grid
+// below) until you have work to show — an empty portfolio beats a fake one.
+//
+// This page is intentionally unlisted: it isn't in the nav and it's marked
+// noindex in app/work/page.jsx, so it's safe to share as a direct link.
+// ═══════════════════════════════════════════════════════════════════════════
 const CLIENTS = [
-  {
-    name: "Dr. Detail",
-    trade: "Auto Detailing",
-    location: "Fargo, ND",
-    url: "https://drdetail.vercel.app",
-    note: "Fast, mobile-first site built to book detailing jobs.",
-  },
-  {
-    name: "Premium Concrete",
-    trade: "Concrete & Masonry",
-    location: "Metro Detroit, MI",
-    url: "https://premium-concrete-roan.vercel.app",
-    note: "Service + gallery site with lead-capture form.",
-  },
-  {
-    name: "Emmanuel Constructions",
-    trade: "Framing & Construction",
-    location: "Sterling Heights, MI",
-    url: "https://emmanuel-constructions-kappa.vercel.app",
-    note: "Clean contractor site built to turn visits into calls.",
-  },
+  // {
+  //   name: "Example Construction Co.",
+  //   trade: "General Contracting",
+  //   location: "City, ST",
+  //   url: "https://example.com",
+  //   note: "Service-area site with project gallery and quote forms.",
+  // },
 ];
 
 // Live, self-scaling preview of a site. Renders the real page in an iframe sized
@@ -112,33 +106,47 @@ function WorkPage() {
       <PageHero
         eyebrow="SELECTED WORK"
         title={<>Sites we've <span style={{ color: "hsl(var(--muted-foreground))" }}>actually built.</span></>}
-        sub="A private look at real, live client sites we've designed and built — the exact quality of work you'd get."
+        sub="A private look at live contractor sites we've designed and built — the exact standard of work you'd get."
         cta="Get a site like these"
       />
 
       <section className="cc-section cc-section--card">
         <div className="cc-container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: twoCol ? "1fr 1fr" : "1fr",
-              gap: 24,
-            }}
-          >
-            {CLIENTS.map((c) => (
-              <WorkCard key={c.url} {...c} />
-            ))}
-          </div>
+          {CLIENTS.length > 0 ? (
+            <div style={{ display: "grid", gridTemplateColumns: twoCol ? "1fr 1fr" : "1fr", gap: 24 }}>
+              {CLIENTS.map((c) => <WorkCard key={c.url} {...c} />)}
+            </div>
+          ) : (
+            <div style={{
+              padding: "64px 32px",
+              textAlign: "center",
+              border: "1px dashed hsl(var(--border-strong))",
+              borderRadius: 20,
+              color: "hsl(var(--muted-foreground))",
+            }}>
+              <div style={{ color: "hsl(var(--accent))", marginBottom: 16 }}>
+                <Icon.blueprint size={28} style={{ margin: "0 auto" }} />
+              </div>
+              <div style={{ fontWeight: 600, fontSize: 17, color: "hsl(var(--foreground))", marginBottom: 8 }}>
+                No client sites listed yet
+              </div>
+              <p style={{ margin: "0 auto", maxWidth: 460, fontSize: 14.5, lineHeight: 1.6 }}>
+                Add entries to the <code style={{ fontFamily: "var(--font-mono)", fontSize: 13 }}>CLIENTS</code> array
+                in <code style={{ fontFamily: "var(--font-mono)", fontSize: 13 }}>components/pages/Work.jsx</code> and
+                each one renders a live preview of the real site.
+              </p>
+            </div>
+          )}
 
           <p style={{ fontSize: 13, color: "hsl(var(--muted-foreground))", marginTop: 28, maxWidth: 640, lineHeight: 1.6 }}>
-            This page is private — it isn't linked from the main menu or indexed by search engines.
+            This page is private — it isn't linked from the main menu and it isn't indexed by search engines.
           </p>
         </div>
       </section>
 
       <CTABlock
-        title="Want one built for your business?"
-        sub="20-minute call. We'll show you exactly what your site could look like — and what it'd do for your booked jobs."
+        title="Want one built for your company?"
+        sub="20-minute call. We'll show you what your site could look like — and what it'd do for your booked estimates."
         cta="Book a 20-min call"
       />
     </Layout>

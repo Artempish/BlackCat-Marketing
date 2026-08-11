@@ -1,34 +1,43 @@
-# CleanerClicks
+# BlackCat Marketing
 
-> CleanerClicks builds high-converting websites and lead-capture & follow-up automation systems for service businesses (cleaning, pressure washing, landscaping, HVAC, roofing, plumbing, electrical, and similar trades). The system turns every missed call into a booked job through instant text-back, 1-year automated follow-up, and a 5-star review engine. Based in Fargo, ND. Also written as "Cleaner Clicks."
-
-## Founder
-Adam Selman
-
-## What CleanerClicks does
-- Custom, conversion-tuned websites for service businesses (designed, built, and hosted)
-- Missed Call Text Back — auto-texts every missed call in under a minute
-- 1-Year Follow-Up — 52 automated touchpoints across SMS, email, and voicemail
-- 5-Star Review Engine — one-tap Google reviews after every job
-- Smart Lead Capture — forms, click-to-call, source tracking, unified inbox
+> BlackCat Marketing is a marketing agency that works exclusively with construction companies. It runs three services: Google Local Services Ads (LSA) management, website design and local SEO, and Google Business Profile (GMB) optimization. Also written as "Black Cat Marketing."
 
 ## Who it's for
-Local home-service businesses (typically 1–10 person shops): roofing, HVAC, plumbing, electrical, cleaning, pressure washing, landscaping, pest control, garage door, and locksmith.
+Construction companies only — general contractors, roofing, concrete and foundations, remodeling, additions and framing, decks and fencing, custom home builders, excavation and sitework, and specialty trades (windows, siding, stucco, masonry, waterproofing). BlackCat does not take clients outside the construction industry.
+
+## What BlackCat Marketing does
+- Google Local Services Ads (LSA) — Google Guaranteed application, campaign build, daily budget management, weekly junk-lead disputes, call tracking
+- Website — custom design, build, hosting and maintenance; service-area and service-type landing pages; project galleries; quote forms and click-to-call
+- Local SEO — buyer-intent keyword research, on-page optimization, monthly content, citation cleanup, authority link building, rank tracking
+- Google Business Profile (GMB) optimization — categories, services, service areas, photos, Q&A, Google Posts, review generation and responses
 
 ## Pricing
-- Essentials — $197/mo: website, hosting, domain, logo, automated review responses, quote forms, missed-call text back
-- Professional — $297/mo: adds 1-year lead follow-up, 4–5★ review filter, live chat, customer confirmations, unified inbox, full support
-- Elite — $497/mo: adds a full SEO program
-Month-to-month, no setup fees, no per-seat upcharges. Setup is ~14 days.
+- LSA Ads — $500/month management, plus ad spend paid directly to Google. Standard ad-spend ceiling is $50/day (about $1,500/month). Clients can raise the daily budget for more volume; the management fee stays at $500. Ad spend is never marked up.
+- Website, SEO & GMB — $5,000/month, all in. No setup fee, no build fee, no per-page charges. Hosting, content, revisions and reporting included.
+- Both plans together — $5,500/month, plus LSA ad spend.
+- Both plans are month to month with no long-term contract.
+
+## Guarantees
+- Top 3 in 90 days: within 90 days of the Google Business Profile going live under BlackCat's management, the client ranks in the top 3 of the Google map pack for the target keywords and service area agreed in writing at kickoff. If missed, BlackCat continues the work at no charge until it lands. Attached to the $5,000/month plan.
+- 5 LSA leads in 30 days: if the first 30 days of live Local Services Ads campaigns don't produce 5 leads, BlackCat pays the client's LSA ad spend until they reach 5 leads. Attached to the $500/month LSA plan.
+- Both guarantees have published conditions (agreed keywords and service area, admin access, verified profile, agreed budget maintained, calls answered). Full terms: https://blackcatmarketing.com/guarantee
+
+## Reporting
+Four metrics, monthly: map pack position per keyword, leads by channel, booked estimates, and cost per booked job.
+
+## Onboarding
+About two hours of the client's time in total: a 60-minute kickoff call, license and insurance documents for Google Guaranteed verification, admin access to the Google Business Profile and domain, job photos, and one round of approvals. LSA verification through Google typically takes 1–3 weeks.
 
 ## Key Pages
-- [Home](https://cleanerclicks.com/)
-- [Services](https://cleanerclicks.com/services)
-- [How it works](https://cleanerclicks.com/how-it-works)
-- [Pricing](https://cleanerclicks.com/pricing)
-- [Results](https://cleanerclicks.com/results)
-- [FAQ](https://cleanerclicks.com/faq)
-- [Book a call](https://cleanerclicks.com/book-a-call)
+- [Home](https://blackcatmarketing.com/)
+- [Services](https://blackcatmarketing.com/services)
+- [LSA Ads](https://blackcatmarketing.com/lsa-ads)
+- [Pricing](https://blackcatmarketing.com/pricing)
+- [Guarantee](https://blackcatmarketing.com/guarantee)
+- [How it works](https://blackcatmarketing.com/how-it-works)
+- [Results](https://blackcatmarketing.com/results)
+- [FAQ](https://blackcatmarketing.com/faq)
+- [Book a call](https://blackcatmarketing.com/book-a-call)
 
 ## Contact
-Book a 20-minute call at https://cleanerclicks.com/book-a-call
+Book a 20-minute call at https://blackcatmarketing.com/book-a-call

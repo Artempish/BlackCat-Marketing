@@ -3,6 +3,12 @@
   "framework": "nextjs",
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/reviews", "destination": "/review-engine", "permanent": true }
+    { "source": "/lsa", "destination": "/lsa-ads", "permanent": true },
+    { "source": "/local-services-ads", "destination": "/lsa-ads", "permanent": true },
+    { "source": "/seo", "destination": "/services", "permanent": true },
+    { "source": "/gmb", "destination": "/services", "permanent": true },
+    { "source": "/contact", "destination": "/book-a-call", "permanent": true },
+    { "source": "/guarantees", "destination": "/guarantee", "permanent": true },
+    { "source": "/review-engine", "destination": "/lsa-ads", "permanent": true }
   ]
 }
