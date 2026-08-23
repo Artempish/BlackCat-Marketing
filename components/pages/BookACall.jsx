@@ -1,48 +1,48 @@
 "use client";
 import React from "react";
-import { Layout } from "@/components/shared";
+import { Layout, CONTACT } from "@/components/shared";
 import { Icon } from "@/components/icons";
-const { useEffect: useEffectB, useRef: useRefB, useState: useStateB } = React;
+const { useEffect: useEffectB, useState: useStateB } = React;
 
-// ⚠️ REPLACE BEFORE LAUNCH — see README.
-// Swap YOUR_BOOKING_WIDGET_ID and the api.* domain for your own booking widget
-// (GoHighLevel, Calendly, SavvyCal, whatever you use). If you'd rather use a
-// plain contact form, delete this component and drop the form in its place.
-const BOOKING = {
-  embedDomain: "https://api.blackcatmarketing.com",
-  widgetId: "YOUR_BOOKING_WIDGET_ID",
+// Google Calendar — public availability for BlackCat Marketing. Swap `src` for
+// whichever calendar you want visitors to see; `ctz` sets the timezone the grid
+// is drawn in. Everything after that is Google's own display flags.
+const CALENDAR = {
+  src: "artempishic88@gmail.com",
+  timezone: "America/Chicago",
+  timezoneLabel: "Central Time",
 };
 
-function BookingEmbed() {
-  const containerRef = useRefB(null);
-  useEffectB(() => {
-    // Inject the loader once per page load. It listens for postMessage events
-    // from the booking widget and resizes the iframe to match its content.
-    if (document.querySelector('script[data-booking-embed="true"]')) return;
-    const s = document.createElement("script");
-    s.src = `${BOOKING.embedDomain}/js/form_embed.js`;
-    s.type = "text/javascript";
-    s.async = true;
-    s.dataset.bookingEmbed = "true";
-    document.body.appendChild(s);
-  }, []);
+function calendarUrl() {
+  const params = new URLSearchParams({
+    src: CALENDAR.src,
+    ctz: CALENDAR.timezone,
+    mode: "WEEK",
+    showTitle: "0",
+    showPrint: "0",
+    showTabs: "1",
+    showCalendars: "0",
+    showTz: "1",
+  });
+  return `https://calendar.google.com/calendar/embed?${params.toString()}`;
+}
 
+function CalendarEmbed() {
   return (
-    <div ref={containerRef} style={{
+    <div style={{
       background: "hsl(var(--card))",
       border: "1px solid hsl(var(--border))",
       borderRadius: 20,
       padding: 8,
       boxShadow: "var(--shadow-card)",
       overflow: "hidden",
-      minHeight: 720,
     }}>
       <iframe
-        src={`${BOOKING.embedDomain}/widget/booking/${BOOKING.widgetId}`}
-        style={{ width: "100%", border: "none", overflow: "hidden", display: "block", minHeight: 700, borderRadius: 12 }}
+        src={calendarUrl()}
+        style={{ width: "100%", height: 600, border: 0, display: "block", borderRadius: 12, background: "#fff" }}
+        frameBorder="0"
         scrolling="no"
-        id={`${BOOKING.widgetId}_booking`}
-        title="Book a call with BlackCat Marketing"
+        title="BlackCat Marketing availability"
       />
     </div>
   );
@@ -165,9 +165,9 @@ function BookACallPage() {
               </div>
             </div>
 
-            {/* Right — booking calendar */}
+            {/* Right — live availability calendar */}
             <div>
-              <BookingEmbed />
+              <CalendarEmbed />
               <div style={{
                 marginTop: 12,
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -175,8 +175,21 @@ function BookACallPage() {
                 letterSpacing: "0.06em", textTransform: "uppercase",
                 color: "hsl(var(--muted-foreground))",
               }}>
-                <Icon.lock size={11} />
-                Secure booking · BlackCat Marketing
+                <Icon.calendar size={11} />
+                Live availability · {CALENDAR.timezoneLabel}
+              </div>
+              <div style={{
+                marginTop: 14,
+                textAlign: "center",
+                fontSize: 13.5,
+                lineHeight: 1.6,
+                color: "hsl(var(--muted-foreground))",
+              }}>
+                See an open slot that works? Call{" "}
+                <a href={`tel:${CONTACT.phoneHref}`} style={{ color: "hsl(var(--foreground))", fontWeight: 550 }}>{CONTACT.phoneLabel}</a>{" "}
+                or email{" "}
+                <a href={`mailto:${CONTACT.email}`} style={{ color: "hsl(var(--foreground))", fontWeight: 550 }}>{CONTACT.email}</a>{" "}
+                and we'll lock it in.
               </div>
             </div>
           </div>

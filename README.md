@@ -49,7 +49,7 @@ The site is complete, but these placeholders will embarrass you if they ship:
 | 1 | **Phone & email** — `(555) 000-0000`, `hello@blackcatmarketing.com` | `components/shared.jsx` → `CONTACT` |
 | 2 | **Location** — currently just "United States" | `components/shared.jsx` → `CONTACT.location` |
 | 3 | **Social links** — all point at bare instagram.com / linkedin.com etc. | `components/shared.jsx` → `SOCIALS` |
-| 4 | **Booking widget** — `YOUR_BOOKING_WIDGET_ID` and the `api.blackcatmarketing.com` embed domain | `components/pages/BookACall.jsx` → `BOOKING` |
+| 4 | **Calendar embed** — the Book a Call page embeds the Google Calendar for `artempishic88@gmail.com` (Central Time). It must be shared publicly ("Make available to public") or visitors see a permission error. Swap the address / timezone here | `components/pages/BookACall.jsx` → `CALENDAR` |
 | 5 | **Testimonials** — four entries labelled "Placeholder Client" | `components/sections3.jsx` → `TESTIMONIALS` |
 | 6 | **Case studies** — every field is `[Company name]` / `[X]` style placeholder | `components/pages/Results.jsx` → `CASES` |
 | 7 | **Portfolio** — the `CLIENTS` array is empty; the page shows an empty state until you fill it | `components/pages/Work.jsx` → `CLIENTS` |
