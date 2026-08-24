@@ -292,15 +292,28 @@ function DemoPhone({ step }) {
   );
 }
 
-// ===== Testimonials =====
-// ⚠️ PLACEHOLDER CONTENT — these are illustrative, not real clients.
-// Replace every entry with a real, permissioned client quote before launch.
-// See README → "Replace before you go live".
-const TESTIMONIALS = [
-  { t: "We were on page two for every search that mattered. Ninety days later we're in the map pack, and the phone rings with people who already trust us.", n: "Placeholder Client", r: "Owner, [Company] · [City, ST]" },
-  { t: "The LSA leads are a different animal. They've already seen the Google Guaranteed badge, so the call starts at 'when can you come out' instead of 'what do you charge'.", n: "Placeholder Client", r: "Owner, [Company] · [City, ST]" },
-  { t: "First agency I've worked with that didn't need me to explain what a change order is. They knew the trade before day one.", n: "Placeholder Client", r: "GM, [Company] · [City, ST]" },
-  { t: "The report actually tells me my cost per booked estimate. Nobody I hired before could answer that question.", n: "Placeholder Client", r: "Owner, [Company] · [City, ST]" },
+// ===== Why contractors pick us =====
+// No testimonials here yet — nothing on this site claims a client said something
+// they didn't. When you have real, permissioned quotes, swap PROOF back out for a
+// testimonial grid. Every line below restates the offer in PLANS / GUARANTEES;
+// if you change the offer, change these too.
+const PROOF = [
+  {
+    k: "Construction only",
+    v: "We don't take dentists, restaurants, or e-commerce. One industry, so we already know what a change order is, why your busy season matters, and what a real lead looks like.",
+  },
+  {
+    k: "The guarantee is in writing",
+    v: "Top 3 of the map pack within 90 days for the agreed keywords and service area — or we keep working free until it lands.",
+  },
+  {
+    k: "Five leads in the first 30 days",
+    v: "That's the LSA promise. Miss it and we cover your ad spend until you get there. No renegotiating after the fact.",
+  },
+  {
+    k: "You own all of it",
+    v: "Your website, your Google Business Profile, your ad account, your leads, your call recordings. Walk away whenever and it all stays yours.",
+  },
 ];
 
 function Testimonials() {
@@ -324,16 +337,28 @@ function Testimonials() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 700 ? "1fr" : "1fr 1fr", gap: 16 }}>
-            {TESTIMONIALS.map((q, i) => (
-              <div key={i} className="cc-quote">
-                <div className="cc-quote__text">"{q.t}"</div>
-                <div className="cc-quote__person">
-                  <div className="cc-quote__avatar">{q.n[0]}</div>
-                  <div>
-                    <div className="cc-quote__name">{q.n}</div>
-                    <div className="cc-quote__role">{q.r}</div>
-                  </div>
+            {PROOF.map((c, i) => (
+              <div
+                key={i}
+                style={{
+                  padding: 24,
+                  background: "hsl(var(--card))",
+                  border: "1px solid hsl(var(--border))",
+                  borderRadius: 16,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 10,
+                }}
+              >
+                <div style={{
+                  width: 34, height: 34, borderRadius: 10,
+                  background: "hsl(var(--accent))", color: "hsl(30 10% 8%)",
+                  display: "grid", placeItems: "center", flexShrink: 0,
+                }}>
+                  <Icon.check size={17} stroke={2.4} />
                 </div>
+                <div style={{ fontSize: 15.5, fontWeight: 600, letterSpacing: "-0.01em" }}>{c.k}</div>
+                <div style={{ fontSize: 14, lineHeight: 1.6, color: "hsl(var(--muted-foreground))" }}>{c.v}</div>
               </div>
             ))}
           </div>

@@ -4,19 +4,27 @@ import { Layout, CONTACT } from "@/components/shared";
 import { Icon } from "@/components/icons";
 const { useEffect: useEffectB, useState: useStateB } = React;
 
-// Google Calendar — public availability for BlackCat Marketing. Swap `src` for
-// whichever calendar you want visitors to see; `ctz` sets the timezone the grid
-// is drawn in. Everything after that is Google's own display flags.
-const CALENDAR = {
-  src: "artempishic88@gmail.com",
+// ─────────────────────────────────────────────────────────────────────────
+// BOOKING — set `calendlyUrl` to your Calendly event link and the page turns
+// into a real self-serve booking widget. Leave it empty and it falls back to
+// the read-only Google Calendar below, which shows availability but can't
+// take a booking. Nothing else needs to change either way.
+//
+//   calendlyUrl: "https://calendly.com/your-handle/20min"
+// ─────────────────────────────────────────────────────────────────────────
+const BOOKING = {
+  calendlyUrl: "",
+  googleCalendarSrc: "artempishic88@gmail.com",
   timezone: "America/Chicago",
   timezoneLabel: "Central Time",
 };
 
-function calendarUrl() {
+const usingCalendly = BOOKING.calendlyUrl.trim().length > 0;
+
+function googleCalendarUrl() {
   const params = new URLSearchParams({
-    src: CALENDAR.src,
-    ctz: CALENDAR.timezone,
+    src: BOOKING.googleCalendarSrc,
+    ctz: BOOKING.timezone,
     mode: "WEEK",
     showTitle: "0",
     showPrint: "0",
@@ -27,18 +35,42 @@ function calendarUrl() {
   return `https://calendar.google.com/calendar/embed?${params.toString()}`;
 }
 
-function CalendarEmbed() {
+const EMBED_SHELL = {
+  background: "hsl(var(--card))",
+  border: "1px solid hsl(var(--border))",
+  borderRadius: 20,
+  padding: 8,
+  boxShadow: "var(--shadow-card)",
+  overflow: "hidden",
+};
+
+// Calendly's inline widget: the div is the mount point, their script fills it.
+function CalendlyEmbed() {
+  useEffectB(() => {
+    if (document.querySelector('script[data-calendly="true"]')) return;
+    const s = document.createElement("script");
+    s.src = "https://assets.calendly.com/assets/external/widget.js";
+    s.async = true;
+    s.dataset.calendly = "true";
+    document.body.appendChild(s);
+  }, []);
+
   return (
-    <div style={{
-      background: "hsl(var(--card))",
-      border: "1px solid hsl(var(--border))",
-      borderRadius: 20,
-      padding: 8,
-      boxShadow: "var(--shadow-card)",
-      overflow: "hidden",
-    }}>
+    <div style={EMBED_SHELL}>
+      <div
+        className="calendly-inline-widget"
+        data-url={`${BOOKING.calendlyUrl}?hide_gdpr_banner=1`}
+        style={{ minWidth: 320, height: 700, borderRadius: 12, overflow: "hidden" }}
+      />
+    </div>
+  );
+}
+
+function GoogleCalendarEmbed() {
+  return (
+    <div style={EMBED_SHELL}>
       <iframe
-        src={calendarUrl()}
+        src={googleCalendarUrl()}
         style={{ width: "100%", height: 600, border: 0, display: "block", borderRadius: 12, background: "#fff" }}
         frameBorder="0"
         scrolling="no"
@@ -167,7 +199,7 @@ function BookACallPage() {
 
             {/* Right — live availability calendar */}
             <div>
-              <CalendarEmbed />
+              {usingCalendly ? <CalendlyEmbed /> : <GoogleCalendarEmbed />}
               <div style={{
                 marginTop: 12,
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -176,8 +208,9 @@ function BookACallPage() {
                 color: "hsl(var(--muted-foreground))",
               }}>
                 <Icon.calendar size={11} />
-                Live availability · {CALENDAR.timezoneLabel}
+                {usingCalendly ? "Secure booking · Calendly" : `Live availability · ${BOOKING.timezoneLabel}`}
               </div>
+              {!usingCalendly && (
               <div style={{
                 marginTop: 14,
                 textAlign: "center",
@@ -191,6 +224,7 @@ function BookACallPage() {
                 <a href={`mailto:${CONTACT.email}`} style={{ color: "hsl(var(--foreground))", fontWeight: 550 }}>{CONTACT.email}</a>{" "}
                 and we'll lock it in.
               </div>
+              )}
             </div>
           </div>
         </div>

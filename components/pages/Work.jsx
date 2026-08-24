@@ -131,9 +131,8 @@ function WorkPage() {
                 No client sites listed yet
               </div>
               <p style={{ margin: "0 auto", maxWidth: 460, fontSize: 14.5, lineHeight: 1.6 }}>
-                Add entries to the <code style={{ fontFamily: "var(--font-mono)", fontSize: 13 }}>CLIENTS</code> array
-                in <code style={{ fontFamily: "var(--font-mono)", fontSize: 13 }}>components/pages/Work.jsx</code> and
-                each one renders a live preview of the real site.
+                We're putting this page together. Ask us on your call and we'll walk you
+                through the sites we've built and the results they're producing.
               </p>
             </div>
           )}

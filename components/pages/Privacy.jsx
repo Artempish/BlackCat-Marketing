@@ -3,7 +3,7 @@ import { Layout, PageHero, CTABlock } from "@/components/shared";
 
 // ⚠️ BEFORE LAUNCH — this is adapted boilerplate, not legal advice.
 //   1. Replace every [YOUR CITY, STATE] / [YOUR STATE] placeholder.
-//   2. Confirm the third-party processors named here (GoHighLevel) are the
+//   2. Confirm the third-party processors named here (Calendly) are the
 //      ones you actually use, and add any others (analytics, call tracking).
 //   3. Set PRIVACY_EFFECTIVE to the date you actually publish.
 //   4. Have a lawyer read it. You're making performance guarantees on this
@@ -13,7 +13,7 @@ const PRIVACY_EFFECTIVE = "May 31, 2026";
 const PRIVACY_TOC = [
   ["who-we-are", "Who we are"],
   ["info-we-collect", "Information we collect"],
-  ["booking-form", "Our booking form & GoHighLevel"],
+  ["booking-form", "Our booking & Calendly"],
   ["cookies", "Cookies"],
   ["how-we-use", "How we use your information"],
   ["how-we-share", "How we share information"],
@@ -83,25 +83,30 @@ function PrivacyPage() {
             </section>
 
             <section id="booking-form">
-              <h2>Our booking form & GoHighLevel</h2>
+              <h2>Our booking & Calendly</h2>
               <p>
-                Our booking form is provided by <strong>GoHighLevel (GHL)</strong>, a third-party software platform.
-                When you submit the form, your information is sent to, processed by, and stored within GoHighLevel
-                <strong> on BlackCat Marketing's behalf</strong>. In other words, GoHighLevel acts as our service provider for
+                Our booking scheduler is provided by <strong>Calendly</strong>, a third-party software platform.
+                When you submit the form, your information is sent to, processed by, and stored within Calendly
+                <strong> on BlackCat Marketing's behalf</strong>. In other words, Calendly acts as our service provider for
                 handling booking submissions — it holds the data so we can read it and respond to you.
               </p>
               <p>
-                Because the form is embedded from GoHighLevel, the GoHighLevel embed may set its own cookies in your
-                browser and may collect technical information as part of delivering and securing the form. GoHighLevel's
-                handling of that information is also governed by GoHighLevel's own privacy practices. We encourage you to
-                review GoHighLevel's privacy policy if you'd like more detail on how they operate as our processor.
+                Because the form is embedded from Calendly, the Calendly embed may set its own cookies in your
+                browser and may collect technical information as part of delivering and securing the form. Calendly's
+                handling of that information is also governed by Calendly's own privacy practices. We encourage you to
+                review Calendly's privacy policy if you'd like more detail on how they operate as our processor.
+              </p>
+              <p>
+                Our Book a Call page may also embed a <strong>Google Calendar</strong> view so you can see our
+                availability. That embed is served by Google and may set its own cookies. It is display-only — it
+                doesn't collect anything you type, and we don't receive any information about you through it.
               </p>
             </section>
 
             <section id="cookies">
               <h2>Cookies</h2>
               <p>
-                A cookie is a small file a website stores in your browser. Our site, and the embedded GoHighLevel booking
+                A cookie is a small file a website stores in your browser. Our site, and the embedded Calendly booking
                 form, may use cookies to keep the form working correctly, remember basic preferences, and understand
                 general site usage. You can control or delete cookies through your browser settings. Blocking cookies may
                 affect how the booking form functions.
@@ -127,7 +132,7 @@ function PrivacyPage() {
               <h2>How we share information</h2>
               <p>We share information only in limited ways:</p>
               <ul>
-                <li><strong>With GoHighLevel</strong>, which stores and processes booking submissions for us, as described above.</li>
+                <li><strong>With Calendly</strong>, which stores and processes booking submissions for us, as described above.</li>
                 <li><strong>With service providers</strong> who help us operate (for example, email or hosting), only as needed to do their job for us.</li>
                 <li><strong>When required by law</strong>, such as to comply with a valid legal request, or to protect our rights, safety, or property.</li>
               </ul>
@@ -139,8 +144,8 @@ function PrivacyPage() {
               <p>
                 We keep booking information for as long as we need it to respond to you and, where relevant, to maintain a
                 record of our relationship or comply with legal obligations. If you ask us to delete your information, we
-                will do so unless we're required to keep it. Because submissions are stored in GoHighLevel, deleting your
-                data includes removing it from our GoHighLevel account.
+                will do so unless we're required to keep it. Because submissions are stored in Calendly, deleting your
+                data includes removing it from our Calendly account.
               </p>
             </section>
 
@@ -181,7 +186,7 @@ function PrivacyPage() {
             <section id="security">
               <h2>How we protect your information</h2>
               <p>
-                We rely on reputable providers, including GoHighLevel, to store booking data, and we take reasonable steps to
+                We rely on reputable providers, including Calendly, to store booking data, and we take reasonable steps to
                 protect the information you share. No method of transmitting or storing data is 100% secure, so we can't
                 guarantee absolute security — but we work to keep your information safe and limit access to it.
               </p>

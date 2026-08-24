@@ -16,47 +16,10 @@ import { Sections3 } from "@/components/sections3";
 // If you have no case studies yet, delete the CASES array and the "Case
 // studies" section — the rest of this page stands on its own.
 // ═══════════════════════════════════════════════════════════════════════════
-const CASES = [
-  {
-    name: "[Company name]",
-    trade: "[Trade]",
-    location: "[City, ST]",
-    hero: { n: "#[X]", l: "map pack position, from [starting position]" },
-    stats: [
-      { n: "[X]", l: "days to top 3" },
-      { n: "[X]", l: "leads per month" },
-      { n: "$[X]", l: "cost per booked job" },
-    ],
-    quote: "[Real client quote, used with written permission.]",
-    quoteBy: "[Name], [Role]",
-  },
-  {
-    name: "[Company name]",
-    trade: "[Trade]",
-    location: "[City, ST]",
-    hero: { n: "[X]", l: "LSA leads in the first 30 days" },
-    stats: [
-      { n: "[X]", l: "leads month one" },
-      { n: "$[X]", l: "cost per lead" },
-      { n: "[X]%", l: "leads that booked" },
-    ],
-    quote: "[Real client quote, used with written permission.]",
-    quoteBy: "[Name], [Role]",
-  },
-  {
-    name: "[Company name]",
-    trade: "[Trade]",
-    location: "[City, ST]",
-    hero: { n: "[X]×", l: "more booked estimates year over year" },
-    stats: [
-      { n: "[X]", l: "keywords in the top 3" },
-      { n: "[X]", l: "new Google reviews" },
-      { n: "[X]", l: "months on the program" },
-    ],
-    quote: "[Real client quote, used with written permission.]",
-    quoteBy: "[Name], [Role]",
-  },
-];
+// Empty until there are real clients with real, evidenced numbers and written
+// permission to quote them. Fill in entries with the same shape as CaseStudy's
+// props and the section below appears on its own.
+const CASES = [];
 
 function CaseStudy({ name, trade, location, hero, stats, quote, quoteBy }) {
   const narrow = window.innerWidth < 900;
@@ -192,18 +155,20 @@ function ResultsPage() {
         </div>
       </section>
 
-      {/* Case studies */}
-      <section className="cc-section cc-section--card" id="cases">
-        <div className="cc-container">
-          <div style={{ marginBottom: 40 }}>
-            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>CASE STUDIES</div>
-            <h2 className="cc-h2">Contractors running the system.</h2>
+      {/* Case studies — hidden entirely while CASES is empty */}
+      {CASES.length > 0 && (
+        <section className="cc-section cc-section--card" id="cases">
+          <div className="cc-container">
+            <div style={{ marginBottom: 40 }}>
+              <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>CASE STUDIES</div>
+              <h2 className="cc-h2">Contractors running the system.</h2>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16 }}>
+              {CASES.map((c, i) => <CaseStudy key={i} {...c} />)}
+            </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16 }}>
-            {CASES.map((c, i) => <CaseStudy key={i} {...c} />)}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* What we won't claim */}
       <section className="cc-section cc-section--gradient">

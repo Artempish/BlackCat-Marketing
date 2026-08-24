@@ -98,7 +98,7 @@ function TermsPage() {
             <section id="third-party">
               <h2>Third-party services & links</h2>
               <p>
-                Our booking form is provided by <strong>GoHighLevel</strong>, a third-party platform, and the Site may contain links to
+                Our booking scheduler is provided by <strong>Calendly</strong>, a third-party platform, and the Site may contain links to
                 other third-party websites or tools. We don't control those third parties and aren't responsible for their content,
                 products, or practices. Your use of a third-party service is governed by that party's own terms and privacy policy.
               </p>
