@@ -10,10 +10,11 @@ const { useEffect: useEffectB, useState: useStateB } = React;
 // the read-only Google Calendar below, which shows availability but can't
 // take a booking. Nothing else needs to change either way.
 //
-//   calendlyUrl: "https://calendly.com/your-handle/20min"
+//   calendlyUrl: "https://calendly.com/blackcatmarketing"            (all your events)
+//   calendlyUrl: "https://calendly.com/blackcatmarketing/20min"      (one event)
 // ─────────────────────────────────────────────────────────────────────────
 const BOOKING = {
-  calendlyUrl: "",
+  calendlyUrl: "https://calendly.com/blackcatmarketing",
   googleCalendarSrc: "artempishic88@gmail.com",
   timezone: "America/Chicago",
   timezoneLabel: "Central Time",

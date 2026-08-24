@@ -21,8 +21,8 @@ const BRAND = {
 
 // ⚠️ REPLACE BEFORE LAUNCH — see README.
 const CONTACT = {
-  phoneLabel: "(555) 000-0000",
-  phoneHref: "+15550000000",
+  phoneLabel: "(217) 402-4861",
+  phoneHref: "+12174024861",
   email: "hello@blackcatmarketing.com",
   location: "United States",
 };
