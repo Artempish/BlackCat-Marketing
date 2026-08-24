@@ -29,13 +29,11 @@ const CONTACT = {
   email: "",
   location: "Champaign, IL · serving contractors nationwide",
 };
-// ⚠️ REPLACE BEFORE LAUNCH — point these at real profiles, or delete the rows.
-const SOCIALS = [
-  { icon: "instagram", label: "BlackCat Marketing on Instagram", href: "https://www.instagram.com/" },
-  { icon: "linkedin", label: "BlackCat Marketing on LinkedIn", href: "https://www.linkedin.com/" },
-  { icon: "facebook", label: "BlackCat Marketing on Facebook", href: "https://www.facebook.com/" },
-  { icon: "youtube", label: "BlackCat Marketing on YouTube", href: "https://www.youtube.com/" },
-];
+// Real profile URLs only. A bare instagram.com / linkedin.com link reads as a
+// broken site to a visitor, so entries are filtered below and the whole row
+// hides itself while this is empty. Add rows as the profiles go live:
+//   { icon: "instagram", label: "BlackCat Marketing on Instagram", href: "https://www.instagram.com/yourhandle" },
+const SOCIALS = [];
 
 // Brand mark — amber tile with a black cat silhouette, plus the wordmark.
 // Colors are hard-coded (not tokens) so the mark is identical in both themes.
@@ -383,8 +381,8 @@ function Footer() {
               </span>
             </div>
 
-            {/* Social */}
-            <div style={{ display: "flex", gap: 10, marginTop: 20 }}>
+            {/* Social — the row disappears entirely while SOCIALS is empty */}
+            <div style={{ display: SOCIALS.length ? "flex" : "none", gap: 10, marginTop: 20 }}>
               {SOCIALS.map((s) => {
                 const Ic = Icon[s.icon];
                 return (

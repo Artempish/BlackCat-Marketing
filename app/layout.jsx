@@ -3,7 +3,7 @@ import "./globals.css";
 // ⚠️ REPLACE BEFORE LAUNCH — point metadataBase at your real domain.
 // It's also referenced in public/sitemap.xml, public/robots.txt and public/llms.txt.
 export const metadata = {
-  metadataBase: new URL("https://blackcatmarketing.com"),
+  metadataBase: new URL("https://blackcatdigitalmarketing.com"),
   title: {
     default: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO & GMB",
     template: "%s | BlackCat Marketing",

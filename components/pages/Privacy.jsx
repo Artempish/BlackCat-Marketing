@@ -61,7 +61,7 @@ function PrivacyPage() {
               <p>
                 BlackCat Marketing is a construction-focused marketing agency based in <strong>Champaign, Illinois</strong>.
                 We build websites and lead-capture and follow-up systems for service businesses, and we work with
-                customers across the entire United States. This policy covers the website at blackcatmarketing.com and
+                customers across the entire United States. This policy covers the website at blackcatdigitalmarketing.com and
                 the booking form on it.
               </p>
             </section>

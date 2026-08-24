@@ -47,7 +47,7 @@ function TermsPage() {
             </nav>
 
             <p className="cc-legal__lead">
-              These Terms &amp; Conditions ("Terms") govern your use of the BlackCat Marketing website at blackcatmarketing.com
+              These Terms &amp; Conditions ("Terms") govern your use of the BlackCat Marketing website at blackcatdigitalmarketing.com
               (the "Site"). BlackCat Marketing ("BlackCat Marketing," "we," "us," or "our") is a construction-focused marketing agency
               based in Champaign, Illinois, serving customers across the United States. By using the Site, you agree to these Terms.
             </p>
