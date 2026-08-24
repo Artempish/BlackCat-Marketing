@@ -154,7 +154,7 @@ function TermsPage() {
             <section id="contact">
               <h2>Contact us</h2>
               <p>
-                Questions about these Terms? Call <a href="tel:+12174024861">(217) 402-4861</a>. BlackCat Marketing is
+                Questions about these Terms? Email <a href="mailto:blackcatdigitalmarket@gmail.com">blackcatdigitalmarket@gmail.com</a>, or call <a href="tel:+12174024861">(217) 402-4861</a>. BlackCat Marketing is
                 based in Champaign, Illinois, USA.
               </p>
             </section>

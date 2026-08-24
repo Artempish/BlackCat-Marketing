@@ -57,10 +57,9 @@ const BRAND = {
 const CONTACT = {
   phoneLabel: "(217) 402-4861",
   phoneHref: "+12174024861",
-  // Set this once a real inbox exists (e.g. hello@yourdomain.com). While it is
-  // empty the footer row hides itself and the legal pages point at the phone
-  // number instead — nothing on the site advertises an address that bounces.
-  email: "",
+  // Empty this again if the inbox ever goes away: the footer row hides itself
+  // when it is blank, so the site never advertises an address that bounces.
+  email: "blackcatdigitalmarket@gmail.com",
   location: "Champaign, IL · serving contractors nationwide",
 };
 // Real profile URLs only. A bare instagram.com / linkedin.com link reads as a

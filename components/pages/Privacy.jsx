@@ -53,7 +53,7 @@ function PrivacyPage() {
             <p className="cc-legal__lead">
               This Privacy Policy describes how BlackCat Marketing ("BlackCat Marketing," "we," "us," or "our") handles
               the information you share with us when you visit our website or submit our booking form. We've written
-              it to be readable. If anything here is unclear, call us at <a href="tel:+12174024861">(217) 402-4861</a> and we'll explain.
+              it to be readable. If anything here is unclear, email us at <a href="mailto:blackcatdigitalmarket@gmail.com">blackcatdigitalmarket@gmail.com</a> and we'll explain.
             </p>
 
             <section id="who-we-are">
@@ -167,7 +167,7 @@ function PrivacyPage() {
                 <p>
                   <strong>We do not sell your personal information</strong> in the everyday sense of the word, and we do not
                   share it for cross-context behavioral advertising. To exercise any of the rights above — including a request
-                  to access, delete, or opt out — call us at <a href="tel:+12174024861">(217) 402-4861</a> with
+                  to access, delete, or opt out — email us at <a href="mailto:blackcatdigitalmarket@gmail.com">blackcatdigitalmarket@gmail.com</a> with
                   the details of your request. We may need to verify your identity before we act on it, and you can use an
                   authorized agent where the law allows.
                 </p>
@@ -178,7 +178,7 @@ function PrivacyPage() {
               <h2>Access or delete your information</h2>
               <p>
                 No matter where you live, you can ask us what booking information we hold about you, ask us to correct it,
-                or ask us to delete it. Just call <a href="tel:+12174024861">(217) 402-4861</a> from
+                or ask us to delete it. Just email <a href="mailto:blackcatdigitalmarket@gmail.com">blackcatdigitalmarket@gmail.com</a> from
                 the email address you used, or include enough detail for us to find your submission. We'll confirm when it's done.
               </p>
             </section>
@@ -213,7 +213,7 @@ function PrivacyPage() {
             <section id="contact">
               <h2>Contact us</h2>
               <p>
-                Questions about this policy, or a privacy request? Call <a href="tel:+12174024861">(217) 402-4861</a>.
+                Questions about this policy, or a privacy request? Email <a href="mailto:blackcatdigitalmarket@gmail.com">blackcatdigitalmarket@gmail.com</a>, or call <a href="tel:+12174024861">(217) 402-4861</a>.
                 BlackCat Marketing is based in Champaign, Illinois, USA.
               </p>
             </section>
