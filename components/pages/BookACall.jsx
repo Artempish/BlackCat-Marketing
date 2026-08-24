@@ -14,7 +14,7 @@ const { useEffect: useEffectB, useState: useStateB } = React;
 //   calendlyUrl: "https://calendly.com/blackcatmarketing/20min"      (one event)
 // ─────────────────────────────────────────────────────────────────────────
 const BOOKING = {
-  calendlyUrl: "https://calendly.com/blackcatmarketing",
+  calendlyUrl: "https://calendly.com/blackcatmarketing/20-minute-strategy-call",
   googleCalendarSrc: "artempishic88@gmail.com",
   timezone: "America/Chicago",
   timezoneLabel: "Central Time",
