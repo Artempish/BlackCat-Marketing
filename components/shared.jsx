@@ -23,7 +23,10 @@ const BRAND = {
 const CONTACT = {
   phoneLabel: "(217) 402-4861",
   phoneHref: "+12174024861",
-  email: "hello@blackcatmarketing.com",
+  // Set this once a real inbox exists (e.g. hello@yourdomain.com). While it is
+  // empty the footer row hides itself and the legal pages point at the phone
+  // number instead — nothing on the site advertises an address that bounces.
+  email: "",
   location: "United States",
 };
 // ⚠️ REPLACE BEFORE LAUNCH — point these at real profiles, or delete the rows.
@@ -352,7 +355,7 @@ function Footer() {
               <a href={`tel:${CONTACT.phoneHref}`} style={{ display: CONTACT.phoneLabel ? "inline-flex" : "none", alignItems: "center", gap: 9, color: "hsl(var(--foreground))", textDecoration: "none", fontWeight: 500 }}>
                 <Icon.phone size={15} style={{ color: "hsl(var(--muted-foreground))", flexShrink: 0 }} /> {CONTACT.phoneLabel}
               </a>
-              <a href={`mailto:${CONTACT.email}`} style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "hsl(var(--muted-foreground))", textDecoration: "none" }}>
+              <a href={`mailto:${CONTACT.email}`} style={{ display: CONTACT.email ? "inline-flex" : "none", alignItems: "center", gap: 9, color: "hsl(var(--muted-foreground))", textDecoration: "none" }}>
                 <Icon.mail size={15} style={{ flexShrink: 0 }} /> {CONTACT.email}
               </a>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 9, color: "hsl(var(--muted-foreground))" }}>
