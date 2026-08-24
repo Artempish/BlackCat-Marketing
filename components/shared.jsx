@@ -241,16 +241,36 @@ function NavItem({ link, active }) {
   );
 }
 
+// The nav pill is one nowrap row that cannot shrink, so it has to be measured
+// against real widths rather than guessed. Full row (brand + links + phone +
+// CTA) needs ~1240px; dropping the phone button brings that to ~1080px. Below
+// that the links collapse into the menu. Anything narrower than the row it is
+// showing makes the CTA spill outside the pill instead of wrapping.
+const NAV_FULL_MIN = 1240;
+const NAV_LINKS_MIN = 1080;
+
 function Nav({ active }) {
   const [scrolled, setScrolled] = useStateL(false);
   const [mobileOpen, setMobileOpen] = useStateL(false);
+  const [width, setWidth] = useStateL(
+    typeof window === "undefined" ? NAV_FULL_MIN : window.innerWidth
+  );
   useEffectL(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 900;
+  // Width is read on every resize, not just first render — otherwise dragging
+  // the window across a breakpoint leaves the old layout in place.
+  useEffectL(() => {
+    const onResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", onResize, { passive: true });
+    onResize();
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  const isMobile = width < NAV_LINKS_MIN;
+  const showNavPhone = width >= NAV_FULL_MIN;
   return (
     <nav className="cc-nav" data-scrolled={scrolled ? "true" : "false"}>
       <div className="cc-container cc-nav__inner">
@@ -265,7 +285,7 @@ function Nav({ active }) {
           </div>
         )}
         <div className="cc-nav__cta">
-          {!isMobile && (
+          {showNavPhone && (
             <a href={`tel:${CONTACT.phoneHref}`} className="cc-btn cc-btn--ghost cc-btn--sm">
               <Icon.phone size={13} /> {CONTACT.phoneLabel}
             </a>
