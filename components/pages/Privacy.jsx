@@ -2,7 +2,7 @@
 import { Layout, PageHero, CTABlock } from "@/components/shared";
 
 // ⚠️ BEFORE LAUNCH — this is adapted boilerplate, not legal advice.
-//   1. Replace every [YOUR CITY, STATE] / [YOUR STATE] placeholder.
+//   1. Location and governing law are set to Champaign, Illinois.
 //   2. Confirm the third-party processors named here (Calendly) are the
 //      ones you actually use, and add any others (analytics, call tracking).
 //   3. Set PRIVACY_EFFECTIVE to the date you actually publish.
@@ -59,7 +59,7 @@ function PrivacyPage() {
             <section id="who-we-are">
               <h2>Who we are</h2>
               <p>
-                BlackCat Marketing is a construction-focused marketing agency based in <strong>[YOUR CITY, STATE]</strong>.
+                BlackCat Marketing is a construction-focused marketing agency based in <strong>Champaign, Illinois</strong>.
                 We build websites and lead-capture and follow-up systems for service businesses, and we work with
                 customers across the entire United States. This policy covers the website at blackcatmarketing.com and
                 the booking form on it.
@@ -214,7 +214,7 @@ function PrivacyPage() {
               <h2>Contact us</h2>
               <p>
                 Questions about this policy, or a privacy request? Call <a href="tel:+12174024861">(217) 402-4861</a>.
-                BlackCat Marketing is based in [YOUR CITY, STATE], USA.
+                BlackCat Marketing is based in Champaign, Illinois, USA.
               </p>
             </section>
           </div>

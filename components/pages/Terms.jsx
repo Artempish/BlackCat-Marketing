@@ -2,7 +2,7 @@
 import { Layout, PageHero, CTABlock } from "@/components/shared";
 
 // ⚠️ BEFORE LAUNCH — this is adapted boilerplate, not legal advice.
-//   1. Replace every [YOUR CITY, STATE] / [YOUR STATE] placeholder.
+//   1. Location and governing law are set to Champaign, Illinois.
 //   2. Make sure the governing-law state matches where you actually operate.
 //   3. Reconcile these Terms with the service agreement your clients sign —
 //      especially the guarantees published on /guarantee.
@@ -29,7 +29,7 @@ function TermsPage() {
       <PageHero
         eyebrow="Legal"
         title={<>Terms &amp; Conditions</>}
-        sub="The ground rules for using this website. In short: the site is ours, use it lawfully, and it's provided as-is. These terms are governed by [YOUR STATE] law."
+        sub="The ground rules for using this website. In short: the site is ours, use it lawfully, and it's provided as-is. These terms are governed by Illinois law."
       />
 
       <section className="cc-section cc-section--card">
@@ -49,7 +49,7 @@ function TermsPage() {
             <p className="cc-legal__lead">
               These Terms &amp; Conditions ("Terms") govern your use of the BlackCat Marketing website at blackcatmarketing.com
               (the "Site"). BlackCat Marketing ("BlackCat Marketing," "we," "us," or "our") is a construction-focused marketing agency
-              based in [YOUR CITY, STATE], serving customers across the United States. By using the Site, you agree to these Terms.
+              based in Champaign, Illinois, serving customers across the United States. By using the Site, you agree to these Terms.
             </p>
 
             <section id="acceptance">
@@ -137,9 +137,9 @@ function TermsPage() {
             <section id="governing-law">
               <h2>Governing law</h2>
               <p>
-                These Terms are governed by the laws of the <strong>State of [YOUR STATE], USA</strong>, without regard to its conflict-of-laws
+                These Terms are governed by the laws of the <strong>State of Illinois, USA</strong>, without regard to its conflict-of-laws
                 rules. Any dispute relating to these Terms or the Site will be subject to the exclusive jurisdiction of the state and federal
-                courts located in [YOUR STATE], and you consent to that jurisdiction.
+                courts located in Illinois, and you consent to that jurisdiction.
               </p>
             </section>
 
@@ -155,7 +155,7 @@ function TermsPage() {
               <h2>Contact us</h2>
               <p>
                 Questions about these Terms? Call <a href="tel:+12174024861">(217) 402-4861</a>. BlackCat Marketing is
-                based in [YOUR CITY, STATE], USA.
+                based in Champaign, Illinois, USA.
               </p>
             </section>
           </div>

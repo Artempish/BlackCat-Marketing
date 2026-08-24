@@ -27,7 +27,7 @@ const CONTACT = {
   // empty the footer row hides itself and the legal pages point at the phone
   // number instead — nothing on the site advertises an address that bounces.
   email: "",
-  location: "United States",
+  location: "Champaign, IL · serving contractors nationwide",
 };
 // ⚠️ REPLACE BEFORE LAUNCH — point these at real profiles, or delete the rows.
 const SOCIALS = [
