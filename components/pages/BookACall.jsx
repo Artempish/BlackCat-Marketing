@@ -221,8 +221,6 @@ function BookACallPage() {
               }}>
                 See an open slot that works? Call{" "}
                 <a href={`tel:${CONTACT.phoneHref}`} style={{ color: "hsl(var(--foreground))", fontWeight: 550 }}>{CONTACT.phoneLabel}</a>{" "}
-                or email{" "}
-                <a href={`mailto:${CONTACT.email}`} style={{ color: "hsl(var(--foreground))", fontWeight: 550 }}>{CONTACT.email}</a>{" "}
                 and we'll lock it in.
               </div>
               )}

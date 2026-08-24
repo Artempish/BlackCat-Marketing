@@ -154,7 +154,7 @@ function TermsPage() {
             <section id="contact">
               <h2>Contact us</h2>
               <p>
-                Questions about these Terms? Email <a href="mailto:hello@blackcatmarketing.com">hello@blackcatmarketing.com</a>. BlackCat Marketing is
+                Questions about these Terms? Call <a href="tel:+12174024861">(217) 402-4861</a>. BlackCat Marketing is
                 based in [YOUR CITY, STATE], USA.
               </p>
             </section>
