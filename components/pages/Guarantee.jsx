@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 
 // ⚠️ BEFORE LAUNCH: have these terms reviewed against the actual service
 // agreement your clients sign, so the page and the contract say the same thing.
@@ -46,8 +46,9 @@ const GUARANTEES = [
 ];
 
 function GuaranteeCard({ g }) {
+  const vw = useViewportWidth();
   const Ic = Icon[g.icon] || Icon.badge;
-  const narrow = window.innerWidth < 900;
+  const narrow = vw < 900;
   return (
     <section id={g.id} className="cc-section cc-section--card" style={{ scrollMarginTop: 80 }}>
       <div className="cc-container">
@@ -120,7 +121,8 @@ function GuaranteeCard({ g }) {
 }
 
 function GuaranteePage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   return (
     <Layout active="guarantee">
       <PageHero
@@ -133,7 +135,7 @@ function GuaranteePage() {
       {/* Summary strip */}
       <section className="cc-section cc-section--dark" style={{ padding: "56px 0" }}>
         <div className="cc-container">
-          <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 760 ? "1fr" : "1fr 1fr", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: vw < 760 ? "1fr" : "1fr 1fr", gap: 20 }}>
             {GUARANTEES.map((g) => {
               const Ic = Icon[g.icon] || Icon.badge;
               return (

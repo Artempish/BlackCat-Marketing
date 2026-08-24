@@ -1,4 +1,3 @@
-import ClientOnly from "@/components/ClientOnly";
 import Privacy from "@/components/pages/Privacy";
 
 export const metadata = {
@@ -10,8 +9,6 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ClientOnly>
-      <Privacy />
-    </ClientOnly>
+    <Privacy />
   );
 }

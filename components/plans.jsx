@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
+import { useViewportWidth } from "@/components/shared";
 
 // ── The two plans, in one place ───────────────────────────────────────────────
 // Home, Pricing, and the FAQ all read from here, so a price change is one edit.
@@ -187,7 +188,7 @@ export function PlanCard({ plan, compact }) {
 }
 
 export function PlanGrid({ compact }) {
-  const oneCol = typeof window !== "undefined" && window.innerWidth < 860;
+  const oneCol = useViewportWidth() < 860;
   return (
     <div style={{
       display: "grid",

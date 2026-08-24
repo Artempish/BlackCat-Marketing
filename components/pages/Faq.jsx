@@ -1,6 +1,6 @@
 "use client";
 import { Icon } from "@/components/icons";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 import React from "react";
 const { useState: useStateF } = React;
 
@@ -166,6 +166,7 @@ function FAQItem({ q, a, open, onClick }) {
 }
 
 function FAQPage() {
+  const vw = useViewportWidth();
   const [openKey, setOpenKey] = useStateF("0-0");
   const [search, setSearch] = useStateF("");
   const [activeCat, setActiveCat] = useStateF("All");
@@ -179,7 +180,7 @@ function FAQPage() {
       .filter((it) => !search || norm(it.q + " " + it.a).includes(norm(search))),
   })).filter((g) => (activeCat === "All" || g.cat === activeCat) && g.items.length > 0);
 
-  const narrow = window.innerWidth < 900;
+  const narrow = vw < 900;
 
   return (
     <Layout active="faq">

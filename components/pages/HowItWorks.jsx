@@ -2,7 +2,7 @@
 import React from "react";
 import { Icon } from "@/components/icons";
 import { Sections2 } from "@/components/sections2";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 
 const PHASES = [
   {
@@ -58,12 +58,13 @@ const PHASES = [
 ];
 
 function PhaseCard({ p, i }) {
+  const vw = useViewportWidth();
   return (
     <div style={{
       display: "grid",
-      gridTemplateColumns: window.innerWidth < 860 ? "1fr" : "0.55fr 1fr",
-      gap: window.innerWidth < 860 ? 20 : 48,
-      padding: window.innerWidth < 860 ? "32px 0" : "44px 0",
+      gridTemplateColumns: vw < 860 ? "1fr" : "0.55fr 1fr",
+      gap: vw < 860 ? 20 : 48,
+      padding: vw < 860 ? "32px 0" : "44px 0",
       borderTop: i === 0 ? "none" : "1px solid hsl(var(--border))",
       alignItems: "start",
     }}>
@@ -103,7 +104,8 @@ function PhaseCard({ p, i }) {
 }
 
 function HowItWorksPage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   return (
     <Layout active="how-it-works">
       <PageHero
@@ -197,7 +199,7 @@ function HowItWorksPage() {
           </div>
           <div style={{
             display: "grid",
-            gridTemplateColumns: window.innerWidth < 700 ? "1fr 1fr" : "repeat(4, 1fr)",
+            gridTemplateColumns: vw < 700 ? "1fr 1fr" : "repeat(4, 1fr)",
             gap: 16,
           }}>
             {[

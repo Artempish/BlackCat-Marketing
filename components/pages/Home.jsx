@@ -1,5 +1,5 @@
 "use client";
-import { Layout, CTABlock } from "@/components/shared";
+import { Layout, CTABlock, useViewportWidth } from "@/components/shared";
 import { Sections1 } from "@/components/sections1";
 import { Sections2 } from "@/components/sections2";
 import { Sections3 } from "@/components/sections3";
@@ -34,7 +34,8 @@ function ServiceTeaser({ icon, title, body, href }) {
 }
 
 function HomePage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   return (
     <Layout active="home">
       <Sections1.Hero />
@@ -120,7 +121,7 @@ function HomePage() {
       {/* Stat strip */}
       <section className="cc-section cc-section--dark">
         <div className="cc-container">
-          <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 700 ? "1fr 1fr" : "repeat(4, 1fr)", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: vw < 700 ? "1fr 1fr" : "repeat(4, 1fr)", gap: 24 }}>
             {[
               { n: "Top 3", l: "target in 90 days" },
               { n: "5", l: "LSA leads in 30 days" },

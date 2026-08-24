@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 import { PLANS, PlanGrid } from "@/components/plans";
 
 // What a month of LSA actually costs, at a few different daily budgets.
@@ -14,7 +14,8 @@ const SPEND_ROWS = [
 ];
 
 function SpendTable() {
-  const narrow = window.innerWidth < 760;
+  const vw = useViewportWidth();
+  const narrow = vw < 760;
   const cols = "1.1fr 1fr 1fr 1.4fr";
   return (
     <div style={{
@@ -97,7 +98,8 @@ function SpendTable() {
 }
 
 function PricingPage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   const lsa = PLANS.find((p) => p.id === "lsa");
   const growth = PLANS.find((p) => p.id === "growth");
 
@@ -222,7 +224,7 @@ function PricingPage() {
             <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12 }}>WHAT WE PUT IN WRITING</div>
             <h2 className="cc-h2" style={{ fontSize: "clamp(26px, 3vw, 38px)" }}>The guarantees attached to each plan.</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 700 ? "1fr" : "repeat(3, 1fr)", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: vw < 700 ? "1fr" : "repeat(3, 1fr)", gap: 24 }}>
             {[
               {
                 i: <Icon.target size={22} />,

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 import { Sections3 } from "@/components/sections3";
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -22,7 +22,8 @@ import { Sections3 } from "@/components/sections3";
 const CASES = [];
 
 function CaseStudy({ name, trade, location, hero, stats, quote, quoteBy }) {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   return (
     <div
       style={{
@@ -74,7 +75,7 @@ function CaseStudy({ name, trade, location, hero, stats, quote, quoteBy }) {
 
         {/* Right detail */}
         <div style={{ padding: 32, display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 600 ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16, marginBottom: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: vw < 600 ? "1fr 1fr" : "repeat(3, 1fr)", gap: 16, marginBottom: 24 }}>
             {stats.map((s) => (
               <div key={s.l}>
                 <div style={{ fontSize: 26, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.1 }}>{s.n}</div>
@@ -105,7 +106,8 @@ function CaseStudy({ name, trade, location, hero, stats, quote, quoteBy }) {
 }
 
 function ResultsPage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   return (
     <Layout active="results">
       <PageHero
@@ -129,7 +131,7 @@ function ResultsPage() {
                 built so you can work out, in about ten seconds, whether we earned the fee.
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 600 ? "1fr" : "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: vw < 600 ? "1fr" : "1fr 1fr", gap: 16 }}>
               {[
                 { icon: "mapPin", t: "Map pack position", b: "Tracked per keyword, from inside your service area — not from a data center three states away." },
                 { icon: "phone", t: "Leads by channel", b: "LSA, organic, map pack, direct. So you know which channel is carrying the month." },

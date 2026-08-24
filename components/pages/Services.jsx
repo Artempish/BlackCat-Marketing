@@ -2,19 +2,20 @@
 import React from "react";
 import { Icon } from "@/components/icons";
 import { Mock } from "@/components/mocks";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 
 function ServiceRow({ id, idx, eyebrow, title, body, bullets, mock, reverse, plan, planHref }) {
+  const vw = useViewportWidth();
   const rightOnLeft = reverse;
   return (
     <section id={id} className="cc-section cc-section--card" style={{ scrollMarginTop: 80 }}>
       <div className="cc-container">
         <div style={{
           display: "grid",
-          gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 1fr",
+          gridTemplateColumns: vw < 900 ? "1fr" : "1fr 1fr",
           gap: 56,
           alignItems: "center",
-          direction: rightOnLeft && window.innerWidth >= 900 ? "rtl" : "ltr",
+          direction: rightOnLeft && vw >= 900 ? "rtl" : "ltr",
         }}>
           <div style={{ direction: "ltr" }} className="cc-stack-md">
             <div className="cc-eyebrow">
@@ -72,6 +73,7 @@ function ServiceRow({ id, idx, eyebrow, title, body, bullets, mock, reverse, pla
 }
 
 function ServicesPage() {
+  const vw = useViewportWidth();
   const services = [
     {
       id: "lsa",
@@ -203,7 +205,7 @@ function ServicesPage() {
           </div>
           <div style={{
             display: "grid",
-            gridTemplateColumns: window.innerWidth < 700 ? "1fr" : window.innerWidth < 1000 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
+            gridTemplateColumns: vw < 700 ? "1fr" : vw < 1000 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
             gap: 16,
           }}>
             {[

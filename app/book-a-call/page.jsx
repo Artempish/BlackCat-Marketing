@@ -1,4 +1,3 @@
-import ClientOnly from "@/components/ClientOnly";
 import BookACall from "@/components/pages/BookACall";
 
 export const metadata = {
@@ -10,8 +9,6 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <ClientOnly>
-      <BookACall />
-    </ClientOnly>
+    <BookACall />
   );
 }

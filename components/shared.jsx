@@ -5,6 +5,40 @@ import { Icon } from "./icons";
 import { TweaksPanel, useTweaks, TweakSection, TweakRadio, TweakToggle, TweakColor } from "./tweaks";
 const { useState: useStateL, useEffect: useEffectL, useRef: useRefL } = React;
 
+// ── Viewport width, safe to read while server-rendering ───────────────────────
+// These pages size their layout from the viewport. Reading window.innerWidth
+// during render is what forced the whole site to be client-only, which left
+// crawlers with an empty document.
+//
+// useSyncExternalStore solves both halves: getServerSnapshot feeds SSR *and*
+// the first client render, so the hydrated tree always matches the server's,
+// and the real width is picked up immediately afterwards. Reading window
+// directly in a useState initializer would NOT be safe — it makes the first
+// client render disagree with the server and React throws out the markup.
+//
+// SSR_WIDTH is a desktop width: the server emits the full desktop layout, which
+// is the version worth having in the HTML a crawler reads.
+const SSR_WIDTH = 1440;
+let currentWidth = SSR_WIDTH;
+
+function subscribeToWidth(onChange) {
+  const onResize = () => {
+    currentWidth = window.innerWidth;
+    onChange();
+  };
+  onResize();
+  window.addEventListener("resize", onResize, { passive: true });
+  return () => window.removeEventListener("resize", onResize);
+}
+
+function useViewportWidth() {
+  return React.useSyncExternalStore(
+    subscribeToWidth,
+    () => currentWidth,
+    () => SSR_WIDTH
+  );
+}
+
 // ── Business facts, in one place ──────────────────────────────────────────────
 // Every price, promise, and contact detail on the site reads from here so there
 // is exactly one thing to edit when something changes.
@@ -250,22 +284,12 @@ const NAV_LINKS_MIN = 1080;
 function Nav({ active }) {
   const [scrolled, setScrolled] = useStateL(false);
   const [mobileOpen, setMobileOpen] = useStateL(false);
-  const [width, setWidth] = useStateL(
-    typeof window === "undefined" ? NAV_FULL_MIN : window.innerWidth
-  );
+  const width = useViewportWidth();
   useEffectL(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  // Width is read on every resize, not just first render — otherwise dragging
-  // the window across a breakpoint leaves the old layout in place.
-  useEffectL(() => {
-    const onResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", onResize, { passive: true });
-    onResize();
-    return () => window.removeEventListener("resize", onResize);
   }, []);
   const isMobile = width < NAV_LINKS_MIN;
   const showNavPhone = width >= NAV_FULL_MIN;
@@ -540,4 +564,4 @@ function Layout({ active, children }) {
   );
 }
 
-export { Nav, Footer, Layout, PageHero, CTABlock, NAV_LINKS, BRAND, CONTACT };
+export { Nav, Footer, Layout, PageHero, CTABlock, NAV_LINKS, BRAND, CONTACT, useViewportWidth };

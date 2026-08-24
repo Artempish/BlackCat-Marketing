@@ -2,6 +2,7 @@
 import React from "react";
 import { Icon } from "@/components/icons";
 import { Mock } from "@/components/mocks";
+import { useViewportWidth } from "@/components/shared";
 const { useState: useState2, useEffect: useEffect2, useRef: useRef2 } = React;
 
 // ===== Features — the three services =====
@@ -83,10 +84,11 @@ function FeatureCard({ eyebrow, title, desc, mock, href }) {
 
 // ===== Why construction-only =====
 function WhyConstructionSection() {
+  const vw = useViewportWidth();
   return (
     <section className="cc-section cc-section--card" id="proof">
       <div className="cc-container">
-        <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: vw < 900 ? "1fr" : "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div className="cc-stack-lg">
             <div className="cc-eyebrow">ONE INDUSTRY, ON PURPOSE</div>
             <h2 className="cc-h2">We don't market dentists. We market builders.</h2>
@@ -207,6 +209,7 @@ function ChannelGrid() {
 
 // ===== The 90-day plan (interactive tabs) =====
 function HowItWorks() {
+  const vw = useViewportWidth();
   const [active, setActive] = useState2(0);
 
   useEffect2(() => {
@@ -283,7 +286,7 @@ function HowItWorks() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 1.2fr",
+          gridTemplateColumns: vw < 900 ? "1fr" : "1fr 1.2fr",
           gap: 48,
           alignItems: "start",
         }}>

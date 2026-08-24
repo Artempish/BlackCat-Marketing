@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 const { useState, useEffect, useRef } = React;
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -100,7 +100,8 @@ function WorkCard({ name, trade, location, url, note }) {
 }
 
 function WorkPage() {
-  const twoCol = typeof window !== "undefined" && window.innerWidth >= 760;
+  const vw = useViewportWidth();
+  const twoCol = vw >= 760;
   return (
     <Layout active="">
       <PageHero

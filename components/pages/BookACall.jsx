@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Layout, CONTACT } from "@/components/shared";
+import { Layout, CONTACT, useViewportWidth } from "@/components/shared";
 import { Icon } from "@/components/icons";
 const { useEffect: useEffectB, useState: useStateB } = React;
 
@@ -82,7 +82,8 @@ function GoogleCalendarEmbed() {
 }
 
 function BookACallPage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
   const [city, setCity] = useStateB("");
 
   // The hero search box on the home page passes the visitor's city through.

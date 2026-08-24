@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
-import { Layout, PageHero, CTABlock } from "@/components/shared";
+import { Layout, PageHero, CTABlock, useViewportWidth } from "@/components/shared";
 import { Sections3 } from "@/components/sections3";
 
 // The search results page, stacked. LSA sits above everything else.
@@ -67,7 +67,8 @@ function SerpStack() {
 }
 
 function CompareTable() {
-  const narrow = window.innerWidth < 700;
+  const vw = useViewportWidth();
+  const narrow = vw < 700;
   const rows = [
     ["You pay for", "A lead — a call or message", "A click, whether or not it's a lead"],
     ["Position on the page", "Above everything, including ads", "Below Local Services Ads"],
@@ -131,7 +132,8 @@ function CompareTable() {
 }
 
 function LsaAdsPage() {
-  const narrow = window.innerWidth < 900;
+  const vw = useViewportWidth();
+  const narrow = vw < 900;
 
   const workflow = [
     { icon: "badge", t: "Verification, handled", b: "License, general liability insurance, and the background checks Google requires on the business and its owner. This is where most contractors stall out for months — we run it to approval." },
@@ -198,7 +200,7 @@ function LsaAdsPage() {
           <div style={{
             maxWidth: 940, margin: "24px auto 0",
             display: "grid",
-            gridTemplateColumns: window.innerWidth < 760 ? "1fr" : "repeat(3, 1fr)",
+            gridTemplateColumns: vw < 760 ? "1fr" : "repeat(3, 1fr)",
             gap: 16,
           }}>
             {[
@@ -293,7 +295,7 @@ function LsaAdsPage() {
           </div>
           <div style={{
             display: "grid",
-            gridTemplateColumns: window.innerWidth < 700 ? "1fr" : window.innerWidth < 1000 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
+            gridTemplateColumns: vw < 700 ? "1fr" : vw < 1000 ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
             gap: 16,
           }}>
             {workflow.map((w) => {

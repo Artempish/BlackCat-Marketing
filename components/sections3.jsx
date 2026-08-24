@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import { Icon } from "@/components/icons";
+import { useViewportWidth } from "@/components/shared";
 const { useState: useState3, useEffect: useEffect3, useRef: useRef3 } = React;
 
 // ===== Live Demo — a homeowner searching, finding you, and calling =====
 function LiveDemo() {
+  const vw = useViewportWidth();
   const [step, setStep] = useState3(0); // 0 idle, 1 typing, 2 results, 3 tapping, 4 ringing, 5 connected, 6 booked
   const [playing, setPlaying] = useState3(false);
 
@@ -31,10 +33,10 @@ function LiveDemo() {
           overflow: "hidden",
           padding: 0,
           display: "grid",
-          gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 1fr",
+          gridTemplateColumns: vw < 900 ? "1fr" : "1fr 1fr",
         }}>
           {/* Left copy */}
-          <div style={{ padding: window.innerWidth < 900 ? 32 : 56, display: "flex", flexDirection: "column", gap: 20, justifyContent: "center" }}>
+          <div style={{ padding: vw < 900 ? 32 : 56, display: "flex", flexDirection: "column", gap: 20, justifyContent: "center" }}>
             <div className="cc-eyebrow">
               <span className="cc-live-dot" />
               TRY IT LIVE · NO SIGN-UP
@@ -60,8 +62,8 @@ function LiveDemo() {
           {/* Right phone */}
           <div style={{
             background: "hsl(var(--page))",
-            borderLeft: window.innerWidth < 900 ? "none" : "1px solid hsl(var(--border))",
-            borderTop: window.innerWidth < 900 ? "1px solid hsl(var(--border))" : "none",
+            borderLeft: vw < 900 ? "none" : "1px solid hsl(var(--border))",
+            borderTop: vw < 900 ? "1px solid hsl(var(--border))" : "none",
             padding: 32, display: "grid", placeItems: "center",
             position: "relative",
             overflow: "hidden",
@@ -317,10 +319,11 @@ const PROOF = [
 ];
 
 function Testimonials() {
+  const vw = useViewportWidth();
   return (
     <section className="cc-section cc-section--card">
       <div className="cc-container">
-        <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 2fr", gap: 48, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: vw < 900 ? "1fr" : "1fr 2fr", gap: 48, alignItems: "start" }}>
           <div className="cc-stack-md">
             <div className="cc-eyebrow cc-eyebrow--muted">CONTRACTORS</div>
             <h2 className="cc-h2">Built for the people who build.</h2>
@@ -336,7 +339,7 @@ function Testimonials() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 700 ? "1fr" : "1fr 1fr", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: vw < 700 ? "1fr" : "1fr 1fr", gap: 16 }}>
             {PROOF.map((c, i) => (
               <div
                 key={i}
@@ -443,6 +446,7 @@ function Guarantees() {
 
 // ===== FAQ (compact, used on the home page) =====
 function FAQ() {
+  const vw = useViewportWidth();
   const items = [
     { q: "What exactly does the $5,000/month cover?", a: "Website design, build and hosting; full local SEO; and complete Google Business Profile management. One monthly fee, no setup charge, no per-page or per-keyword upcharges." },
     { q: "How does LSA pricing work?", a: "$500/month for management, plus your ad spend. We run to a $50/day ceiling — about $1,500/month — which is what most contractors need to hit our lead target. If you want more volume, you can raise the daily budget any time; the management fee doesn't change." },
@@ -455,7 +459,7 @@ function FAQ() {
   return (
     <section className="cc-section cc-section--card" id="faq">
       <div className="cc-container">
-        <div style={{ display: "grid", gridTemplateColumns: window.innerWidth < 900 ? "1fr" : "1fr 1.6fr", gap: 64, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: vw < 900 ? "1fr" : "1fr 1.6fr", gap: 64, alignItems: "start" }}>
           <div>
             <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>FAQ</div>
             <h2 className="cc-h2">Questions, answered.</h2>
