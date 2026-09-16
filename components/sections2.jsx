@@ -221,12 +221,28 @@ function ChannelGrid() {
 function HowItWorks() {
   const vw = useViewportWidth();
   const [active, setActive] = useState2(0);
+  const sectionRef = useRef2(null);
 
+  // Advance only while the section is actually on screen, and not at all for
+  // visitors who have asked for reduced motion. Rotating off-screen re-rendered
+  // this section under people who had scrolled past it to read something else.
   useEffect2(() => {
-    const t = setInterval(() => {
-      setActive((a) => (a + 1) % 4);
-    }, 5000);
-    return () => clearInterval(t);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = sectionRef.current;
+    if (!el) return;
+
+    let timer = null;
+    const start = () => {
+      if (timer === null) timer = setInterval(() => setActive((a) => (a + 1) % 4), 5000);
+    };
+    const stop = () => {
+      if (timer !== null) { clearInterval(timer); timer = null; }
+    };
+
+    if (typeof IntersectionObserver !== "function") { start(); return stop; }
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start() : stop()), { threshold: 0.2 });
+    io.observe(el);
+    return () => { io.disconnect(); stop(); };
   }, []);
 
   const steps = [
@@ -284,7 +300,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="cc-section cc-section--card" id="how">
+    <section className="cc-section cc-section--card" id="how" ref={sectionRef}>
       <div className="cc-container">
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>THE 90-DAY PLAN</div>
@@ -329,12 +345,24 @@ function HowItWorks() {
                     {s.window}
                   </div>
                   <div style={{ fontWeight: 600, fontSize: 16.5, letterSpacing: "-0.01em", marginBottom: 4 }}>{s.title}</div>
+                  {/* Collapses on grid-template-rows rather than a max-height
+                      guess. A max-height of 70 against ~44px of text meant the
+                      closing row held full height for the first third of the
+                      transition while the opening one was already growing, so
+                      both were tall at once and the section bulged ~26px every
+                      five seconds, shoving the rest of the page down. Animating
+                      0fr <-> 1fr is symmetric and content-agnostic: the two
+                      rows cancel exactly, and nothing is ever clipped. */}
                   <div style={{
-                    fontSize: 14.5, color: "hsl(var(--muted-foreground))", lineHeight: 1.5,
-                    maxHeight: active === i ? 70 : 0,
-                    overflow: "hidden",
-                    transition: "max-height 0.3s var(--ease-default), margin 0.3s var(--ease-default)",
-                  }}>{s.body}</div>
+                    display: "grid",
+                    gridTemplateRows: active === i ? "1fr" : "0fr",
+                    transition: "grid-template-rows 0.3s var(--ease-default)",
+                  }}>
+                    <div style={{
+                      fontSize: 14.5, color: "hsl(var(--muted-foreground))", lineHeight: 1.5,
+                      overflow: "hidden", minHeight: 0,
+                    }}>{s.body}</div>
+                  </div>
                 </div>
               </button>
             ))}

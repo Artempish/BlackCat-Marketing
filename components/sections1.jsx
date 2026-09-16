@@ -133,7 +133,7 @@ function HeroPhone() {
             {leads.map((l, i) =>
               step >= i + 1 ? (
                 <div
-                  key={`${l.job}-${step}`}
+                  key={l.job}
                   className="cc-fade-up"
                   style={{
                     display: "flex", alignItems: "center", gap: 10,
