@@ -1,6 +1,6 @@
 # BlackCat Marketing
 
-> BlackCat Marketing is a marketing agency that works exclusively with construction companies. It runs three services: Google Local Services Ads (LSA) management, website design and local SEO, and Google Business Profile (GMB) optimization. Also written as "Black Cat Marketing."
+> BlackCat Marketing is a marketing agency that works exclusively with construction companies. It runs four services: Google Local Services Ads (LSA) management, website design and local SEO, Google Business Profile (GMB) optimization, and Meta (Facebook and Instagram) ads produced and managed in house. Also written as "Black Cat Marketing."
 
 ## Who it's for
 Construction companies only — general contractors, roofing, concrete and foundations, remodeling, additions and framing, decks and fencing, custom home builders, excavation and sitework, and specialty trades (windows, siding, stucco, masonry, waterproofing). BlackCat does not take clients outside the construction industry.
@@ -10,12 +10,14 @@ Construction companies only — general contractors, roofing, concrete and found
 - Website — custom design, build, hosting and maintenance; service-area and service-type landing pages; project galleries; quote forms and click-to-call
 - Local SEO — buyer-intent keyword research, on-page optimization, monthly content, citation cleanup, authority link building, rank tracking
 - Google Business Profile (GMB) optimization — categories, services, service areas, photos, Q&A, Google Posts, review generation and responses
+- Meta ads (Facebook and Instagram) — strategy and creative session, on-site photo and video production, editing, campaign setup, ongoing management and optimization
 
 ## Pricing
 - LSA Ads — $500/month management, plus ad spend paid directly to Google. Standard ad-spend ceiling is $50/day (about $1,500/month). Clients can raise the daily budget for more volume; the management fee stays at $500. Ad spend is never marked up.
 - Website, SEO & GMB — $3,000/month, all in. No setup fee, no build fee, no per-page charges. Hosting, content, revisions and reporting included.
-- Both plans together — $3,500/month, plus LSA ad spend.
-- Both plans are month to month with no long-term contract.
+- Meta Ads — $1,000/month for creative production and campaign management, plus ad spend paid directly to Meta. Ad spend is not included and is never marked up. No performance guarantee is attached to this plan.
+- Both plans together — $3,500/month, plus LSA ad spend. (This bundle is the LSA plan plus the Website, SEO & GMB plan; Meta ads are priced separately.)
+- All plans are month to month with no long-term contract.
 
 ## Guarantees
 - Top 3 in 90 days: within 90 days of the Google Business Profile going live under BlackCat's management, the client ranks in the top 3 of the Google map pack for the target keywords and service area agreed in writing at kickoff. If missed, BlackCat continues the work at no charge until it lands. Attached to the $3,000/month plan.

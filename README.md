@@ -25,7 +25,7 @@ the whole site updates:
 
 | What | Where |
 |------|-------|
-| Both plans, prices, feature lists, guarantee lines | `components/plans.jsx` (`PLANS`) |
+| All plans, prices, feature lists, guarantee lines | `components/plans.jsx` (`PLANS`) |
 | Guarantee terms and conditions | `components/pages/Guarantee.jsx` (`GUARANTEES`) |
 | Phone, email, location, social links | `components/shared.jsx` (`CONTACT`, `SOCIALS`) |
 | Nav links and dropdowns | `components/shared.jsx` (`NAV_LINKS`) |
@@ -38,7 +38,9 @@ Current offer as built:
 - **Website, SEO & GMB** — $3,000/month all in, no setup fee.
   Guarantee: **top 3 of the map pack within 90 days** for the agreed keywords and service area,
   or the work continues free until it lands.
-- **Both** — $3,500/month plus LSA ad spend.
+- **Meta Ads** — $1,000/month for creative production and management, plus ad spend paid to Meta.
+  No guarantee attached: paid social depends too heavily on offer and market to promise a number.
+- **Both** — $3,500/month plus LSA ad spend (LSA + Website/SEO/GMB; Meta is priced separately).
 
 ## ⚠️ Replace before you go live
 

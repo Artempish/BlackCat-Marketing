@@ -5,11 +5,11 @@ import "./globals.css";
 export const metadata = {
   metadataBase: new URL("https://www.blackcatdigitalmarketing.com"),
   title: {
-    default: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO & GMB",
+    default: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO, GMB & Meta Ads",
     template: "%s | BlackCat Marketing",
   },
   description:
-    "BlackCat Marketing works only with construction companies. Google LSA ads, websites, local SEO and Google Business Profile management — top 3 in the map pack in 90 days, or we keep working for free.",
+    "BlackCat Marketing works only with construction companies. Google LSA ads, websites, local SEO, Google Business Profile management and Meta ads — top 3 in the map pack in 90 days, or we keep working for free.",
   keywords: [
     "construction marketing agency",
     "contractor marketing",
@@ -17,6 +17,7 @@ export const metadata = {
     "construction SEO",
     "Google Business Profile optimization for contractors",
     "contractor lead generation",
+    "Facebook and Instagram ads for contractors",
   ],
   icons: {
     icon: "/assets/favicon.svg",
@@ -25,16 +26,16 @@ export const metadata = {
   openGraph: {
     type: "website",
     siteName: "BlackCat Marketing",
-    title: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO & GMB",
+    title: "BlackCat Marketing | Construction Marketing — LSA Ads, SEO, GMB & Meta Ads",
     description:
-      "Marketing built for construction companies only. LSA ads, websites, SEO and GMB — top 3 in 90 days, 5 LSA leads in 30 days, both guaranteed in writing.",
+      "Marketing built for construction companies only. LSA ads, websites, SEO, GMB and Meta ads — top 3 in 90 days, 5 LSA leads in 30 days, both guaranteed in writing.",
     images: ["/assets/favicon.svg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "BlackCat Marketing | Construction Marketing",
     description:
-      "LSA ads, websites, SEO and GMB for construction companies. Top 3 in 90 days, guaranteed.",
+      "LSA ads, websites, SEO, GMB and Meta ads for construction companies. Top 3 in 90 days, guaranteed.",
   },
 };
 

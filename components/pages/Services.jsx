@@ -146,6 +146,23 @@ function ServicesPage() {
       plan: "Included in the $3,000/month program",
       planHref: "/pricing",
     },
+    {
+      id: "meta",
+      eyebrow: "META ADS",
+      title: "Show the work before they go looking.",
+      body: "Google catches homeowners who are already searching. Facebook and Instagram reach the ones who aren't searching yet — the kitchen they keep putting off, the roof they know is coming. We produce the creative and run the campaign end to end.",
+      bullets: [
+        "Strategy and creative session to agree the angle, the offer and the shot list",
+        "Creative production on your job site — photo and video of real work, not stock",
+        "Editing and post: cuts, captions and sizes for Facebook and Instagram",
+        "Campaign setup — audiences, placements, budget pacing and conversion tracking",
+        "Ongoing management and optimization, reported monthly alongside everything else",
+        "The footage is yours to reuse on your site, your profile and your own feeds",
+      ],
+      mock: <Mock.Meta />,
+      plan: "$1,000/month + ad spend, billed by Meta directly",
+      planHref: "/pricing",
+    },
   ];
 
   return (

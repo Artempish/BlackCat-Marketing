@@ -113,6 +113,7 @@ const SERVICES_DROPDOWN = {
   ],
   items: [
     { title: "GMB optimization", desc: "Your Google profile, rebuilt to rank.", href: "/services#gmb", icon: "mapPin" },
+    { title: "Meta ads", desc: "Shot, edited and run for you.", href: "/services#meta", icon: "instagram" },
     { title: "The 90-day plan", desc: "Week by week, what we actually do.", href: "/how-it-works", icon: "blueprint" },
     { title: "Our guarantees", desc: "5 leads in 30 days, or we pay the ads.", href: "/guarantee", icon: "badge" },
     { title: "Results", desc: "Rankings, leads, and booked estimates.", href: "/results", icon: "chart" },
@@ -139,7 +140,7 @@ const HOW_DROPDOWN = {
   items: [
     { title: "What we need from you", desc: "License, insurance, about 2 hours.", href: "/how-it-works#onboarding", icon: "check" },
     { title: "Reporting", desc: "Rank, leads, and cost per booked job.", href: "/how-it-works#reporting", icon: "chart" },
-    { title: "Pricing", desc: "Two plans. No setup fees.", href: "/pricing", icon: "dollar" },
+    { title: "Pricing", desc: "Three plans. No setup fees.", href: "/pricing", icon: "dollar" },
     { title: "Book a call", desc: "20 minutes, no slide deck.", href: "/book-a-call", icon: "arrowUpRight" },
   ],
 };

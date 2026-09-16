@@ -5,7 +5,7 @@ import { Mock } from "@/components/mocks";
 import { useViewportWidth } from "@/components/shared";
 const { useState: useState2, useEffect: useEffect2, useRef: useRef2 } = React;
 
-// ===== Features — the three services =====
+// ===== Features — the organic side, in four cards =====
 function Features() {
   const features = [
     {

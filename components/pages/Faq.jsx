@@ -89,6 +89,43 @@ const FAQ_GROUPS = [
     ],
   },
   {
+    cat: "Meta ads",
+    items: [
+      {
+        q: "What do the Meta ads cost?",
+        a: "$1,000/month for production and management, plus ad spend paid directly to Meta. The $1,000 covers the strategy session, the shoot, the editing and running the campaign — it does not include your daily ad budget, and we never mark that up.",
+      },
+      {
+        q: "What's included for the $1,000?",
+        a: "A strategy and creative session to agree the angle, the offer and the shot list. Creative production on your job site. Editing and post, cut and sized for Facebook and Instagram. Campaign setup with audiences, placements and conversion tracking. Then ongoing management and optimization, reported monthly.",
+      },
+      {
+        q: "Do you actually come out and film?",
+        a: "Yes. The creative is shot on your job site — real crews, real work, real before and after. Stock footage of someone else's kitchen doesn't sell a remodel, and homeowners can tell the difference immediately.",
+      },
+      {
+        q: "How much should I budget for Meta ad spend?",
+        a: "Most contractors start somewhere between $20 and $50 a day and adjust once we see what the creative does. You set the budget, you pay Meta directly, and you can change it any time. We'll suggest a starting number on the call based on your market and your ticket size.",
+      },
+      {
+        q: "How is this different from the LSA ads?",
+        a: "LSA catches homeowners who are already searching for a contractor — high intent, ready to call. Meta reaches people who aren't searching yet but have a project they keep putting off. LSA fills the calendar now; Meta builds the demand ahead of it. Plenty of contractors run both.",
+      },
+      {
+        q: "Is there a guarantee on the Meta ads?",
+        a: "No. The top-3 and 5-lead guarantees are attached to the SEO/GMB and LSA plans, where we control enough of the levers to promise an outcome. Paid social depends heavily on the offer and the market, so we don't put a number in writing we couldn't stand behind.",
+      },
+      {
+        q: "Can I use the footage anywhere else?",
+        a: "Yes — the photo and video we shoot is yours. Most clients reuse it on their website, their Google Business Profile and their own social feeds.",
+      },
+      {
+        q: "How long before the ads are running?",
+        a: "Usually two to three weeks: a week to get the strategy session and the shoot booked, then editing and campaign build. Unlike LSA there's no Google verification to wait on, so the timeline is mostly down to when we can get on your site.",
+      },
+    ],
+  },
+  {
     cat: "The guarantees",
     items: [
       {
@@ -113,8 +150,8 @@ const FAQ_GROUPS = [
     cat: "Pricing & contracts",
     items: [
       {
-        q: "Can I run just one of the two plans?",
-        a: "Yes. Plenty of contractors start with LSA at $500/month plus spend to get the phone ringing this month, then add the $3,000/month program once they've seen it work. Others start with SEO because they want to stop renting leads. Both are fine.",
+        q: "Can I run just one of the plans?",
+        a: "Yes. All three run standalone. Plenty of contractors start with LSA at $500/month plus spend to get the phone ringing this month, then add the $3,000/month program once they've seen it work. Others start with SEO because they want to stop renting leads, or with Meta ads at $1,000/month plus spend because they have work worth showing off. Any of them is a fine place to start.",
       },
       {
         q: "What does it cost to run both?",
@@ -122,7 +159,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Is there a contract?",
-        a: "Both plans are month to month. The top-3 guarantee assumes you stay for the full 90 days, because that's how long the work takes to compound — but you're not locked in beyond that.",
+        a: "All three plans are month to month. The top-3 guarantee assumes you stay for the full 90 days, because that's how long the work takes to compound — but you're not locked in beyond that.",
       },
       {
         q: "Are there setup fees?",

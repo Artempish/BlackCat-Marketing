@@ -107,11 +107,11 @@ function PricingPage() {
     <Layout active="pricing">
       <PageHero
         eyebrow="PRICING"
-        title={<>Two plans. <br /><span style={{ color: "hsl(var(--muted-foreground))" }}>Both come with a guarantee.</span></>}
-        sub="Run LSA to get leads on the phone this month, run the website and SEO program to own the map pack long-term, or run both. No setup fees, no build fees, month to month."
+        title={<>Three plans. <br /><span style={{ color: "hsl(var(--muted-foreground))" }}>Two of them come with a guarantee.</span></>}
+        sub="Run LSA to get leads on the phone this month, the website and SEO program to own the map pack long-term, Meta ads to get in front of homeowners before they start searching — or any combination of the three. No setup fees, no build fees, month to month."
       />
 
-      {/* The two plans */}
+      {/* The plans */}
       <section className="cc-section cc-section--card">
         <div className="cc-container" style={{ maxWidth: 1240 }}>
           <PlanGrid />

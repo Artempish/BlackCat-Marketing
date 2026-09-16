@@ -34,8 +34,9 @@ function Hero() {
         </h1>
 
         <p className="cc-lede" style={{ maxWidth: 580 }}>
-          Google LSA ads, a site built to close estimates, and a Google Business Profile
-          engineered to rank. We only work with contractors — so we already know your market.
+          Google LSA ads, a site built to close estimates, a Google Business Profile engineered
+          to rank, and Meta ads we shoot and run for you. We only work with contractors — so we
+          already know your market.
         </p>
 
         <form
@@ -65,6 +66,7 @@ function Hero() {
           <span>LSA ads</span>
           <span>Website &amp; SEO</span>
           <span>GMB optimization</span>
+          <span>Meta ads</span>
         </div>
       </div>
 
