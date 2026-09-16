@@ -172,7 +172,7 @@ function PricingPage() {
             }}>
               <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 18 }}>BOTH PLANS TOGETHER</div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 6, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 48, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>$5,500</span>
+                <span style={{ fontSize: 48, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,500</span>
                 <span style={{ fontSize: 15, color: "hsl(var(--muted-foreground))", fontWeight: 500 }}>/month</span>
               </div>
               <div style={{ fontSize: 13.5, color: "hsl(var(--muted-foreground))", marginTop: 10, lineHeight: 1.6 }}>
@@ -182,7 +182,7 @@ function PricingPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
                   ["LSA management", "$500/mo"],
-                  ["Website, SEO & GMB", "$5,000/mo"],
+                  ["Website, SEO & GMB", "$3,000/mo"],
                   ["Setup fees", "$0"],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: "flex", justifyContent: "space-between", gap: 12, fontSize: 14 }}>
@@ -229,7 +229,7 @@ function PricingPage() {
               {
                 i: <Icon.target size={22} />,
                 t: "Top 3 in 90 days",
-                b: `Attached to the $5,000/month program. If your Google Business Profile isn't in the top 3 of the map pack for the agreed keywords and service area within 90 days, we keep working it at no extra charge until it is.`,
+                b: `Attached to the $3,000/month program. If your Google Business Profile isn't in the top 3 of the map pack for the agreed keywords and service area within 90 days, we keep working it at no extra charge until it is.`,
               },
               {
                 i: <Icon.phone size={22} />,
