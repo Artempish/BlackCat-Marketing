@@ -5,7 +5,7 @@ import { Mock } from "@/components/mocks";
 import { useViewportWidth } from "@/components/shared";
 const { useState: useState2, useEffect: useEffect2, useRef: useRef2 } = React;
 
-// ===== Features — the organic side, in four cards =====
+// ===== Features — what we build, in five cards =====
 function Features() {
   const features = [
     {
@@ -36,6 +36,13 @@ function Features() {
       mock: <Mock.Website />,
       href: "/services#website",
     },
+    {
+      eyebrow: "META ADS",
+      title: "Reach them before they search.",
+      desc: "Facebook and Instagram ads we shoot on your job site, edit, and run. Real before-and-after work in front of the homeowners who have been putting the project off — so you're the name they already know when they finally search.",
+      mock: <Mock.Meta />,
+      href: "/services#meta",
+    },
   ];
 
   return (
@@ -59,6 +66,9 @@ function Features() {
           <div className="cc-feature-grid cc-feature-grid--row2">
             <FeatureCard {...features[2]} />
             <FeatureCard {...features[3]} />
+          </div>
+          <div className="cc-feature-grid cc-feature-grid--full">
+            <FeatureCard {...features[4]} />
           </div>
         </div>
       </div>
@@ -251,7 +261,7 @@ function HowItWorks() {
       num: "02",
       window: "DAYS 15–45",
       title: "Framing",
-      body: "The site goes live, LSA turns on, and the first leads start landing.",
+      body: "The site goes live, LSA turns on, the first Meta creative ships, and leads start landing.",
       mock: <Mock.LsaLead />,
       raw: true,
     },

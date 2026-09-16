@@ -143,6 +143,7 @@ function BookACallPage() {
                     "Pull up your Google Business Profile and audit it live",
                     "Compare you against the three companies in your map pack",
                     "Check whether LSA is live for your trade and service area",
+                    "Look at whether your work is worth putting behind Meta ads",
                     "Tell you which plan to start with — and whether we'd guarantee your market",
                   ].map((t, i) => (
                     <li key={i} style={{ display: "flex", gap: 12, fontSize: 14.5 }}>
