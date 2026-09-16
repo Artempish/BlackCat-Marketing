@@ -154,8 +154,8 @@ const FAQ_GROUPS = [
         a: "Yes. All three run standalone. Plenty of contractors start with LSA at $500/month plus spend to get the phone ringing this month, then add the $3,000/month program once they've seen it work. Others start with SEO because they want to stop renting leads, or with Meta ads at $1,000/month plus spend because they have work worth showing off. Any of them is a fine place to start.",
       },
       {
-        q: "What does it cost to run both?",
-        a: "$3,500/month, plus LSA ad spend billed by Google — up to $1,500/month at our standard $50/day ceiling. There's no bundle discount and no setup fee.",
+        q: "What does it cost to run all three?",
+        a: "$3,900/month for all three, plus ad spend for LSA and Meta billed by those platforms directly. Bought separately the three plans come to $4,500, so running all three saves you $600/month. No setup fee either way.",
       },
       {
         q: "Is there a contract?",

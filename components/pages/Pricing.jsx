@@ -129,7 +129,7 @@ function PricingPage() {
         </div>
       </section>
 
-      {/* Run both */}
+      {/* Run all three */}
       <section className="cc-section cc-section--dark" style={{ padding: "64px 0" }}>
         <div className="cc-container">
           <div style={{
@@ -139,20 +139,22 @@ function PricingPage() {
             alignItems: "center",
           }}>
             <div className="cc-stack-md">
-              <div className="cc-eyebrow">RUN BOTH</div>
+              <div className="cc-eyebrow">RUN ALL THREE</div>
               <h2 className="cc-h2" style={{ fontSize: "clamp(28px, 3vw, 40px)" }}>
                 LSA fills the calendar now. SEO makes it cheaper later.
+                Meta builds the demand in between.
               </h2>
               <p className="cc-lede">
                 LSA leads land in week two or three — but you pay for every one of them, forever.
-                Map-pack rankings take 90 days to build, and then the leads are free. Contractors who
-                run both use LSA to cover the gap while the organic side compounds, then dial the ad
-                budget down once the rankings hold.
+                Map-pack rankings take 90 days to build, and then the leads are free. Meta reaches the
+                homeowners who aren't searching yet at all. Run all three and LSA covers the gap while
+                the organic side compounds, Meta keeps your work in front of the market, and you dial
+                the ad budgets down once the rankings hold.
               </p>
               <ul style={{ listStyle: "none", padding: 0, margin: "8px 0 0", display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
                   "Leads from day one instead of day ninety",
-                  "One team, one report, both channels in the same numbers",
+                  "One team, one report, all three channels in the same numbers",
                   "Cost per booked job drops as the organic side takes over",
                 ].map((b) => (
                   <li key={b} style={{ display: "flex", gap: 12, fontSize: 15, lineHeight: 1.55 }}>
@@ -170,19 +172,22 @@ function PricingPage() {
               padding: 32,
               boxShadow: "0 0 0 4px hsl(var(--accent) / 0.08)",
             }}>
-              <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 18 }}>BOTH PLANS TOGETHER</div>
+              <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 18 }}>ALL THREE PLANS TOGETHER</div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 6, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 48, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,500</span>
+                <span style={{ fontSize: 48, fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>$3,900</span>
                 <span style={{ fontSize: 15, color: "hsl(var(--muted-foreground))", fontWeight: 500 }}>/month</span>
               </div>
               <div style={{ fontSize: 13.5, color: "hsl(var(--muted-foreground))", marginTop: 10, lineHeight: 1.6 }}>
-                plus LSA ad spend, billed by Google — up to $1,500/month at our standard $50/day ceiling.
+                plus ad spend for LSA and Meta, billed by Google and Meta directly. At our standard
+                $50/day LSA ceiling that's up to $1,500/month; the Meta budget is yours to set.
               </div>
               <hr className="cc-divider" style={{ margin: "22px 0" }} />
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {[
                   ["LSA management", "$500/mo"],
                   ["Website, SEO & GMB", "$3,000/mo"],
+                  ["Meta ads production & management", "$1,000/mo"],
+                  ["Bundle discount", "—$600/mo"],
                   ["Setup fees", "$0"],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: "flex", justifyContent: "space-between", gap: 12, fontSize: 14 }}>
