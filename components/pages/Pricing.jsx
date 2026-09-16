@@ -39,7 +39,7 @@ function SpendTable() {
         color: "hsl(var(--muted-foreground))",
         gap: 8,
       }}>
-        <div>Daily budget</div>
+        <div>LSA daily budget</div>
         <div style={{ textAlign: "right" }}>Ad spend / mo</div>
         <div style={{ textAlign: "right" }}>Total / mo</div>
         {!narrow && <div style={{ paddingLeft: 20 }}>Who it's for</div>}
@@ -90,8 +90,10 @@ function SpendTable() {
         lineHeight: 1.6,
       }}>
         Ad spend is billed by Google directly to your card — we never mark it up. "Total" is the
-        management fee plus the maximum you could spend at that daily budget over 30 days. Google
-        only charges you for leads, so most months land under the ceiling.
+        LSA management fee plus the maximum you could spend at that daily budget over 30 days. Google
+        only charges you for leads, so most months land under the ceiling. Meta ad spend works the
+        same way and is billed by Meta, but it is charged for reach rather than per lead, so there is
+        no equivalent ceiling — you set a daily budget and we pace the campaign to it.
       </div>
     </div>
   );
@@ -208,14 +210,16 @@ function PricingPage() {
       <section className="cc-section cc-section--card" id="ad-spend" style={{ scrollMarginTop: 80 }}>
         <div className="cc-container">
           <div style={{ textAlign: "center", marginBottom: 36, maxWidth: 680, marginLeft: "auto", marginRight: "auto" }}>
-            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12 }}>HOW LSA AD SPEND WORKS</div>
+            <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 12 }}>HOW AD SPEND WORKS</div>
             <h2 className="cc-h2" style={{ fontSize: "clamp(28px, 3vw, 40px)", marginBottom: 16 }}>
               $50/day is the ceiling, not the rule.
             </h2>
             <p className="cc-lede" style={{ margin: "0 auto" }}>
-              The $500/month management fee is fixed. Ad spend is yours, paid straight to Google, and
-              you decide the daily budget. We recommend $50/day because that's the level where the
-              5-lead guarantee holds — but you can go higher any time you want more volume.
+              Our management fees are fixed. Ad spend is always yours, paid straight to the platform
+              — Google for LSA, Meta for Facebook and Instagram. We never touch it and never mark it up.
+              On LSA we recommend $50/day, because that's the level where the 5-lead guarantee holds.
+              On Meta most contractors start between $20 and $50 a day. Either way you set the budget
+              and can raise it any time you want more volume.
             </p>
           </div>
           <SpendTable />
