@@ -5,7 +5,7 @@ import { Icon } from "./icons";
 import { TweaksPanel, useTweaks, TweakSection, TweakRadio, TweakToggle, TweakColor } from "./tweaks";
 const { useState: useStateL, useEffect: useEffectL, useRef: useRefL } = React;
 
-// ── Viewport width, safe to read while server-rendering ──────────────────────────────
+// ── Viewport width, safe to read while server-rendering ───────────────────────
 // These pages size their layout from the viewport. Reading window.innerWidth
 // during render is what forced the whole site to be client-only, which left
 // crawlers with an empty document.
