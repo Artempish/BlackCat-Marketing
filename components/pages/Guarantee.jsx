@@ -237,7 +237,7 @@ function GuaranteePage() {
             <section>
               <h3>One claim at a time</h3>
               <p>
-                Each guarantee applies to the plan it's attached to. Running both plans doesn't stack
+                Each guarantee applies to the plan it's attached to. Running more than one plan doesn't stack
                 the remedies — the top-3 guarantee covers the SEO and GMB program, the lead guarantee
                 covers LSA. The Meta ads plan carries no guarantee: paid social depends too heavily on
                 the offer and the market for us to put a number in writing we couldn't stand behind.

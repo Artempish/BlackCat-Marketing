@@ -40,7 +40,8 @@ Current offer as built:
   or the work continues free until it lands.
 - **Meta Ads** — $1,000/month for creative production and management, plus ad spend paid to Meta.
   No guarantee attached: paid social depends too heavily on offer and market to promise a number.
-- **Both** — $3,500/month plus LSA ad spend (LSA + Website/SEO/GMB; Meta is priced separately).
+- **All three** — $3,900/month plus LSA and Meta ad spend. Separately the three come to
+  $4,500/month, so the bundle is a $600/month discount.
 
 ## ⚠️ Replace before you go live
 
