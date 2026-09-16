@@ -448,7 +448,7 @@ function Guarantees() {
 function FAQ() {
   const vw = useViewportWidth();
   const items = [
-    { q: "What exactly does the $5,000/month cover?", a: "Website design, build and hosting; full local SEO; and complete Google Business Profile management. One monthly fee, no setup charge, no per-page or per-keyword upcharges." },
+    { q: "What exactly does the $3,000/month cover?", a: "Website design, build and hosting; full local SEO; and complete Google Business Profile management. One monthly fee, no setup charge, no per-page or per-keyword upcharges." },
     { q: "How does LSA pricing work?", a: "$500/month for management, plus your ad spend. We run to a $50/day ceiling — about $1,500/month — which is what most contractors need to hit our lead target. If you want more volume, you can raise the daily budget any time; the management fee doesn't change." },
     { q: "What if I don't rank top 3 in 90 days?", a: "We keep working the campaign at no additional charge until you do. The full conditions are on the guarantee page — the short version is that it applies to the target keywords and service area we agree on up front." },
     { q: "What if the LSA ads don't produce 5 leads in 30 days?", a: "We pay for your LSA ad spend until you hit 5 leads. You keep the leads. Conditions apply — mainly that your profile stays verified, the budget stays at the agreed level, and you answer the calls." },

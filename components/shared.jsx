@@ -47,7 +47,7 @@ const BRAND = {
   tagline: "Marketing built for construction companies. Nothing else.",
   lsaMonthly: 500,
   lsaDailyCap: 50,
-  growthMonthly: 5000,
+  growthMonthly: 3000,
   rankWindowDays: 90,
   leadGuaranteeCount: 5,
   leadGuaranteeDays: 30,

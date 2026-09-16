@@ -35,10 +35,10 @@ Current offer as built:
 
 - **LSA Ads** — $500/month management + ad spend, $50/day standard ceiling (~$1,500/mo).
   Guarantee: **5 leads in the first 30 days**, or BlackCat covers the ad spend until you get there.
-- **Website, SEO & GMB** — $5,000/month all in, no setup fee.
+- **Website, SEO & GMB** — $3,000/month all in, no setup fee.
   Guarantee: **top 3 of the map pack within 90 days** for the agreed keywords and service area,
   or the work continues free until it lands.
-- **Both** — $5,500/month plus LSA ad spend.
+- **Both** — $3,500/month plus LSA ad spend.
 
 ## ⚠️ Replace before you go live
 

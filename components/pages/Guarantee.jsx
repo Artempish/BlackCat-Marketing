@@ -9,7 +9,7 @@ const GUARANTEES = [
   {
     id: "top-3",
     icon: "target",
-    kicker: "ATTACHED TO THE $5,000/MO PROGRAM",
+    kicker: "ATTACHED TO THE $3,000/MO PROGRAM",
     headline: "Top 3 of the map pack in 90 days.",
     promise:
       "Within 90 days of your Google Business Profile going live under our management, your company ranks in the top 3 of the Google map pack for the target keywords and service area we agree on in writing at kickoff.",

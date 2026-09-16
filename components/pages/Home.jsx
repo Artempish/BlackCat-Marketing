@@ -172,7 +172,7 @@ function HomePage() {
               <p style={{ margin: 0 }}>
                 Two ways to work with us —{" "}
                 <a href="/lsa-ads" className="cc-link" style={{ display: "inline-flex" }}>LSA ads at $500/month plus spend</a>, or the full{" "}
-                <a href="/services" className="cc-link" style={{ display: "inline-flex" }}>website, SEO and GMB program at $5,000/month</a>.
+                <a href="/services" className="cc-link" style={{ display: "inline-flex" }}>website, SEO and GMB program at $3,000/month</a>.
                 Both come with a guarantee in writing.
               </p>
             </div>

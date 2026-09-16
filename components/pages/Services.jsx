@@ -106,7 +106,7 @@ function ServicesPage() {
       ],
       mock: <Mock.Website />,
       reverse: true,
-      plan: "Included in the $5,000/month program",
+      plan: "Included in the $3,000/month program",
       planHref: "/pricing",
     },
     {
@@ -124,7 +124,7 @@ function ServicesPage() {
         "Rank tracking you can actually read, reported monthly",
       ],
       mock: <Mock.Rank />,
-      plan: "Included in the $5,000/month program",
+      plan: "Included in the $3,000/month program",
       planHref: "/pricing",
     },
     {
@@ -143,7 +143,7 @@ function ServicesPage() {
       ],
       mock: <Mock.Gmb />,
       reverse: true,
-      plan: "Included in the $5,000/month program",
+      plan: "Included in the $3,000/month program",
       planHref: "/pricing",
     },
   ];
