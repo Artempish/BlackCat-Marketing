@@ -276,10 +276,74 @@ function MockReport() {
   );
 }
 
+function MockMeta() {
+  return (
+    <div style={{ position: "absolute", inset: 0, padding: 28, display: "grid", placeItems: "center" }}>
+      <div style={{
+        width: "100%", maxWidth: 272,
+        background: "hsl(var(--card))",
+        border: "1px solid hsl(var(--border))",
+        borderRadius: 14,
+        boxShadow: "var(--shadow-lift)",
+        overflow: "hidden",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px" }}>
+          <span style={{
+            width: 26, height: 26, borderRadius: "50%",
+            background: "hsl(var(--accent-soft))", color: "hsl(var(--accent))",
+            display: "grid", placeItems: "center", flexShrink: 0,
+          }}>
+            <Icon.hardHat size={14} stroke={2} />
+          </span>
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: "-0.01em" }}>Your Construction Co.</div>
+            <div style={{ fontSize: 9, color: "hsl(var(--muted-foreground))", fontFamily: "var(--font-mono)", letterSpacing: "0.06em", textTransform: "uppercase" }}>Sponsored</div>
+          </div>
+          <Icon.facebook size={13} style={{ color: "hsl(var(--muted-foreground))", flexShrink: 0 }} />
+        </div>
+        <div style={{ aspectRatio: "4 / 3", background: "linear-gradient(120deg, hsl(var(--accent) / 0.30), hsl(var(--muted)))", position: "relative" }}>
+          <span style={{
+            position: "absolute", bottom: 8, left: 8,
+            padding: "3px 8px", borderRadius: 999,
+            background: "hsl(var(--card))", border: "1px solid hsl(var(--border))",
+            fontFamily: "var(--font-mono)", fontSize: 9,
+            letterSpacing: "0.06em", textTransform: "uppercase",
+          }}>Before / after</span>
+        </div>
+        <div style={{ padding: "10px 12px" }}>
+          <div style={{ fontSize: 11.5, lineHeight: 1.5 }}>
+            Full kitchen gut, finished in three weeks. Booking estimates for spring now.
+          </div>
+          <div style={{
+            marginTop: 10, padding: "6px 12px",
+            background: "hsl(var(--accent))", color: "hsl(30 8% 8%)",
+            borderRadius: 8, fontSize: 10.5, fontWeight: 700, textAlign: "center",
+          }}>
+            Get a free estimate
+          </div>
+        </div>
+      </div>
+      <div className="cc-chip-card" style={{ position: "absolute", bottom: 22, right: 22, padding: "8px 12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, fontWeight: 600 }}>
+          <span style={{
+            width: 22, height: 22, borderRadius: 6,
+            background: "hsl(var(--accent))", color: "hsl(30 8% 8%)",
+            display: "grid", placeItems: "center",
+          }}>
+            <Icon.instagram size={12} stroke={2.2} />
+          </span>
+          Feed + Reels
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const Mock = {
   LsaLead: MockLsaLead,
   Rank: MockRank,
   Gmb: MockGmb,
   Website: MockWebsite,
   Report: MockReport,
+  Meta: MockMeta,
 };

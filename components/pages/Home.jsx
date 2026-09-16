@@ -42,19 +42,19 @@ function HomePage() {
 
       <Sections1.Trades />
 
-      {/* Three services, one line each */}
+      {/* Four services, one line each */}
       <section className="cc-section cc-section--dark" id="services-teaser">
         <div className="cc-container">
           <div style={{ textAlign: "center", marginBottom: 56 }}>
             <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>WHAT WE DO</div>
             <h2 className="cc-h2" style={{ maxWidth: 760, margin: "0 auto" }}>
-              Three services. All of them aimed at the same thing.
+              Four services. All of them aimed at the same thing.
             </h2>
             <p className="cc-lede" style={{ margin: "16px auto 0" }}>
               More qualified estimates on your calendar, from homeowners who found you first.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: narrow ? "1fr" : "repeat(3, 1fr)", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: narrow ? "1fr" : vw < 1180 ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: 16 }}>
             <ServiceTeaser
               icon={<Icon.google size={20} stroke={1.8} />}
               title="Google LSA Ads"
@@ -72,6 +72,12 @@ function HomePage() {
               title="GMB Optimization"
               body="Your Google Business Profile rebuilt and managed — categories, services, service areas, photos, Q&A and reviews — until you're in the top 3."
               href="/services#gmb"
+            />
+            <ServiceTeaser
+              icon={<Icon.instagram size={20} stroke={1.8} />}
+              title="Meta Ads"
+              body="Facebook and Instagram ads we shoot, edit and run for you. $1,000/mo plus ad spend — for reaching homeowners before they start searching."
+              href="/services#meta"
             />
           </div>
         </div>
@@ -95,7 +101,7 @@ function HomePage() {
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <div className="cc-eyebrow cc-eyebrow--muted" style={{ marginBottom: 16 }}>PRICING</div>
             <h2 className="cc-h2" style={{ maxWidth: 720, margin: "0 auto" }}>
-              Two plans. Run one, or run both.
+              Three plans. Run one, or run them together.
             </h2>
             <p className="cc-lede" style={{ margin: "16px auto 0" }}>
               No setup fees. No long contracts. Both month to month.
@@ -170,10 +176,11 @@ function HomePage() {
                 is one we've done before, for a company that does what you do.
               </p>
               <p style={{ margin: 0 }}>
-                Two ways to work with us —{" "}
-                <a href="/lsa-ads" className="cc-link" style={{ display: "inline-flex" }}>LSA ads at $500/month plus spend</a>, or the full{" "}
-                <a href="/services" className="cc-link" style={{ display: "inline-flex" }}>website, SEO and GMB program at $3,000/month</a>.
-                Both come with a guarantee in writing.
+                Three ways to work with us —{" "}
+                <a href="/lsa-ads" className="cc-link" style={{ display: "inline-flex" }}>LSA ads at $500/month plus spend</a>, the full{" "}
+                <a href="/services" className="cc-link" style={{ display: "inline-flex" }}>website, SEO and GMB program at $3,000/month</a>, or{" "}
+                <a href="/services#meta" className="cc-link" style={{ display: "inline-flex" }}>Meta ads at $1,000/month plus spend</a>.
+                The first two come with a guarantee in writing.
               </p>
             </div>
           </div>

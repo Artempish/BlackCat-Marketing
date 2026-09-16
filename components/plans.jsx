@@ -3,7 +3,7 @@ import React from "react";
 import { Icon } from "@/components/icons";
 import { useViewportWidth } from "@/components/shared";
 
-// ── The two plans, in one place ───────────────────────────────────────────────
+// ── The plans, in one place ───────────────────────────────────────────────────
 // Home, Pricing, and the FAQ all read from here, so a price change is one edit.
 export const PLANS = [
   {
@@ -52,6 +52,25 @@ export const PLANS = [
     ],
     recommended: true,
     cta: "Start ranking",
+  },
+  {
+    id: "meta",
+    name: "Meta Ads",
+    price: 1000,
+    unit: "/month",
+    addendum: "+ ad spend",
+    blurb:
+      "Facebook and Instagram ads, produced and run end to end. We plan the angle, shoot the creative on your job site, cut it, and manage the campaign — so homeowners see your work before they start searching.",
+    spendNote:
+      "The $1,000 covers production and management only. Daily ad spend is billed by Meta directly to your card — we never touch it and never mark it up. You set the budget and can change it any time.",
+    features: [
+      "Strategy and creative session to agree the angle, the offer and the shot list",
+      "Creative production — we shoot the photo and video on your job site",
+      "Editing and post: cuts, captions and sizes for Facebook and Instagram",
+      "Campaign setup — audiences, placements, budget pacing and tracking",
+      "Ongoing management and optimization, with monthly reporting",
+    ],
+    cta: "Start with Meta Ads",
   },
 ];
 
@@ -124,20 +143,22 @@ export function PlanCard({ plan, compact }) {
         </p>
       </div>
 
-      {/* the guarantee, front and centre */}
-      <div style={{
-        position: "relative",
-        display: "flex", gap: 12, alignItems: "flex-start",
-        padding: "14px 16px",
-        borderRadius: 14,
-        background: "hsl(var(--accent) / 0.12)",
-        border: "1px solid hsl(var(--accent) / 0.4)",
-      }}>
-        <span style={{ color: "hsl(var(--accent))", flexShrink: 0, marginTop: 1 }}>
-          <Icon.badge size={17} stroke={2} />
-        </span>
-        <span style={{ fontSize: 13.5, lineHeight: 1.5, fontWeight: 550 }}>{plan.guarantee}</span>
-      </div>
+      {/* the guarantee, front and centre — only for the plans that carry one */}
+      {plan.guarantee && (
+        <div style={{
+          position: "relative",
+          display: "flex", gap: 12, alignItems: "flex-start",
+          padding: "14px 16px",
+          borderRadius: 14,
+          background: "hsl(var(--accent) / 0.12)",
+          border: "1px solid hsl(var(--accent) / 0.4)",
+        }}>
+          <span style={{ color: "hsl(var(--accent))", flexShrink: 0, marginTop: 1 }}>
+            <Icon.badge size={17} stroke={2} />
+          </span>
+          <span style={{ fontSize: 13.5, lineHeight: 1.5, fontWeight: 550 }}>{plan.guarantee}</span>
+        </div>
+      )}
 
       <a
         href="/book-a-call"
@@ -188,14 +209,18 @@ export function PlanCard({ plan, compact }) {
 }
 
 export function PlanGrid({ compact }) {
-  const oneCol = useViewportWidth() < 860;
+  const vw = useViewportWidth();
+  // One column on phones, two on tablets, all three across on desktop. The
+  // cards are content-heavy, so three only fit once there is ~1140px to work
+  // with — below that a two-up row stays readable.
+  const columns = vw < 860 ? "1fr" : vw < 1140 ? "repeat(2, 1fr)" : "repeat(3, 1fr)";
   return (
     <div style={{
       display: "grid",
-      gridTemplateColumns: oneCol ? "1fr" : "1fr 1fr",
+      gridTemplateColumns: columns,
       gap: 20,
       alignItems: "stretch",
-      maxWidth: 980,
+      maxWidth: 1240,
       margin: "0 auto",
     }}>
       {PLANS.map((p) => <PlanCard key={p.id} plan={p} compact={compact} />)}

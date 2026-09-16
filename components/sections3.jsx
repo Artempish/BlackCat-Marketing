@@ -450,10 +450,11 @@ function FAQ() {
   const items = [
     { q: "What exactly does the $3,000/month cover?", a: "Website design, build and hosting; full local SEO; and complete Google Business Profile management. One monthly fee, no setup charge, no per-page or per-keyword upcharges." },
     { q: "How does LSA pricing work?", a: "$500/month for management, plus your ad spend. We run to a $50/day ceiling — about $1,500/month — which is what most contractors need to hit our lead target. If you want more volume, you can raise the daily budget any time; the management fee doesn't change." },
+    { q: "What do the Meta ads cost?", a: "$1,000/month for production and management — the strategy session, the shoot, the editing and running the campaign — plus ad spend paid directly to Meta. The ad budget is yours, you set it, and we never mark it up. There's no guarantee attached to this one." },
     { q: "What if I don't rank top 3 in 90 days?", a: "We keep working the campaign at no additional charge until you do. The full conditions are on the guarantee page — the short version is that it applies to the target keywords and service area we agree on up front." },
     { q: "What if the LSA ads don't produce 5 leads in 30 days?", a: "We pay for your LSA ad spend until you hit 5 leads. You keep the leads. Conditions apply — mainly that your profile stays verified, the budget stays at the agreed level, and you answer the calls." },
     { q: "Why only construction?", a: "Because the keyword research, the Google Guaranteed verification process, the seasonality, and the buying cycle are all specific to the trade. Specialists beat generalists, and we'd rather be the specialist." },
-    { q: "Do I have to sign a long contract?", a: "No. Both plans are month-to-month. The 90-day guarantee assumes you stay through the 90 days, since that's how long the work takes to compound." },
+    { q: "Do I have to sign a long contract?", a: "No. All three plans are month-to-month. The 90-day guarantee assumes you stay through the 90 days, since that's how long the work takes to compound." },
   ];
   const [open, setOpen] = useState3(0);
   return (
