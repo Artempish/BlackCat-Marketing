@@ -30,7 +30,7 @@ export const PLANS = [
   {
     id: "growth",
     name: "Website, SEO & GMB",
-    price: 5000,
+    price: 3000,
     unit: "/month",
     addendum: "all in",
     blurb:
