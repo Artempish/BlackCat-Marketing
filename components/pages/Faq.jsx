@@ -63,7 +63,7 @@ const FAQ_GROUPS = [
     cat: "Website, SEO & GMB",
     items: [
       {
-        q: "What's included in the $5,000/month?",
+        q: "What's included in the $3,000/month?",
         a: "The whole organic side: a custom website designed, built, hosted and maintained; service-area and service-type landing pages; project galleries and quote forms; full local SEO including monthly content, on-page optimization, citation cleanup and link building; and complete Google Business Profile management. No setup fee, no build fee, no per-page charges.",
       },
       {
@@ -114,11 +114,11 @@ const FAQ_GROUPS = [
     items: [
       {
         q: "Can I run just one of the two plans?",
-        a: "Yes. Plenty of contractors start with LSA at $500/month plus spend to get the phone ringing this month, then add the $5,000/month program once they've seen it work. Others start with SEO because they want to stop renting leads. Both are fine.",
+        a: "Yes. Plenty of contractors start with LSA at $500/month plus spend to get the phone ringing this month, then add the $3,000/month program once they've seen it work. Others start with SEO because they want to stop renting leads. Both are fine.",
       },
       {
         q: "What does it cost to run both?",
-        a: "$5,500/month, plus LSA ad spend billed by Google — up to $1,500/month at our standard $50/day ceiling. There's no bundle discount and no setup fee.",
+        a: "$3,500/month, plus LSA ad spend billed by Google — up to $1,500/month at our standard $50/day ceiling. There's no bundle discount and no setup fee.",
       },
       {
         q: "Is there a contract?",
