@@ -134,7 +134,7 @@ function ResultsPage() {
             <div style={{ display: "grid", gridTemplateColumns: vw < 600 ? "1fr" : "1fr 1fr", gap: 16 }}>
               {[
                 { icon: "mapPin", t: "Map pack position", b: "Tracked per keyword, from inside your service area — not from a data center three states away." },
-                { icon: "phone", t: "Leads by channel", b: "LSA, organic, map pack, direct. So you know which channel is carrying the month." },
+                { icon: "phone", t: "Leads by channel", b: "LSA, Meta, organic, map pack, direct. So you know which channel is carrying the month." },
                 { icon: "calendar", t: "Booked estimates", b: "Leads that turned into an appointment. The only lead number that means anything." },
                 { icon: "dollar", t: "Cost per booked job", b: "Everything you spent, divided by jobs won. Compare it against your average ticket." },
               ].map((m) => {

@@ -859,6 +859,7 @@ img { max-width: 100%; display: block; }
   gap: 20px;
 }
 .cc-feature-grid--row2 { grid-template-columns: 1.4fr 1fr; }
+.cc-feature-grid--full { grid-template-columns: 1fr; }
 @media (max-width: 900px) {
   .cc-feature-grid, .cc-feature-grid--row2 { grid-template-columns: 1fr; }
 }

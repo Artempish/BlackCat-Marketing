@@ -21,11 +21,12 @@ const PHASES = [
   {
     window: "DAYS 15–45",
     name: "Framing",
-    body: "The site goes live and LSA switches on. This is where the first leads land.",
+    body: "The site goes live, LSA switches on, and the first Meta creative ships. This is where the first leads land.",
     items: [
       "Website designed, built, reviewed with you, and launched",
       "Quote forms, click-to-call and call tracking wired to your phone",
       "LSA campaign live once Google approves — job types, service areas, daily budget set",
+      "Meta creative shot on site, edited, and the first campaign launched (if you're on that plan)",
       "Citation cleanup: name, address and phone made consistent everywhere Google looks",
       "First month of SEO content published against buyer-intent searches",
       "Review request process turned on for completed jobs",
@@ -156,6 +157,7 @@ function HowItWorksPage() {
                 { t: "Admin access", b: "Google Business Profile, domain, and hosting if you already have a site." },
                 { t: "Job photos", b: "Whatever you've got on your phone. Real work beats stock photography every time — and Google can tell the difference." },
                 { t: "One round of approvals", b: "Site copy, design, and the LSA campaign settings. About 30 minutes, once." },
+                { t: "Half a day on site, if you're running Meta ads", b: "We shoot the creative around your crew while they work. No staging, no downtime." },
                 { t: "Answer the phone", b: "The one non-negotiable. LSA throttles delivery to advertisers who let calls go to voicemail." },
               ].map((x, i) => (
                 <div key={x.t} style={{
